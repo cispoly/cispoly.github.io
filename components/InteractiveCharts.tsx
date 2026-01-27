@@ -1,22 +1,29 @@
+
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList } from 'recharts';
-import { COMPARISON_DATA } from '../constants';
+import { ChartDataPoint } from '../types';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const InteractiveCharts: React.FC = () => {
+interface Props {
+  data: ChartDataPoint[];
+  title?: string;
+  subtitle?: string;
+}
+
+const InteractiveCharts: React.FC<Props> = ({ data, title, subtitle }) => {
   const { t } = useLanguage();
 
   return (
     <div className="glass-card p-6 md:p-8 rounded-[2rem] shadow-sm h-full flex flex-col justify-center">
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-serif text-slate-800 mb-2 italic">{t('charts.title')}</h2>
-        <p className="text-slate-500 font-light text-sm">{t('charts.subtitle')}</p>
+        <h2 className="text-2xl font-serif text-slate-800 mb-2 italic">{title || t('charts.title')}</h2>
+        <p className="text-slate-500 font-light text-sm">{subtitle || t('charts.subtitle')}</p>
       </div>
       
       <div className="h-[500px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
-            data={COMPARISON_DATA}
+            data={data}
             margin={{ top: 30, right: 30, left: 30, bottom: 20 }}
             barGap={8}
           >
@@ -49,6 +56,8 @@ const InteractiveCharts: React.FC = () => {
                 if (value === 'Cytology (LBC)') return 'Cytology';
                 if (value === 'HPV 16/18 Genotyping') return 'HPV 16/18';
                 if (value === 'PAX1/JAM3 Methylation') return 'CISCER';
+                if (value === 'CISENDO (Meth)') return 'CISENDO';
+                if (value === 'Ultrasound (TVS)') return 'Ultrasound';
                 return value;
               }}
             />
@@ -89,10 +98,12 @@ const InteractiveCharts: React.FC = () => {
                <LabelList dataKey="Specificity" position="top" fill="#64748b" fontSize={10} formatter={(val: number) => `${val}%`} />
             </Bar>
 
-            {/* Reduction */}
-            <Bar dataKey="ReferralReduction" name={t('charts.reduction')} fill="url(#colorRed)" radius={[6, 6, 0, 0]} maxBarSize={40}>
-               <LabelList dataKey="ReferralReduction" position="top" fill="#0f766e" fontSize={10} fontWeight="bold" formatter={(val: number) => val > 0 ? `${val}%` : ''} />
-            </Bar>
+            {/* Reduction - Conditionally Rendered if data exists */}
+            {data.some(d => d.ReferralReduction !== undefined && d.ReferralReduction > 0) && (
+              <Bar dataKey="ReferralReduction" name={t('charts.reduction')} fill="url(#colorRed)" radius={[6, 6, 0, 0]} maxBarSize={40}>
+                 <LabelList dataKey="ReferralReduction" position="top" fill="#0f766e" fontSize={10} fontWeight="bold" formatter={(val: number) => val > 0 ? `${val}%` : ''} />
+              </Bar>
+            )}
           </BarChart>
         </ResponsiveContainer>
       </div>

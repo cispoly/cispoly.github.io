@@ -1,10 +1,15 @@
+
 export enum StudyCategory {
   ASCUS_TRIAGE = 'ASC-US Triage',
   HR_HPV_NON16_18 = 'Non-16/18 hrHPV',
   POSTMENOPAUSAL = 'Postmenopausal / Older Women',
   SELF_SAMPLING = 'Self-Sampling',
   CLINICAL_OUTCOMES = 'Clinical Outcomes & Prediction',
-  METHODOLOGY = 'Methodology Comparison'
+  METHODOLOGY = 'Methodology Comparison',
+  // New Categories for CISENDO
+  AUB_TRIAGE = 'AUB Triage',
+  PREMENOPAUSAL = 'Premenopausal AUB',
+  DIAGNOSTIC_ACCURACY = 'Diagnostic Accuracy'
 }
 
 export interface StudyMetrics {
@@ -35,4 +40,21 @@ export interface ChartDataPoint {
   Sensitivity: number;
   Specificity: number;
   ReferralReduction?: number;
+}
+
+export interface Guideline {
+  id: string;
+  title: string;
+  title_zh: string;
+  organization: string;
+  organization_zh: string;
+  journal: string;
+  journal_zh: string;
+  year: number;
+  summary: string;
+  summary_zh: string;
+  keyQuote: string;
+  keyQuote_zh: string;
+  url?: string;
+  highlight?: boolean; // To feature the main consensus
 }

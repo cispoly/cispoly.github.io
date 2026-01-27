@@ -1,11 +1,23 @@
+
 import React from 'react';
 import { Target, Cpu, TrendingDown, ShieldCheck, Microscope, Layers } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const MethylationAdvantages: React.FC = () => {
+export interface AdvantageItem {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  color: string;
+}
+
+interface Props {
+  items?: AdvantageItem[];
+}
+
+const MethylationAdvantages: React.FC<Props> = ({ items }) => {
   const { t } = useLanguage();
 
-  const advantages = [
+  const defaultAdvantages = [
     {
       icon: <Target className="w-6 h-6 text-teal-600" />,
       title: t('adv.specificity.title'),
@@ -44,6 +56,8 @@ const MethylationAdvantages: React.FC = () => {
     }
   ];
 
+  const displayAdvantages = items || defaultAdvantages;
+
   return (
     <section className="py-12">
       <div className="text-center mb-12">
@@ -57,7 +71,7 @@ const MethylationAdvantages: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {advantages.map((adv, idx) => (
+        {displayAdvantages.map((adv, idx) => (
           <div 
             key={idx} 
             className={`p-8 rounded-2xl border ${adv.color} bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group`}

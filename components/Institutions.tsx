@@ -1,19 +1,25 @@
+
 import React from 'react';
 import { Building2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const Institutions: React.FC = () => {
+interface Props {
+  institutions?: string[];
+}
+
+const DEFAULT_INSTITUTIONS = [
+  "Xiangya Hospital, Central South University",
+  "Tongji Hospital, Tongji Medical College, HUST",
+  "Qilu Hospital, Shandong University",
+  "Peking Union Medical College Hospital",
+  "West China Second University Hospital, Sichuan University",
+  "Peking University Shenzhen Hospital",
+  "The First Affiliated Hospital of Zhengzhou University",
+  "Women's Hospital, Zhejiang University"
+];
+
+const Institutions: React.FC<Props> = ({ institutions = DEFAULT_INSTITUTIONS }) => {
   const { t } = useLanguage();
-  const institutions = [
-    "Xiangya Hospital, Central South University",
-    "Tongji Hospital, Tongji Medical College, HUST",
-    "Qilu Hospital, Shandong University",
-    "Peking Union Medical College Hospital",
-    "West China Second University Hospital, Sichuan University",
-    "Peking University Shenzhen Hospital",
-    "The First Affiliated Hospital of Zhengzhou University",
-    "Women's Hospital, Zhejiang University"
-  ];
 
   return (
     <div className="py-8">

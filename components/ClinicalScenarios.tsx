@@ -1,11 +1,24 @@
+
 import React from 'react';
 import { Microscope, Activity, UserCheck, Clock, FileText } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const ClinicalScenarios: React.FC = () => {
+interface ScenarioItem {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  items?: ScenarioItem[];
+  customTitle?: string;
+  customDescription?: string;
+}
+
+const ClinicalScenarios: React.FC<Props> = ({ items, customTitle, customDescription }) => {
   const { t } = useLanguage();
   
-  const scenarios = [
+  const defaultScenarios = [
     {
       icon: <Activity size={24} />,
       title: t('scenarios.ascus.title'),
@@ -33,17 +46,19 @@ const ClinicalScenarios: React.FC = () => {
     }
   ];
 
+  const displayScenarios = items || defaultScenarios;
+
   return (
     <div className="py-12">
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-serif text-slate-800 mb-4 italic">{t('scenarios.title')}</h2>
-        <p className="text-slate-600 max-w-2xl mx-auto font-light">
-          {t('scenarios.desc')}
+        <h2 className="text-3xl font-serif text-slate-800 mb-4 italic">{customTitle || t('scenarios.title')}</h2>
+        <p className="text-slate-600 max-w-4xl mx-auto font-light leading-relaxed">
+          {customDescription || t('scenarios.desc')}
         </p>
       </div>
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {scenarios.map((item, idx) => (
+        {displayScenarios.map((item, idx) => (
           <div key={idx} className="glass-card p-6 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group hover:bg-white/90">
             <div className="w-12 h-12 bg-rose-50 text-rose-400 rounded-full flex items-center justify-center mb-4 group-hover:bg-rose-500 group-hover:text-white transition-colors duration-500">
               {item.icon}
