@@ -3,12 +3,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Microscope, Target, Droplet, Heart, Shield, Activity, Sparkles, ChevronRight, FileText } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 
-interface Props {
-  onNavigate: (product: 'CISCER' | 'CISENDO' | 'CISOVA' | 'GUIDES_CERVICAL' | 'GUIDES_ENDO' | 'GUIDES_OVARIAN') => void;
-}
-
-const HomePage: React.FC<Props> = ({ onNavigate }) => {
+const HomePage: React.FC = () => {
   const { t } = useLanguage();
 
   return (
@@ -86,9 +83,9 @@ const HomePage: React.FC<Props> = ({ onNavigate }) => {
                     <p className="text-slate-600 font-light mb-8 flex-grow leading-relaxed">
                         {t('home.products.ciscer.desc')}
                     </p>
-                    <button onClick={() => onNavigate('CISCER')} className="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-teal-600 transition-colors uppercase tracking-wider">
+                    <Link to="/ciscer" className="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-teal-600 transition-colors uppercase tracking-wider">
                         {t('home.products.learn')} <ArrowRight size={16} />
-                    </button>
+                    </Link>
                 </div>
 
                 {/* CISENDO Card */}
@@ -101,9 +98,9 @@ const HomePage: React.FC<Props> = ({ onNavigate }) => {
                     <p className="text-slate-600 font-light mb-8 flex-grow leading-relaxed">
                         {t('home.products.cisendo.desc')}
                     </p>
-                    <button onClick={() => onNavigate('CISENDO')} className="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-rose-600 transition-colors uppercase tracking-wider">
+                    <Link to="/cisendo" className="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-rose-600 transition-colors uppercase tracking-wider">
                         {t('home.products.learn')} <ArrowRight size={16} />
-                    </button>
+                    </Link>
                 </div>
 
                 {/* CISOVA Card */}
@@ -116,9 +113,9 @@ const HomePage: React.FC<Props> = ({ onNavigate }) => {
                     <p className="text-slate-600 font-light mb-8 flex-grow leading-relaxed">
                         {t('home.products.cisova.desc')}
                     </p>
-                    <button onClick={() => onNavigate('CISOVA')} className="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-red-600 transition-colors uppercase tracking-wider">
+                    <Link to="/cisova" className="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-red-600 transition-colors uppercase tracking-wider">
                         {t('home.products.learn')} <ArrowRight size={16} />
-                    </button>
+                    </Link>
                 </div>
             </div>
         </section>
@@ -140,9 +137,9 @@ const HomePage: React.FC<Props> = ({ onNavigate }) => {
                     <p className="text-slate-600 font-light mb-8 flex-grow leading-relaxed line-clamp-4">
                         {t('guides.cervical.desc')}
                     </p>
-                    <button onClick={() => onNavigate('GUIDES_CERVICAL')} className="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-teal-600 transition-colors uppercase tracking-wider">
+                    <Link to="/guides/cervical" className="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-teal-600 transition-colors uppercase tracking-wider">
                         {t('home.guides.read')} <ArrowRight size={16} />
-                    </button>
+                    </Link>
                 </div>
 
                 {/* Endometrial Guide */}
@@ -154,9 +151,9 @@ const HomePage: React.FC<Props> = ({ onNavigate }) => {
                     <p className="text-slate-600 font-light mb-8 flex-grow leading-relaxed line-clamp-4">
                         {t('guides.endo.desc')}
                     </p>
-                    <button onClick={() => onNavigate('GUIDES_ENDO')} className="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-rose-600 transition-colors uppercase tracking-wider">
+                    <Link to="/guides/endo" className="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-rose-600 transition-colors uppercase tracking-wider">
                         {t('home.guides.read')} <ArrowRight size={16} />
-                    </button>
+                    </Link>
                 </div>
 
                 {/* Ovarian Guide */}
@@ -168,9 +165,9 @@ const HomePage: React.FC<Props> = ({ onNavigate }) => {
                     <p className="text-slate-600 font-light mb-8 flex-grow leading-relaxed line-clamp-4">
                         {t('guides.ovarian.desc')}
                     </p>
-                    <button onClick={() => onNavigate('GUIDES_OVARIAN')} className="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-red-600 transition-colors uppercase tracking-wider">
+                    <Link to="/guides/ovarian" className="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-red-600 transition-colors uppercase tracking-wider">
                         {t('home.guides.read')} <ArrowRight size={16} />
-                    </button>
+                    </Link>
                 </div>
             </div>
         </section>
