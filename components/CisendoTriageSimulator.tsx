@@ -113,58 +113,56 @@ const CisendoTriageSimulator: React.FC = () => {
                             <rect x="725" y="260" width="150" height="30" rx="6" fill="#1e293b" stroke="#475569" />
                             <text x="800" y="280" textAnchor="middle" fill="#94a3b8" fontSize="11">{t('triage.cisLow')}</text>
 
-                            {/* --- Branch 1 Sub-Process: Imaging Atypical --- */}
+                            {/* --- Path 1 Sub-Process: Imaging Atypical -> Cisendo Eval --- */}
+                            
+                            {/* Cisendo Eval Node */}
                             <line x1="100" y1="290" x2="100" y2="320" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#arrow)" />
                             <rect x="25" y="320" width="150" height="30" rx="6" fill="#1e293b" stroke="#475569" />
                             <text x="100" y="340" textAnchor="middle" fill="#fff" fontSize="11">{t('triage.cisendoEval')}</text>
 
-                            {/* Split to Low/High */}
+                            {/* Eval Splits to Low/High */}
                             <line x1="100" y1="350" x2="100" y2="370" stroke="#94a3b8" strokeWidth="1" />
                             <line x1="50" y1="370" x2="150" y2="370" stroke="#94a3b8" strokeWidth="1" />
                             
                             {/* Left: Low Risk -> Follow up */}
-                            <line x1="50" y1="370" x2="50" y2="400" stroke="#2dd4bf" strokeWidth="1" markerEnd="url(#arrow)" />
-                            <rect x="0" y="400" width="100" height="30" rx="6" fill="#1e293b" stroke="#475569" />
-                            <text x="50" y="420" textAnchor="middle" fill="#94a3b8" fontSize="11">{t('triage.lowRisk')}</text>
+                            <line x1="50" y1="370" x2="50" y2="420" stroke="#2dd4bf" strokeWidth="1" markerEnd="url(#arrow)" />
+                            <rect x="0" y="420" width="100" height="30" rx="6" fill="#134e4a" stroke="#2dd4bf" />
+                            <text x="50" y="440" textAnchor="middle" fill="#5eead4" fontSize="11" fontWeight="bold">{t('triage.followup')}</text>
+
+                            {/* Right: High Risk -> Biopsy */}
+                            <line x1="150" y1="370" x2="150" y2="400" stroke="#fb7185" strokeWidth="1" />
+                            {/* Connect High Risk to Biopsy Box */}
+                            <path d="M150 400 L450 420" stroke="#fb7185" strokeWidth="1" fill="none" markerEnd="url(#arrow)" opacity="0.6" />
+                            <rect x="100" y="370" width="100" height="20" rx="4" fill="#881337" stroke="#fb7185" />
+                            <text x="150" y="384" textAnchor="middle" fill="#ffe4e6" fontSize="10" fontWeight="bold">{t('triage.highRisk')}</text>
+
+                            {/* --- Outcome: Hysteroscopy (Consolidated) --- */}
+                            <rect x="350" y="420" width="200" height="40" rx="8" fill="#be123c" stroke="#fb7185" strokeWidth="2" filter="url(#glow)" />
+                            <text x="450" y="445" textAnchor="middle" fill="#fff" fontSize="12" fontWeight="bold">{t('triage.outcome.biopsy')}</text>
+
+                            {/* Connect Typical and Cisendo High to Biopsy Box */}
+                            <line x1="333" y1="290" x2="400" y2="420" stroke="#fb7185" strokeWidth="1" markerEnd="url(#arrow)" />
+                            <line x1="566" y1="290" x2="500" y2="420" stroke="#fb7185" strokeWidth="1" markerEnd="url(#arrow)" />
                             
-                            <line x1="50" y1="430" x2="50" y2="460" stroke="#2dd4bf" strokeWidth="1" markerEnd="url(#arrow)" />
-                            <rect x="0" y="460" width="100" height="30" rx="6" fill="#134e4a" stroke="#2dd4bf" />
-                            <text x="50" y="480" textAnchor="middle" fill="#5eead4" fontSize="11" fontWeight="bold">{t('triage.followup')}</text>
-
-                            {/* Right: High Risk -> Referral */}
-                            <line x1="150" y1="370" x2="150" y2="400" stroke="#fb7185" strokeWidth="1" markerEnd="url(#arrow)" />
-                            <rect x="100" y="400" width="100" height="30" rx="6" fill="#881337" stroke="#fb7185" />
-                            <text x="150" y="420" textAnchor="middle" fill="#ffe4e6" fontSize="11" fontWeight="bold">{t('triage.highRisk')}</text>
-
-                            {/* --- Direct Referral Paths --- */}
-                            
-                            {/* Typical (333) to Biopsy (Center 450) */}
-                            <line x1="333" y1="290" x2="400" y2="460" stroke="#fb7185" strokeWidth="1" markerEnd="url(#arrow)" />
-                            
-                            {/* Cisendo High (566) to Biopsy (Center 450) */}
-                            <line x1="566" y1="290" x2="500" y2="460" stroke="#fb7185" strokeWidth="1" markerEnd="url(#arrow)" />
-                            
-                            {/* High Risk Result (150) to Biopsy (Left side) */}
-                             <path d="M150 430 L150 475 L380 475" stroke="#fb7185" strokeWidth="1" fill="none" markerEnd="url(#arrow)" />
-
-                            {/* --- Outcome: Hysteroscopy --- */}
-                            <rect x="380" y="460" width="140" height="30" rx="6" fill="#881337" stroke="#fb7185" />
-                            <text x="450" y="480" textAnchor="middle" fill="#ffe4e6" fontSize="12" fontWeight="bold">{t('triage.outcome.biopsy')}</text>
-
-
-                            {/* Outcome: Follow-up (Right) */}
-                            <line x1="800" y1="290" x2="800" y2="460" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#arrow)" />
-                            <rect x="750" y="460" width="100" height="30" rx="6" fill="#134e4a" stroke="#2dd4bf" />
-                            <text x="800" y="480" textAnchor="middle" fill="#5eead4" fontSize="11" fontWeight="bold">{t('triage.followup')}</text>
+                            {/* Outcome: Follow-up (Right - from Cisendo Low directly) */}
+                            <line x1="800" y1="290" x2="800" y2="420" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#arrow)" />
+                            <rect x="750" y="420" width="100" height="30" rx="6" fill="#134e4a" stroke="#2dd4bf" />
+                            <text x="800" y="440" textAnchor="middle" fill="#5eead4" fontSize="11" fontWeight="bold">{t('triage.followup')}</text>
 
                         </svg>
 
                         {/* Definition Footnote */}
-                        <div className="mt-2 text-[10px] md:text-xs text-rose-200/60 max-w-5xl w-full border-t border-rose-800/30 pt-3 flex gap-2 items-start leading-relaxed">
-                            <Info size={14} className="flex-shrink-0 mt-0.5 text-rose-400" />
-                            <div>
-                                <span className="font-bold text-rose-300 mr-1">{t('triage.def.title')}:</span>
-                                <span>{t('triage.def.content')}</span>
+                        <div className="mt-2 text-[10px] md:text-xs text-rose-200/60 max-w-5xl w-full border-t border-rose-800/30 pt-3 flex flex-col gap-2 items-start leading-relaxed">
+                            <div className="flex gap-2 items-start">
+                                <Info size={14} className="flex-shrink-0 mt-0.5 text-rose-400" />
+                                <div>
+                                    <span className="font-bold text-rose-300 mr-1">{t('triage.def.title')}:</span>
+                                    <span>{t('triage.def.content')}</span>
+                                </div>
+                            </div>
+                            <div className="flex gap-2 items-start ml-5 opacity-80">
+                                <span className="font-bold text-teal-300 mr-1 whitespace-nowrap">{t('triage.imgTypical')}:</span>
+                                <span>{t('triage.imgTypical.def')}</span>
                             </div>
                         </div>
                     </div>

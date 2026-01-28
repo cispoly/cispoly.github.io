@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ChevronDown, Dna, ShieldCheck, Sparkles, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -59,8 +60,8 @@ const Hero: React.FC = () => {
         </h1>
 
         <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
-          {t('hero.description').split(/(PAX1|JAM3)/g).map((part, i) => 
-            ['PAX1', 'JAM3'].includes(part) ? (
+          {t('hero.description').split(/(PAX1|JAM3|CDO1|CELF4|HOXA9)/g).map((part, i) => 
+            ['PAX1', 'JAM3', 'CDO1', 'CELF4', 'HOXA9'].includes(part) ? (
               <strong key={i} className="font-semibold text-teal-800">{part}</strong>
             ) : (
               <span key={i}>{part}</span>

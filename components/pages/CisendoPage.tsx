@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Sparkles, Award, Users, Search, Target, Zap, FileBarChart, Filter } from 'lucide-react';
@@ -27,7 +28,7 @@ const CisendoPage: React.FC = () => {
     {
       icon: <Users size={24} />,
       title: t('scenarios.postmeno.title'),
-      description: t('scenarios.postmeno.desc')
+      description: t('scenarios.postmeno.desc.cisendo')
     },
     {
       icon: <Search size={24} />,

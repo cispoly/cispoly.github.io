@@ -55,6 +55,9 @@ export interface Guideline {
   summary_zh: string;
   keyQuote: string;
   keyQuote_zh: string;
+  details: string[];
+  details_zh: string[];
+  visualType: 'consensus-pax1' | 'triage-flow' | 'blue-book' | 'gene-test' | 'marker-2024' | 'emerging-tech' | 'endo-consensus';
   url?: string;
-  highlight?: boolean; // To feature the main consensus
+  highlight?: boolean;
 }

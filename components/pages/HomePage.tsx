@@ -1,11 +1,11 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Microscope, Target, Droplet, Heart, Shield, Activity, Sparkles, ChevronRight } from 'lucide-react';
+import { ArrowRight, Microscope, Target, Droplet, Heart, Shield, Activity, Sparkles, ChevronRight, FileText } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 interface Props {
-  onNavigate: (product: 'CISCER' | 'CISENDO' | 'CISOVA') => void;
+  onNavigate: (product: 'CISCER' | 'CISENDO' | 'CISOVA' | 'GUIDES_CERVICAL' | 'GUIDES_ENDO' | 'GUIDES_OVARIAN') => void;
 }
 
 const HomePage: React.FC<Props> = ({ onNavigate }) => {
@@ -118,6 +118,58 @@ const HomePage: React.FC<Props> = ({ onNavigate }) => {
                     </p>
                     <button onClick={() => onNavigate('CISOVA')} className="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-red-600 transition-colors uppercase tracking-wider">
                         {t('home.products.learn')} <ArrowRight size={16} />
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        {/* Guides Overview */}
+        <section id="guides">
+            <div className="text-center mb-16">
+                <h2 className="text-4xl font-serif text-slate-800 mb-4">{t('home.guides.title')}</h2>
+                <div className="w-24 h-1 bg-slate-200 mx-auto rounded-full"></div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+                {/* Cervical Guide */}
+                <div className="glass-card p-8 rounded-3xl border-t-4 border-t-teal-500 hover:-translate-y-2 transition-transform duration-300 flex flex-col group">
+                    <div className="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-600 mb-6 group-hover:bg-teal-500 group-hover:text-white transition-colors">
+                        <FileText size={32} />
+                    </div>
+                    <h3 className="text-2xl font-serif text-slate-900 mb-2">{t('nav.guides.cervical')}</h3>
+                    <p className="text-slate-600 font-light mb-8 flex-grow leading-relaxed line-clamp-4">
+                        {t('guides.cervical.desc')}
+                    </p>
+                    <button onClick={() => onNavigate('GUIDES_CERVICAL')} className="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-teal-600 transition-colors uppercase tracking-wider">
+                        {t('home.guides.read')} <ArrowRight size={16} />
+                    </button>
+                </div>
+
+                {/* Endometrial Guide */}
+                <div className="glass-card p-8 rounded-3xl border-t-4 border-t-rose-500 hover:-translate-y-2 transition-transform duration-300 flex flex-col group">
+                    <div className="w-16 h-16 bg-rose-50 rounded-2xl flex items-center justify-center text-rose-600 mb-6 group-hover:bg-rose-500 group-hover:text-white transition-colors">
+                        <FileText size={32} />
+                    </div>
+                    <h3 className="text-2xl font-serif text-slate-900 mb-2">{t('nav.guides.endo')}</h3>
+                    <p className="text-slate-600 font-light mb-8 flex-grow leading-relaxed line-clamp-4">
+                        {t('guides.endo.desc')}
+                    </p>
+                    <button onClick={() => onNavigate('GUIDES_ENDO')} className="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-rose-600 transition-colors uppercase tracking-wider">
+                        {t('home.guides.read')} <ArrowRight size={16} />
+                    </button>
+                </div>
+
+                {/* Ovarian Guide */}
+                <div className="glass-card p-8 rounded-3xl border-t-4 border-t-red-500 hover:-translate-y-2 transition-transform duration-300 flex flex-col group">
+                    <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center text-red-600 mb-6 group-hover:bg-red-500 group-hover:text-white transition-colors">
+                        <FileText size={32} />
+                    </div>
+                    <h3 className="text-2xl font-serif text-slate-900 mb-2">{t('nav.guides.ovarian')}</h3>
+                    <p className="text-slate-600 font-light mb-8 flex-grow leading-relaxed line-clamp-4">
+                        {t('guides.ovarian.desc')}
+                    </p>
+                    <button onClick={() => onNavigate('GUIDES_OVARIAN')} className="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-red-600 transition-colors uppercase tracking-wider">
+                        {t('home.guides.read')} <ArrowRight size={16} />
                     </button>
                 </div>
             </div>
