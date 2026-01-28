@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ArrowRight, RotateCcw, AlertCircle, CheckCircle, Info } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -71,12 +72,12 @@ const TriageSimulator: React.FC = () => {
 
                   {/* Nodes */}
                   <rect x="250" y="0" width="300" height="50" rx="25" fill="#1e293b" stroke="#475569" strokeWidth="1" />
-                  <text x="400" y="30" textAnchor="middle" fill="#e2e8f0" fontSize="14" fontWeight="400" fontFamily="serif">HPV / ASC-US</text>
+                  <text x="400" y="30" textAnchor="middle" fill="#e2e8f0" fontSize="14" fontWeight="400" fontFamily="serif">HPV (+) / Cytology (ASC-US)</text>
 
                   <line x1="400" y1="50" x2="400" y2="90" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#arrowhead)" />
 
                   <rect x="300" y="90" width="200" height="50" rx="25" fill="#0f766e" stroke="#2dd4bf" strokeWidth="1" />
-                  <text x="400" y="120" textAnchor="middle" fill="#ffffff" fontSize="14" fontWeight="600" fontFamily="serif">Methylation</text>
+                  <text x="400" y="120" textAnchor="middle" fill="#ffffff" fontSize="14" fontWeight="600" fontFamily="serif">PAX1/JAM3 Methylation</text>
 
                   {/* Branches */}
                   <path d="M300 115 L150 115 L150 180" stroke="#fb7185" strokeWidth="1" fill="none" markerEnd="url(#arrowhead-pos)" strokeDasharray="5,5" />

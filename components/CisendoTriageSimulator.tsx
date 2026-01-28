@@ -116,38 +116,52 @@ const CisendoTriageSimulator: React.FC = () => {
                             {/* --- Path 1 Sub-Process: Imaging Atypical -> Cisendo Eval --- */}
                             
                             {/* Cisendo Eval Node */}
-                            <line x1="100" y1="290" x2="100" y2="320" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#arrow)" />
-                            <rect x="25" y="320" width="150" height="30" rx="6" fill="#1e293b" stroke="#475569" />
-                            <text x="100" y="340" textAnchor="middle" fill="#fff" fontSize="11">{t('triage.cisendoEval')}</text>
+                            <line x1="100" y1="290" x2="100" y2="310" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#arrow)" />
+                            <rect x="25" y="310" width="150" height="30" rx="6" fill="#1e293b" stroke="#475569" />
+                            <text x="100" y="330" textAnchor="middle" fill="#fff" fontSize="11">{t('triage.cisendoEval')}</text>
 
                             {/* Eval Splits to Low/High */}
-                            <line x1="100" y1="350" x2="100" y2="370" stroke="#94a3b8" strokeWidth="1" />
-                            <line x1="50" y1="370" x2="150" y2="370" stroke="#94a3b8" strokeWidth="1" />
+                            <line x1="100" y1="340" x2="100" y2="355" stroke="#94a3b8" strokeWidth="1" />
+                            <line x1="50" y1="355" x2="150" y2="355" stroke="#94a3b8" strokeWidth="1" />
                             
                             {/* Left: Low Risk -> Follow up */}
-                            <line x1="50" y1="370" x2="50" y2="420" stroke="#2dd4bf" strokeWidth="1" markerEnd="url(#arrow)" />
-                            <rect x="0" y="420" width="100" height="30" rx="6" fill="#134e4a" stroke="#2dd4bf" />
-                            <text x="50" y="440" textAnchor="middle" fill="#5eead4" fontSize="11" fontWeight="bold">{t('triage.followup')}</text>
+                            <line x1="50" y1="355" x2="50" y2="370" stroke="#2dd4bf" strokeWidth="1" markerEnd="url(#arrow)" />
+                            <rect x="0" y="370" width="100" height="30" rx="6" fill="#1e293b" stroke="#475569" />
+                            <text x="50" y="390" textAnchor="middle" fill="#94a3b8" fontSize="11">{t('triage.lowRisk')}</text>
 
-                            {/* Right: High Risk -> Biopsy */}
-                            <line x1="150" y1="370" x2="150" y2="400" stroke="#fb7185" strokeWidth="1" />
-                            {/* Connect High Risk to Biopsy Box */}
-                            <path d="M150 400 L450 420" stroke="#fb7185" strokeWidth="1" fill="none" markerEnd="url(#arrow)" opacity="0.6" />
-                            <rect x="100" y="370" width="100" height="20" rx="4" fill="#881337" stroke="#fb7185" />
-                            <text x="150" y="384" textAnchor="middle" fill="#ffe4e6" fontSize="10" fontWeight="bold">{t('triage.highRisk')}</text>
+                            {/* Right: High Risk -> Join Referral */}
+                            <line x1="150" y1="355" x2="150" y2="370" stroke="#fb7185" strokeWidth="1" markerEnd="url(#arrow)" />
+                            <rect x="100" y="370" width="100" height="30" rx="6" fill="#1e293b" stroke="#475569" />
+                            <text x="150" y="390" textAnchor="middle" fill="#94a3b8" fontSize="11">{t('triage.risk.high')}</text>
 
-                            {/* --- Outcome: Hysteroscopy (Consolidated) --- */}
-                            <rect x="350" y="420" width="200" height="40" rx="8" fill="#be123c" stroke="#fb7185" strokeWidth="2" filter="url(#glow)" />
-                            <text x="450" y="445" textAnchor="middle" fill="#fff" fontSize="12" fontWeight="bold">{t('triage.outcome.biopsy')}</text>
+                            {/* Connections from Low/High Risk to outcomes */}
+                            {/* Low Risk -> Follow-up */}
+                            <line x1="50" y1="400" x2="50" y2="450" stroke="#2dd4bf" strokeWidth="1" markerEnd="url(#arrow)" />
+                            <rect x="0" y="450" width="100" height="30" rx="6" fill="#134e4a" stroke="#2dd4bf" />
+                            <text x="50" y="470" textAnchor="middle" fill="#5eead4" fontSize="11" fontWeight="bold">{t('triage.followup')}</text>
 
-                            {/* Connect Typical and Cisendo High to Biopsy Box */}
-                            <line x1="333" y1="290" x2="400" y2="420" stroke="#fb7185" strokeWidth="1" markerEnd="url(#arrow)" />
-                            <line x1="566" y1="290" x2="500" y2="420" stroke="#fb7185" strokeWidth="1" markerEnd="url(#arrow)" />
+                            {/* High Risk -> Referral */}
+                            <path d="M150 400 L150 415 L350 415" stroke="#fb7185" strokeWidth="1" fill="none" markerEnd="url(#arrow)" opacity="0.6" />
+
+                            {/* --- Grouped Referral Box: Referral (Any Result) --- */}
+                            <rect x="350" y="400" width="200" height="30" rx="6" fill="#be123c" stroke="#fb7185" strokeWidth="2" filter="url(#glow)" />
+                            <text x="450" y="420" textAnchor="middle" fill="#fff" fontSize="12" fontWeight="bold">{t('triage.referral')}</text>
+
+                            {/* Connect Typical and Cisendo High to Referral Box */}
+                            <path d="M333 290 L333 380 L400 400" stroke="#fb7185" strokeWidth="1" fill="none" markerEnd="url(#arrow)" />
+                            <path d="M566 290 L566 380 L500 400" stroke="#fb7185" strokeWidth="1" fill="none" markerEnd="url(#arrow)" />
                             
+                            {/* Referral Box -> Biopsy Outcome */}
+                            <line x1="450" y1="430" x2="450" y2="450" stroke="#fb7185" strokeWidth="2" markerEnd="url(#arrow)" />
+
+                            {/* --- Outcome: Hysteroscopy --- */}
+                            <rect x="370" y="450" width="160" height="30" rx="6" fill="#881337" stroke="#fb7185" />
+                            <text x="450" y="470" textAnchor="middle" fill="#ffe4e6" fontSize="12" fontWeight="bold">{t('triage.outcome.biopsy')}</text>
+
                             {/* Outcome: Follow-up (Right - from Cisendo Low directly) */}
-                            <line x1="800" y1="290" x2="800" y2="420" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#arrow)" />
-                            <rect x="750" y="420" width="100" height="30" rx="6" fill="#134e4a" stroke="#2dd4bf" />
-                            <text x="800" y="440" textAnchor="middle" fill="#5eead4" fontSize="11" fontWeight="bold">{t('triage.followup')}</text>
+                            <line x1="800" y1="290" x2="800" y2="450" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#arrow)" />
+                            <rect x="750" y="450" width="100" height="30" rx="6" fill="#134e4a" stroke="#2dd4bf" />
+                            <text x="800" y="470" textAnchor="middle" fill="#5eead4" fontSize="11" fontWeight="bold">{t('triage.followup')}</text>
 
                         </svg>
 
@@ -218,18 +232,42 @@ const CisendoTriageSimulator: React.FC = () => {
                             <Stethoscope size={32} className="text-teal-400" />
                             <h3 className="text-xl font-serif text-white">{t('sim.cisendo.step3')}</h3>
                         </div>
-                        <div className="grid gap-4 max-w-2xl mx-auto">
+                        <div className="grid gap-4 max-w-2xl mx-auto md:grid-cols-2">
                             <button onClick={() => next(t('sim.cisendo.step3.typical'), 3)} className="p-5 bg-rose-950/60 border border-rose-600/40 rounded-xl text-left hover:bg-rose-900 transition-all flex items-center justify-between group">
                                 <span className="text-rose-200 font-medium group-hover:text-white">{t('sim.cisendo.step3.typical')}</span>
                                 <ArrowRight className="text-rose-500 opacity-50 group-hover:opacity-100" />
                             </button>
-                            <button onClick={() => next(t('sim.cisendo.step3.atypical_high'), 3)} className="p-5 bg-rose-950/40 border border-rose-400/30 rounded-xl text-left hover:bg-rose-900 transition-all flex items-center justify-between group">
-                                <span className="text-rose-200 font-medium group-hover:text-white">{t('sim.cisendo.step3.atypical_high')}</span>
+                            <button onClick={() => next(t('sim.cisendo.step3.cis_high'), 3)} className="p-5 bg-rose-950/60 border border-rose-600/40 rounded-xl text-left hover:bg-rose-900 transition-all flex items-center justify-between group">
+                                <span className="text-rose-200 font-medium group-hover:text-white">{t('sim.cisendo.step3.cis_high')}</span>
                                 <ArrowRight className="text-rose-500 opacity-50 group-hover:opacity-100" />
                             </button>
-                            <button onClick={() => next(t('sim.cisendo.step3.atypical_low'), 4)} className="p-5 bg-teal-950/40 border border-teal-400/30 rounded-xl text-left hover:bg-teal-900 transition-all flex items-center justify-between group">
-                                <span className="text-teal-200 font-medium group-hover:text-white">{t('sim.cisendo.step3.atypical_low')}</span>
+                            <button onClick={() => next(t('sim.cisendo.step3.atypical'), 21)} className="p-5 bg-slate-800/40 border border-slate-600/30 rounded-xl text-left hover:bg-slate-800 transition-all flex items-center justify-between group">
+                                <span className="text-slate-200 font-medium group-hover:text-white">{t('sim.cisendo.step3.atypical')}</span>
+                                <ArrowRight className="text-slate-500 opacity-50 group-hover:opacity-100" />
+                            </button>
+                            <button onClick={() => next(t('sim.cisendo.step3.cis_low'), 4)} className="p-5 bg-teal-950/40 border border-teal-400/30 rounded-xl text-left hover:bg-teal-900 transition-all flex items-center justify-between group">
+                                <span className="text-teal-200 font-medium group-hover:text-white">{t('sim.cisendo.step3.cis_low')}</span>
                                 <ArrowRight className="text-teal-500 opacity-50 group-hover:opacity-100" />
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+                {/* Step 2b: Secondary Assessment (If Imaging Atypical) */}
+                {step === 21 && (
+                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        <div className="flex items-center gap-4 mb-8 justify-center">
+                            <Activity size={32} className="text-amber-400" />
+                            <h3 className="text-xl font-serif text-white">{t('sim.cisendo.step2b')}</h3>
+                        </div>
+                        <div className="grid gap-6 max-w-lg mx-auto">
+                            <button onClick={() => next(t('triage.risk.high'), 3)} className="p-6 bg-rose-900/30 border border-rose-500/30 rounded-xl text-left hover:bg-rose-900/50 transition-all flex items-center justify-between group">
+                                <span className="text-rose-200 font-bold text-lg group-hover:text-white">{t('triage.risk.high')}</span>
+                                <ArrowRight className="text-rose-500 group-hover:text-white" />
+                            </button>
+                            <button onClick={() => next(t('triage.lowRisk'), 4)} className="p-6 bg-teal-900/30 border border-teal-500/30 rounded-xl text-left hover:bg-teal-900/50 transition-all flex items-center justify-between group">
+                                <span className="text-teal-200 font-bold text-lg group-hover:text-white">{t('triage.lowRisk')}</span>
+                                <ArrowRight className="text-teal-500 group-hover:text-white" />
                             </button>
                         </div>
                     </div>
