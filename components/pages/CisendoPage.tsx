@@ -13,6 +13,7 @@ import CisendoClinicalData from '../CisendoClinicalData';
 import { CISENDO_STUDIES, CISENDO_CHART_DATA, CISENDO_INSTITUTIONS } from '../../constants';
 import { StudyCategory } from '../../types';
 import { useLanguage } from '../../contexts/LanguageContext';
+import SEO from '../SEO';
 
 const CisendoPage: React.FC = () => {
   const { t } = useLanguage();
@@ -90,8 +91,34 @@ const CisendoPage: React.FC = () => {
     ? CISENDO_STUDIES 
     : CISENDO_STUDIES.filter(s => s.category === activeCategory);
 
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "CISENDO",
+    "alternateName": "禾蔻安",
+    "description": "Non-invasive methylation-based detection for endometrial cancer.",
+    "brand": {
+      "@type": "Brand",
+      "name": "CISPOLY"
+    },
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "Beijing OriginPoly Bio-Tec Co.,Ltd."
+    },
+    "category": "Medical Diagnostic Test"
+  };
+
   return (
     <>
+      <SEO 
+        title="CISENDO - Endometrial Cancer Methylation Detection"
+        description="CISENDO (禾蔻安) offers non-invasive endometrial cancer detection using advanced methylation technology, ideal for AUB triage and postmenopausal screening."
+        keywords={[
+          'CISENDO', 'Endometrial Cancer', 'Methylation', 'AUB', 'Postmenopausal bleeding',
+          '禾蔻安', '子宫内膜癌', '甲基化', '异常子宫出血', '绝经后出血'
+        ]}
+        schema={productSchema}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex flex-col justify-center items-center overflow-hidden pt-20 pb-10">
         <div className="absolute inset-0 pointer-events-none z-0">

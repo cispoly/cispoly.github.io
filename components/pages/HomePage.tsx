@@ -4,12 +4,44 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Microscope, Target, Droplet, Heart, Shield, Activity, Sparkles, ChevronRight, FileText } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Link } from 'react-router-dom';
+import SEO from '../SEO';
 
 const HomePage: React.FC = () => {
   const { t } = useLanguage();
 
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    "name": "CISPOLY",
+    "alternateName": ["Beijing OriginPoly Bio-Tec Co.,Ltd.", "北京起源聚禾生物科技有限公司", "OriginPoly", "起源聚禾", "聚禾生物"],
+    "url": "https://www.cispoly.com",
+    "logo": "https://www.cispoly.com/favicon/android-chrome-512x512.png",
+    "description": "CISPOLY focuses on methylation-based cancer triage and women's health, providing advanced solutions like CISCER, CISENDO, and CISOVA.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Beijing",
+      "addressCountry": "CN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "info@cispoly.com"
+    }
+  };
+
   return (
     <div>
+      <SEO 
+        title="CISPOLY - Methylation-Based Cancer Triage & Women's Health"
+        description="CISPOLY (Beijing OriginPoly Bio-Tec) provides advanced methylation-based cancer triage solutions for Cervical (CISCER), Endometrial (CISENDO), and Ovarian (CISOVA) cancers."
+        keywords={[
+          'Cervical Cancer', 'Endometrial Cancer', 'Ovarian Cancer', 'Methylation',
+          '宫颈癌', '子宫内膜癌', '卵巢癌', '甲基化',
+          'CISPOLY', 'OriginPoly', 'CISCER', 'CISENDO', 'CISOVA',
+          '北京起源聚禾', '聚禾生物', '禾蔻安', '禾宫康', '禾薇益'
+        ]}
+        schema={organizationSchema}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex flex-col justify-center items-center overflow-hidden pt-20 pb-10">
         <div className="absolute inset-0 pointer-events-none z-0">

@@ -12,6 +12,7 @@ import MethylationAdvantages from '../MethylationAdvantages';
 import { STUDIES, COMPARISON_DATA, CISCER_INSTITUTIONS } from '../../constants';
 import { StudyCategory } from '../../types';
 import { useLanguage } from '../../contexts/LanguageContext';
+import SEO from '../SEO';
 
 const CiscerPage: React.FC = () => {
   const { t } = useLanguage();
@@ -38,8 +39,35 @@ const CiscerPage: React.FC = () => {
     ? STUDIES 
     : STUDIES.filter(s => s.category === activeCategory);
 
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "CISCER",
+    "alternateName": "禾宫康",
+    "description": "Methylation-based triage test for cervical cancer screening, targeting PAX1 and JAM3 genes.",
+    "brand": {
+      "@type": "Brand",
+      "name": "CISPOLY"
+    },
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "Beijing OriginPoly Bio-Tec Co.,Ltd."
+    },
+    "category": "Medical Diagnostic Test"
+  };
+
   return (
     <>
+      <SEO 
+        title="CISCER - Cervical Cancer Methylation Triage (PAX1/JAM3)"
+        description="CISCER (禾宫康) is a high-accuracy methylation test for cervical cancer triage, utilizing PAX1 and JAM3 biomarkers to reduce unnecessary colposcopies."
+        keywords={[
+          'CISCER', 'Cervical Cancer', 'Methylation', 'PAX1', 'JAM3', 'HPV Triage',
+          '禾宫康', '宫颈癌', '甲基化', '分流', '癌症筛查',
+          'ASCUS', 'HPV positive', 'colposcopy referral'
+        ]}
+        schema={productSchema}
+      />
       {/* CISCER Specialized Hero Section */}
       <section className="relative min-h-[90vh] flex flex-col justify-center items-center overflow-hidden pt-20 pb-10">
         <div className="absolute inset-0 pointer-events-none z-0">

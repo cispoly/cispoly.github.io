@@ -12,6 +12,7 @@ import ClinicalChallenge from '../ClinicalChallenge'; // Reusing structure but w
 import { CISOVA_STUDIES, CISOVA_INSTITUTIONS } from '../../constants';
 import { StudyCategory } from '../../types';
 import { useLanguage } from '../../contexts/LanguageContext';
+import SEO from '../SEO';
 
 const CisovaPage: React.FC = () => {
   const { t } = useLanguage();
@@ -79,8 +80,34 @@ const CisovaPage: React.FC = () => {
     ? CISOVA_STUDIES 
     : CISOVA_STUDIES.filter(s => s.category === activeCategory);
 
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "CISOVA",
+    "alternateName": "禾薇益",
+    "description": "Non-invasive ovarian cancer detection using multi-omics methylation technology.",
+    "brand": {
+      "@type": "Brand",
+      "name": "CISPOLY"
+    },
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "Beijing OriginPoly Bio-Tec Co.,Ltd."
+    },
+    "category": "Medical Diagnostic Test"
+  };
+
   return (
     <>
+      <SEO 
+        title="CISOVA - Ovarian Cancer Methylation Detection"
+        description="CISOVA (禾薇益) provides advanced ovarian cancer detection through blood-based methylation analysis, aiming to improve early diagnosis rates."
+        keywords={[
+          'CISOVA', 'Ovarian Cancer', 'Methylation', 'Blood Test', 'Early Detection',
+          '禾薇益', '卵巢癌', '甲基化', '无创检测', '液体活检'
+        ]}
+        schema={productSchema}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex flex-col justify-center items-center overflow-hidden pt-20 pb-10">
         <div className="absolute inset-0 pointer-events-none z-0">
