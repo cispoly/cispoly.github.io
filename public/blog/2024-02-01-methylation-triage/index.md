@@ -31,7 +31,7 @@ Our research focuses on two specific genes: **PAX1** and **JAM3**. When these ge
 
 ## Clinical Data
 
-In a multi-center study involving over 10,000 women, the PAX1/JAM3 panel demonstrated a **sensitivity of 87.5%** and **specificity of 84.2%** for detecting CIN2+.
+In a multi-center study involving over 10,000 women, the PAX1/JAM3 panel demonstrated a high accuracy for detecting CIN2+.
 
 > "Methylation triage represents the next generation of cervical cancer screening, offering peace of mind to patients and clarity to clinicians."
 
