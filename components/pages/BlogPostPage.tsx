@@ -3,20 +3,23 @@ import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { motion } from 'framer-motion';
-import { Calendar, User, ArrowLeft, Tag, Clock } from 'lucide-react';
+import { Calendar, User, ArrowLeft, Tag, Clock, Globe } from 'lucide-react';
 import { getPostBySlug } from '../../src/services/blogService';
 import { BlogPost } from '../../types';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
+  const { language, setLanguage } = useLanguage();
 
   useEffect(() => {
     const fetchPost = async () => {
       if (slug) {
+        setLoading(true);
         try {
-          const fetchedPost = await getPostBySlug(slug);
+          const fetchedPost = await getPostBySlug(slug, language);
           setPost(fetchedPost || null);
         } catch (error) {
           console.error('Failed to fetch blog post:', error);
@@ -27,7 +30,7 @@ const BlogPostPage: React.FC = () => {
     };
 
     fetchPost();
-  }, [slug]);
+  }, [slug, language]);
 
   if (loading) {
     return (
@@ -83,6 +86,16 @@ const BlogPostPage: React.FC = () => {
             <span className="flex items-center gap-2">
               <User size={14} /> {post.author}
             </span>
+          </div>
+
+          <div className="flex justify-center mt-8">
+            <button
+              onClick={() => setLanguage(language === 'en' ? 'zh' : 'en')}
+              className="flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 rounded-full text-xs font-bold uppercase tracking-widest text-slate-600 hover:text-teal-600 hover:border-teal-200 transition-all shadow-sm hover:shadow-md"
+            >
+              <Globe size={14} />
+              {language === 'en' ? '切换至中文' : 'Switch to English'}
+            </button>
           </div>
         </header>
 
