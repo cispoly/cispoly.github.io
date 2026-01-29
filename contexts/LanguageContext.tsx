@@ -248,6 +248,7 @@ const translations: Translations = {
   'nav.guides.ovarian': { en: "Ovarian Guidelines", zh: "卵巢癌指南" },
   'nav.about': { en: "About", zh: "关于" },
   'nav.contact': { en: "Contact", zh: "联系" },
+  'nav.blog': { en: "Blog", zh: "博客" },
 
   // App / Page specific
   'app.evidenceBased': { en: "Evidence Based", zh: "循证医学" },

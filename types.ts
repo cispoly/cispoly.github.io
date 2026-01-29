@@ -61,3 +61,16 @@ export interface Guideline {
   url?: string;
   highlight?: boolean;
 }
+
+export interface BlogPost {
+  slug: string;
+  folderName: string; // The directory name in public/blog (e.g., 2024-01-28-welcome)
+  title: string;
+  date: string;
+  author: string;
+  excerpt: string;
+  content: string;
+  categories?: string[];
+  tags?: string[];
+  coverImage?: string;
+}

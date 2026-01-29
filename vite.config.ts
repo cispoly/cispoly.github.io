@@ -18,6 +18,19 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      build: {
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+              'framer-motion': ['framer-motion'],
+              'recharts': ['recharts'],
+              'lucide': ['lucide-react'],
+              'markdown-vendor': ['react-markdown', 'remark-gfm', 'front-matter'],
+            }
+          }
+        }
       }
     };
 });

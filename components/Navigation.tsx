@@ -132,6 +132,14 @@ const Navigation: React.FC = () => {
           )}
         </div>
 
+        {/* Blog Button */}
+        <Link 
+          to="/blog"
+          className={`px-4 py-2 rounded-full border text-xs font-bold uppercase tracking-widest transition-all shadow-sm hover:shadow-md backdrop-blur-md ${isActive('/blog') || location.pathname.startsWith('/blog/') ? 'bg-slate-800 text-white border-slate-800' : 'bg-white/50 border-white/50 text-slate-600 hover:bg-white'}`}
+        >
+          {t('nav.blog')}
+        </Link>
+
         {/* About Button */}
         <Link 
           to="/about"
