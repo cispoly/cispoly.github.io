@@ -5,6 +5,7 @@ import { Calendar, User, ArrowRight, Tag } from 'lucide-react';
 import { getAllPosts } from '../../src/services/blogService';
 import { BlogPost } from '../../types';
 import { useLanguage } from '../../contexts/LanguageContext';
+import SEO from '../SEO';
 
 const BlogIndexPage: React.FC = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -29,6 +30,11 @@ const BlogIndexPage: React.FC = () => {
 
   return (
     <div className="pt-24 pb-16 min-h-screen">
+      <SEO 
+        title="Blog - Insights & Updates" 
+        description="Latest news, clinical research updates, and insights on methylation-based cancer triage from CISPOLY."
+        keywords={['Blog', 'News', 'Clinical Research', 'Methylation Updates']}
+      />
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
         <motion.h1 

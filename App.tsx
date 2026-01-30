@@ -52,7 +52,7 @@ const AppContent: React.FC = () => {
       {/* Footer */}
       <footer className="bg-white/50 border-t border-slate-200 py-12 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-xs text-slate-400 font-light">
+          <p className="text-xs text-slate-400 font-light mb-4">
             {t('footer.disclaimer')}
           </p>
         </div>

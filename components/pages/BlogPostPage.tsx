@@ -7,6 +7,7 @@ import { Calendar, User, ArrowLeft, Tag, Clock, Globe } from 'lucide-react';
 import { getPostBySlug } from '../../src/services/blogService';
 import { BlogPost } from '../../types';
 import { useLanguage } from '../../contexts/LanguageContext';
+import SEO from '../SEO';
 
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -51,6 +52,23 @@ const BlogPostPage: React.FC = () => {
 
   return (
     <div className="pt-24 pb-20 min-h-screen">
+      <SEO 
+        title={post.title}
+        description={post.excerpt}
+        type="article"
+        keywords={post.tags}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "datePublished": post.date,
+          "author": {
+            "@type": "Person",
+            "name": post.author
+          },
+          "description": post.excerpt
+        }}
+      />
       <article className="max-w-3xl mx-auto px-6">
         {/* Back Link */}
         <Link 

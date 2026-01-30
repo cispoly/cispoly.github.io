@@ -9,13 +9,15 @@ import SEO from '../SEO';
 const HomePage: React.FC = () => {
   const { t } = useLanguage();
 
+  const baseUrl = import.meta.env.VITE_APP_URL || 'https://cispoly.netlify.app';
+
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "MedicalOrganization",
     "name": "CISPOLY",
     "alternateName": ["Beijing OriginPoly Bio-Tec Co.,Ltd.", "北京起源聚禾生物科技有限公司", "OriginPoly", "起源聚禾", "聚禾生物"],
-    "url": "https://www.cispoly.com",
-    "logo": "https://www.cispoly.com/favicon/android-chrome-512x512.png",
+    "url": baseUrl,
+    "logo": `${baseUrl}/favicon/android-chrome-512x512.png`,
     "description": "CISPOLY focuses on methylation-based cancer triage and women's health, providing advanced solutions like CISCER, CISENDO, and CISOVA.",
     "address": {
       "@type": "PostalAddress",

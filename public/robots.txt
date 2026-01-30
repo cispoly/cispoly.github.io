@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.cispoly.com/sitemap.xml
+Sitemap: https://cispoly.netlify.app/sitemap.xml

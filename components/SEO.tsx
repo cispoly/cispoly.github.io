@@ -23,6 +23,11 @@ const SEO: React.FC<SEOProps> = ({
 }) => {
   const { language } = useLanguage();
   
+  // Use environment variable for base URL or default to the Netlify domain
+  const baseUrl = import.meta.env.VITE_APP_URL || 'https://cispoly.netlify.app';
+  const path = typeof window !== 'undefined' ? window.location.pathname : '';
+  const currentUrl = url ? (url.startsWith('http') ? url : `${baseUrl}${url}`) : `${baseUrl}${path}`;
+
   const siteName = language === 'en' ? 'CISPOLY' : '起源聚禾';
   const defaultTitle = language === 'en' 
     ? 'CISPOLY - Beijing OriginPoly Bio-Tec Co.,Ltd.' 
@@ -46,7 +51,7 @@ const SEO: React.FC<SEOProps> = ({
   ];
   
   const allKeywords = Array.from(new Set([...baseKeywords, ...keywords])).join(', ');
-  const currentUrl = url || window.location.href;
+  // Removed duplicate currentUrl declaration
 
   return (
     <Helmet>

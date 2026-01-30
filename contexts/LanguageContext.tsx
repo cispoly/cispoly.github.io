@@ -149,7 +149,7 @@ const translations: Translations = {
   },
 
   // Footer / Common
-  'footer.disclaimer': { en: "© 2025 CISPOLY Biotech. For healthcare professional use only.", zh: "© 2025 起源聚禾生物。仅供医疗专业人士参考。" },
+  'footer.disclaimer': { en: "© 2020 - 2026 CISPOLY Biotech. For healthcare professional use only.", zh: "© 2020 - 2026 起源聚禾生物。仅供医疗专业人士参考。" },
   'inst.collab': { en: "Collaborations", zh: "合作机构" },
   'inst.title': { en: "Trusted by Top Institutions", zh: "顶级机构信赖" },
   'inst.desc': { en: "Our technology is validated by leading research hospitals.", zh: "我们的技术已得到领先研究型医院的验证。" },

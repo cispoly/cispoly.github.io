@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+ <title>CISPOLY Blog</title>
+ <description>Latest updates, research findings, and insights into methylation-based cancer triage.</description>
+ <link>https://cispoly.netlify.app</link>
+ <atom:link href="https://cispoly.netlify.app/feed.xml" rel="self" type="application/rss+xml" />
+ <lastBuildDate>Fri, 30 Jan 2026 03:22:53 GMT</lastBuildDate>
+ <pubDate>Fri, 30 Jan 2026 03:22:53 GMT</pubDate>
+ <ttl>1800</ttl>
+ 
+ <item>
+  <title><![CDATA[Understanding Methylation Triage]]></title>
+  <description><![CDATA[How PAX1 and JAM3 methylation markers provide superior specificity compared to traditional HPV testing.]]></description>
+  <link>https://cispoly.netlify.app/blog/methylation-triage</link>
+  <guid>https://cispoly.netlify.app/blog/methylation-triage</guid>
+  <pubDate>Thu, 01 Feb 2024 00:00:00 GMT</pubDate>
+ </item>
+ <item>
+  <title><![CDATA[Welcome to CISPOLY Blog]]></title>
+  <description><![CDATA[We are excited to launch our new blog to share the latest updates on cancer triage and methylation technology.]]></description>
+  <link>https://cispoly.netlify.app/blog/welcome</link>
+  <guid>https://cispoly.netlify.app/blog/welcome</guid>
+  <pubDate>Sun, 28 Jan 2024 00:00:00 GMT</pubDate>
+ </item>
+</channel>
+</rss>
