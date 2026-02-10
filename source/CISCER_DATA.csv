@@ -1,0 +1,22 @@
+Study,Population,Triage Method,Target Lesion,AUC,Sensitivity,Specificity,Referral Rate,Reduced Referral Rate,NNS
+Chen (2024),ASC-US,PAX1/JAM3 Methylation,CIN2+,0.898,83.80%,95.80%,18.70%,79.5% (vs hrHPV),！
+Chen (2024),ASC-US,HPV 16/18 Genotyping,CIN2+,0.5,100%,10.80%,91.10%,！,！
+Chen (2024),Non-16/18 hrHPV+,PAX1/JAM3 Methylation,CIN3+,0.866,84.80%,88.50%,17.45%,57.21% (vs LBC),！
+Chen (2024),Non-16/18 hrHPV+,LBC (−ASC-US),CIN3+,0.584,90.10%,26.70%,74.66%,！,！
+Fei (2024),HPV 16/18+,PAX1/JAM3 Methylation,CIN2+,0.921,89.00%,95.30%,29.90%,~70% (vs NILM),1.12
+Fei (2024),HPV 16/18+,LBC (−ASC-US),CIN2+,0.612,72.00%,50.40%,56.30%,！,2.61
+Kong (2024),All hrHPV+,PAX1/JAM3 Methylation,CIN3+,0.79,68.30%,89.60%,16.83%,20.64% (vs 16/18),！
+Kong (2024),All hrHPV+,LBC (−ASC-US),CIN3+,0.587,93.50%,23.90%,78.01%,！,！
+Liang (2024),All hrHPV+,PAX1/JAM3 Methylation,CIN2+,0.941,92.60%,95.70%,24.50%,！,！
+Liang (2024),All hrHPV+,LBC (−ASC-US),CIN2+,0.683,91.50%,45.00%,72.00%,！,！
+Feng (2025),All hrHPV+,PAX1/JAM3 Methylation,Cancer,0.873,86.30%,91.00%,43.94%,36.76% (vs TCT),！
+Feng (2025),All hrHPV+,HPV 16/18 Genotyping,Cancer,0.678,65.50%,70.00%,50.72%,！,！
+Shang (2025),Minimally Abnormal,PAX1/JAM3 Methylation,CIN3+,0.82,74.90%,89.10%,16.60%,！,2.5
+Shang (2025),Minimally Abnormal,LBC (−ASC-US),CIN3+,！,！,！,100%,！,11.1
+Yu (2024),Self-Sampling,PAX1/JAM3 Methylation,CIN2+,！,77.60%,87.20%,42.00%,！,！
+Yu (2024),Self-Sampling,LBC (−ASC-US),CIN2+,！,78.20%,52.90%,！,！,！
+Peng (2025),Elderly (−50),PAX1/JAM3 Methylation,CIN2+,0.934,93.20%,93.60%,！,！,！
+Peng (2025),Elderly (−50),LBC (−ASC-US),CIN2+,0.637,75.00%,52.30%,65.00%,！,！
+Su (2025),Non-16/18 hrHPV+,PAX1/JAM3 Methylation,CIN2+,0.856,76.10%,95.10%,17.40%,！,！
+Yang (2025),hrHPV mRNA+,PAX1/JAM3 Methylation,CIN3+,！,76.79%,85.71%,！,！,！
+Luo (2026),Referral Cohort,PAX1/JAM3 Methylation,CIN2+,0.826,76.10%,89.10%,！,！,！

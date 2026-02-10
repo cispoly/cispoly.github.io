@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/d3": "^7.4.3",
+    "d3": "^7.9.0",
     "framer-motion": "^12.29.2",
     "front-matter": "^4.0.2",
     "lucide-react": "^0.563.0",

@@ -9,3 +9,8 @@ declare module 'front-matter' {
   function fm<T = any>(content: string): FrontMatterResult<T>;
   export default fm;
 }
+
+declare module '*?raw' {
+  const content: string;
+  export default content;
+}

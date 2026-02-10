@@ -75,6 +75,13 @@ const translations: Translations = {
   'charts.specificity': { en: "Specificity", zh: "特异度" },
   'charts.reduction': { en: "Referral Reduction", zh: "转诊减少" },
   'charts.footer': { en: "* Data aggregated from multi-center clinical trials.", zh: "* 数据汇总自多中心临床试验。" },
+  'charts.badge.clinical': { en: "Clinical Evidence", zh: "临床验证" },
+  'charts.trial.title': { en: "Clinical Trial Data", zh: "临床试验数据" },
+  'charts.trial.description': { 
+    en: "Conducted at Peking Union Medical College Hospital, Zhejiang Provincial People's Hospital, The Second Affiliated Hospital of Zhejiang University School of Medicine", 
+    zh: "在 北京协和医院、浙江省人民医院、浙江大学医学院附属第二医院 进行" 
+  },
+  'charts.source': { en: "Source", zh: "来源" },
 
   // Simulator
   'sim.title': { en: "Smart Triage Simulator", zh: "智能分流模拟器" },
@@ -162,7 +169,7 @@ const translations: Translations = {
   'scenarios.hrhpv.title': { en: "hrHPV+ Management", zh: "hrHPV+ 管理" },
   'scenarios.hrhpv.desc': { en: "Reduce unnecessary colposcopies for non-16/18 infections by identifying true disease progression.", zh: "通过识别真正的疾病进展，减少非16/18型感染不必要的阴道镜检查。" },
   'scenarios.postmeno.title': { en: "Postmenopausal", zh: "绝经后" },
-  'scenarios.postmeno.desc': { en: "Overcome cytological atrophy and sampling challenges with molecular accuracy (PAX1/JAM3 or CDO1/CELF4).", zh: "利用分子精度（PAX1/JAM3 或 CDO1/CELF4）克服细胞学萎缩和取样挑战。" },
+  'scenarios.postmeno.desc': { en: "Overcome cytological atrophy and sampling challenges with molecular accuracy (PAX1/JAM3).", zh: "利用分子精度（PAX1/JAM3）克服细胞学萎缩和取样挑战。" },
   'scenarios.postmeno.desc.cisendo': { en: "Overcome cytological atrophy and sampling challenges with molecular accuracy (CDO1/CELF4).", zh: "利用分子精度（CDO1/CELF4）克服细胞学萎缩和取样挑战。" },
   'scenarios.postcon.title': { en: "Post-Conization", zh: "锥切术后" },
   'scenarios.postcon.desc': { en: "Predict residual disease or occult invasion with high negative predictive value.", zh: "以高阴性预测值预测残留病变或隐匿性浸润。" },

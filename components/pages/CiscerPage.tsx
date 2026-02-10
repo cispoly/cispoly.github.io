@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Sparkles, Award, Filter } from 'lucide-react';
 import StudyCard from '../StudyCard';
-import InteractiveCharts from '../InteractiveCharts';
 import TriageSimulator from '../TriageSimulator';
 import Institutions from '../Institutions';
 import ClinicalScenarios from '../ClinicalScenarios';
 import ClinicalChallenge from '../ClinicalChallenge';
 import MethylationAdvantages from '../MethylationAdvantages';
-import { STUDIES, COMPARISON_DATA, CISCER_INSTITUTIONS } from '../../constants';
+import CiscerPerformanceSection from '../CiscerPerformanceSection';
+import { STUDIES, CISCER_INSTITUTIONS } from '../../constants';
 import { StudyCategory } from '../../types';
 import { useLanguage } from '../../contexts/LanguageContext';
 import SEO from '../SEO';
@@ -162,29 +162,8 @@ const CiscerPage: React.FC = () => {
         <ClinicalChallenge />
         <div className="mb-24"><ClinicalScenarios /></div>
         <div className="mb-32"><MethylationAdvantages /></div>
-        <div className="mb-32 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="text-teal-600 font-bold uppercase tracking-widest text-xs mb-2 block">{t('app.evidenceBased')}</span>
-            <h3 className="text-3xl font-serif text-slate-800 mb-6 italic">{t('app.dataDriven')}</h3>
-            <p className="text-slate-600 mb-8 leading-relaxed font-light text-lg">{t('app.dataDesc')}</p>
-            <ul className="space-y-6">
-              <li className="flex items-start gap-4">
-                <span className="w-2 h-2 mt-2 rounded-full bg-teal-500 shrink-0"></span>
-                <span className="text-slate-600 font-light">{t('app.point1')}</span>
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="w-2 h-2 mt-2 rounded-full bg-teal-500 shrink-0"></span>
-                <span className="text-slate-600 font-light">{t('app.point2')}</span>
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="w-2 h-2 mt-2 rounded-full bg-teal-500 shrink-0"></span>
-                <span className="text-slate-600 font-light">{t('app.point3')}</span>
-              </li>
-            </ul>
-          </div>
-          <div className="h-full">
-            <InteractiveCharts data={COMPARISON_DATA} />
-          </div>
+        <div className="mb-32">
+          <CiscerPerformanceSection />
         </div>
         <div id="simulator" className="mb-32 scroll-mt-20"><TriageSimulator /></div>
         <div className="mb-32"><Institutions institutions={CISCER_INSTITUTIONS} /></div>

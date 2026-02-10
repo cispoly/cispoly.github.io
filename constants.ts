@@ -1,317 +1,15 @@
 
 import { Study, StudyCategory, ChartDataPoint, Guideline } from './types';
+import { parseStudies } from './utils/markdownParser';
+import evidenceMd from './source/EVIDENCE_LIBRARY.md?raw';
 
-// Helper to generate search links 
-const getSearchLink = (title: string) => `https://scholar.google.com/scholar?q=${encodeURIComponent(title)}`;
+// Parse studies from markdown
+const allStudies = parseStudies(evidenceMd);
 
-export const STUDIES: Study[] = [
-  {
-    id: 'chen-bmc-2024',
-    title: 'Efficacy of PAX1 and JAM3 methylation assay in the triage of ASC-US',
-    url: getSearchLink('Efficacy of PAX1 and JAM3 methylation assay in the triage of ASC-US'),
-    doi: '10.1186/s12885-024-11800-x',
-    institution: 'Qilu Hospital, Shandong University',
-    authors: 'Chen X, Jiang H, Xu H, et al.',
-    journal: 'BMC Cancer',
-    year: 2024,
-    category: StudyCategory.ASCUS_TRIAGE,
-    summary: 'Evaluated PAX1/JAM3 methylation (CISCER) for triaging 322 women with ASC-US cytology. Found that methylation was significantly elevated in CIN2+ lesions.',
-    keyFinding: 'Reduced colposcopy referral rate in hrHPV+ women by 79.5% while maintaining high sensitivity.',
-    metrics: { sensitivity: 83.8, specificity: 95.8, colposcopyReduction: 79.5, auc: 0.898 },
-    populationSize: 322
-  },
-  {
-    id: 'chen-clinepi-2024',
-    title: 'Triage performance in opportunistic screening of non-16/18 hrHPV+ women',
-    url: getSearchLink('Triage performance in opportunistic screening of non-16/18 hrHPV+ women'),
-    doi: '10.1186/s13148-024-01620-1',
-    institution: 'Qilu Hospital, Shandong University',
-    authors: 'Chen X, Jin X, Kong L, et al.',
-    journal: 'Clinical Epigenetics',
-    year: 2024,
-    category: StudyCategory.HR_HPV_NON16_18,
-    summary: 'Multicenter prospective study (METHY3 & 4) on 1,851 women. Compared LBC vs. Methylation for triage of non-16/18 infections.',
-    keyFinding: 'Methylation reduced colposcopy referrals by 57.2% compared to cytology, with superior specificity.',
-    metrics: { sensitivity: 84.8, specificity: 88.5, colposcopyReduction: 57.2, auc: 0.866 },
-    populationSize: 1851
-  },
-  {
-    id: 'peng-ijc-2025',
-    title: 'Enhanced diagnostic accuracy of high-grade CIN in postmenopausal women',
-    url: getSearchLink('Enhanced diagnostic accuracy of high-grade CIN in postmenopausal women'),
-    doi: '10.1002/ijc.35001',
-    institution: 'Xiangya Hospital, Central South University',
-    authors: 'Peng H, Li J, Zhou Q, et al.',
-    journal: 'Int. J. Cancer',
-    year: 2025,
-    category: StudyCategory.POSTMENOPAUSAL,
-    summary: 'Focused on women aged ≥50. Cytology often fails in this group due to atrophy. Methylation proved highly effective.',
-    keyFinding: 'Sensitivity of 93.2% for CIN2+ in older women, significantly outperforming LBC (75%).',
-    metrics: { sensitivity: 93.2, specificity: 93.6, auc: 0.934 },
-    populationSize: 428
-  },
-  {
-    id: 'yu-chinjlab-2024',
-    title: 'Feasibility Evaluation of using PAX1/JAM3 methylation markers for female self-collected samples',
-    url: getSearchLink('Feasibility Evaluation of using PAX1/JAM3 methylation markers for female self-collected samples'),
-    doi: '10.3760/cma.j.cn114452-2024',
-    institution: 'Peking Union Medical College Hospital',
-    authors: 'Yu F, Ma J, Zhou X, et al.',
-    journal: 'Chin J Lab Med',
-    year: 2024,
-    category: StudyCategory.SELF_SAMPLING,
-    summary: 'Compared self-collected vs. physician-collected samples in 301 women. High correlation (r=0.858) found between sampling methods.',
-    keyFinding: 'Self-sampling methylation detection is a viable alternative with 89.7% sensitivity for CIN2+ when combined with HPV16/18.',
-    metrics: { sensitivity: 77.6, specificity: 87.2, auc: 0.88 },
-    populationSize: 301
-  },
-  {
-    id: 'chen-scirep-2025',
-    title: 'PAX1 and JAM3 methylation in predicting pathological upgrading before conization',
-    url: getSearchLink('PAX1 and JAM3 methylation in predicting pathological upgrading before conization'),
-    doi: '10.1038/s41598-025-01234-x',
-    institution: 'Qilu Hospital, Shandong University',
-    authors: 'Chen X, Xu H, Zhao L, et al.',
-    journal: 'Scientific Reports',
-    year: 2025,
-    category: StudyCategory.CLINICAL_OUTCOMES,
-    summary: 'Investigated if methylation levels could predict if a lesion would be upgraded (worse than biopsy) after conization surgery.',
-    keyFinding: 'PAX1 methylation was an independent risk factor for pathological upgrading.',
-    metrics: { sensitivity: 60.0, specificity: 94.4, auc: 0.818 },
-    populationSize: 88
-  },
-  {
-    id: 'fei-clinepi-2024',
-    title: 'Evaluating PAX1/JAM3 methylation for triage in HPV 16/18-infected women',
-    url: getSearchLink('Evaluating PAX1/JAM3 methylation for triage in HPV 16/18-infected women'),
-    doi: '10.1186/s13148-024-09999-2',
-    institution: 'Tongji Hospital, Tongji Medical College, HUST',
-    authors: 'Fei J, Zhai L, Wang J, et al.',
-    journal: 'Clinical Epigenetics',
-    year: 2024,
-    category: StudyCategory.HR_HPV_NON16_18,
-    summary: 'Assessed 334 women positive for HPV 16/18. Direct referral is usually recommended, but leads to overtreatment.',
-    keyFinding: 'Methylation triage could reduce colposcopy referrals by nearly 70% in this high-risk group while detecting 98.1% of CIN3+.',
-    metrics: { sensitivity: 89.0, specificity: 95.3, colposcopyReduction: 70.0, auc: 0.921 },
-    populationSize: 334
-  },
-  {
-    id: 'su-bjc-2025',
-    title: 'Triage role of cytological DNA methylation in women with non-16/18, specifically genotyping high-risk HPV',
-    url: getSearchLink('Triage role of cytological DNA methylation in women with non-16/18, specifically genotyping high-risk HPV'),
-    doi: '10.1038/s41416-025-02345-z',
-    institution: 'Qilu Hospital, Shandong University',
-    authors: 'Su H, Jin X, Kong L, et al.',
-    journal: 'British Journal of Cancer',
-    year: 2025,
-    category: StudyCategory.HR_HPV_NON16_18,
-    summary: 'Large cohort (1307 women). Compared LBC, HPV Genotyping (33/35), and Methylation.',
-    keyFinding: 'CISCER (Methylation) had the highest AUC (0.856) for CIN2+ compared to LBC (0.602).',
-    metrics: { sensitivity: 76.1, specificity: 95.1, auc: 0.856 },
-    populationSize: 1307
-  },
-  {
-    id: 'shang-ijgo-2025',
-    title: 'Cytologic DNA methylation for managing minimally abnormal cervical cancer screening results',
-    url: getSearchLink('Cytologic DNA methylation for managing minimally abnormal cervical cancer screening results'),
-    doi: '10.1002/ijgo.15000',
-    institution: 'West China Second University Hospital, Sichuan University',
-    authors: 'Shang X, Kong L, You Y, et al.',
-    journal: 'Int J Gynecol Obstet',
-    year: 2025,
-    category: StudyCategory.ASCUS_TRIAGE,
-    summary: 'Focus on "minimally abnormal" results (ASC-US/LSIL/NILM+HPV). 1,857 women analyzed.',
-    keyFinding: 'Methylation discriminated well, yielding a CIN3+ risk of 40.5% for positives vs 2.7% for negatives.',
-    metrics: { sensitivity: 74.9, specificity: 89.1, auc: 0.820 },
-    populationSize: 1857
-  },
-  {
-    id: 'sun-bmc-2024',
-    title: 'Performance of JAM3/PAX1 methylation in diagnosis of HSIL for women with hr-HPV',
-    url: getSearchLink('Performance of JAM3/PAX1 methylation in diagnosis of HSIL for women with hr-HPV'),
-    doi: '10.1186/s12885-024-00123-y',
-    institution: 'Women\'s Hospital, Zhejiang University',
-    authors: 'Sun D, Shu C, Zeng F, et al.',
-    journal: 'BMC Cancer',
-    year: 2024,
-    category: StudyCategory.METHODOLOGY,
-    summary: 'Used a conditional inference tree model to optimize triage. Included 276 patients.',
-    keyFinding: 'Combination of PAX1 methylation + TCT + HPV offered the most accurate screening (AUC 0.932).',
-    metrics: { sensitivity: 91.2, specificity: 87.2, auc: 0.932 },
-    populationSize: 276
-  },
-  {
-    id: 'li-cancers-2024',
-    title: 'PAX1/JAM3 Methylation and HPV Viral Load in Women with Persistent HPV Infection',
-    url: getSearchLink('PAX1/JAM3 Methylation and HPV Viral Load in Women with Persistent HPV Infection'),
-    doi: '10.3390/cancers16010001',
-    institution: 'Peking University Shenzhen Hospital',
-    authors: 'Li M, Zhao C, Zhang X, et al.',
-    journal: 'Cancers',
-    year: 2024,
-    category: StudyCategory.CLINICAL_OUTCOMES,
-    summary: 'Analyzed women with persistent HPV but no high-grade lesions initially. Methylation increased significantly after 3 years of persistence.',
-    keyFinding: 'Methylation serves as cumulative evidence of infection duration and risk before visible lesions appear.',
-    metrics: { sensitivity: 'NA', specificity: 'NA', auc: 0 },
-    populationSize: 231
-  },
-  {
-    id: 'liang-frontiers-2024',
-    title: 'Assessment of PAX1 and JAM3 methylation triage efficacy across HPV genotypes and age groups',
-    url: getSearchLink('Assessment of PAX1 and JAM3 methylation triage efficacy across HPV genotypes and age groups'),
-    doi: '10.3389/fonc.2024.1234567',
-    institution: 'The First Affiliated Hospital of Zhengzhou University',
-    authors: 'Liang H, Liu Y, Yin S, et al.',
-    journal: 'Frontiers in Oncology',
-    year: 2024,
-    category: StudyCategory.METHODOLOGY,
-    summary: 'Studied 436 women. Methylation identified all cervical cancers, including 2 hrHPV-negative adenocarcinoma cases.',
-    keyFinding: 'Excellent sensitivity (100%) in women aged >50 and high specificity (100%) in women <30.',
-    metrics: { sensitivity: 92.6, specificity: 95.7, auc: 0.941 },
-    populationSize: 436
-  },
-  {
-    id: 'kong-nmjc-2023',
-    title: 'The role of DNA methylation in the screening of endometrial cancer in postmenopausal women',
-    url: getSearchLink('The role of DNA methylation in the screening of endometrial cancer in postmenopausal women'),
-    doi: '10.3760/cma.j.cn112137-20220929-02058',
-    institution: 'Peking Union Medical College Hospital',
-    authors: 'Kong L, Xiao X, Wan R, et al.',
-    journal: 'Natl Med J China',
-    year: 2023,
-    category: StudyCategory.POSTMENOPAUSAL,
-    summary: '143 postmenopausal women. Methylation accuracy was better than other non-invasive methods.',
-    keyFinding: 'Sensitivity 87.5%, Specificity 90.8%. TVS combined with DNA methylation reached 100% sensitivity.',
-    metrics: { sensitivity: 87.5, specificity: 90.8, auc: 0.89 },
-    populationSize: 143
-  }
-];
+export const STUDIES: Study[] = allStudies.CISCER;
+export const CISENDO_STUDIES: Study[] = allStudies.CISENDO;
+export const CISOVA_STUDIES: Study[] = allStudies.CISOVA;
 
-export const CISENDO_STUDIES: Study[] = [
-  {
-    id: 'lee-cancers-2025',
-    title: 'Prospective Evaluation of Cervical Scrapings CDO1 and CELF4 Methylation (epiHERA®) Assay in Detection of Endometrial Cancer',
-    url: getSearchLink('Prospective Evaluation of Cervical Scrapings CDO1 and CELF4 Methylation (epiHERA®) Assay in Detection of Endometrial Cancer'),
-    doi: '10.3390/cancers17183010',
-    institution: 'University of Hong Kong / Prince of Wales Hospital',
-    authors: 'Lee H-SJ, Wu S, Yeung S-Y, et al.',
-    journal: 'Cancers (Basel)',
-    year: 2025,
-    category: StudyCategory.DIAGNOSTIC_ACCURACY,
-    summary: 'Prospective evaluation of 675 patients with AUB or suspected pathology. Methylation assay yields high accuracy (97.3%) and AUC 0.92. All false-positives were related to neoplastic processes.',
-    keyFinding: 'Sensitivity 84.1%, Specificity 98.8%, PPV 89.2%, NPV 98.2%. Can act as triage to reduce invasive assessments.',
-    metrics: { sensitivity: 84.1, specificity: 98.8, auc: 0.92 },
-    populationSize: 675
-  },
-  {
-    id: 'zhao-ijgc-2024',
-    title: 'DNA methylation detection is a significant biomarker for screening endometrial cancer in premenopausal women with abnormal uterine bleeding',
-    url: getSearchLink('DNA methylation detection is a significant biomarker for screening endometrial cancer in premenopausal women with abnormal uterine bleeding'),
-    doi: '10.1136/ijgc-2024-005723',
-    institution: 'Third Xiangya Hospital, Central South University',
-    authors: 'Zhao X, Yang Y, Fu Y, et al.',
-    journal: 'Int J Gynecol Cancer',
-    year: 2024,
-    category: StudyCategory.PREMENOPAUSAL,
-    summary: 'Evaluated CDO1/CELF4 methylation (CISENDO) in 296 premenopausal women with AUB. Found it to be an independent risk factor with high accuracy.',
-    keyFinding: 'Dual gene methylation had higher sensitivity (85.7%) and specificity (87.6%) than clinical indicators. Combined with BMI/ET, performance improved further.',
-    metrics: { sensitivity: 85.7, specificity: 87.6, auc: 0.942 },
-    populationSize: 296
-  },
-  {
-    id: 'cai-cytojournal-2024',
-    title: 'The endometrial cancer detection using non-invasive hypermethylation of CDO1 and CELF4 genes in women with postmenopausal bleeding',
-    url: getSearchLink('The endometrial cancer detection using non-invasive hypermethylation of CDO1 and CELF4 genes in women with postmenopausal bleeding'),
-    doi: '10.25259/Cytojournal_78_2023',
-    institution: 'Gansu Provincial Maternity and Child-care Hospital',
-    authors: 'Cai B, Du J, Wang Y, et al.',
-    journal: 'CytoJournal',
-    year: 2024,
-    category: StudyCategory.POSTMENOPAUSAL,
-    summary: 'Prospective study of 138 postmenopausal women. Methylation using cervical scrapings (CISENDO) outperformed Ultrasound.',
-    keyFinding: 'Sensitivity of 87.5% and Specificity of 95.9%. 100% of Type II EC were detected.',
-    metrics: { sensitivity: 87.5, specificity: 95.9, auc: 0.917 },
-    populationSize: 138
-  },
-  {
-    id: 'cai-lanzhou-2024',
-    title: 'Clinical value of CISENDO CDO1/CELF4 dual gene methylation detection in endometrial cancer screening for females with abnormal uterine bleeding',
-    url: getSearchLink('Clinical value of CISENDO CDO1/CELF4 dual gene methylation detection in endometrial cancer screening for females with abnormal uterine bleeding'),
-    doi: '10.13885/j.issn.1000-2812.2024.07.004',
-    institution: 'Gansu Provincial Maternity and Child-care Hospital',
-    authors: 'Cai B, Li L, Liu B, et al.',
-    journal: 'Journal of Lanzhou University (Medical Sciences)',
-    year: 2024,
-    category: StudyCategory.DIAGNOSTIC_ACCURACY,
-    summary: 'Analyzed 216 patients with AUB. Compared Methylation vs Ultrasound vs CA125.',
-    keyFinding: 'Methylation Sensitivity 91.2% / Specificity 96.7% vs Ultrasound (55.9%/78.6%) and CA125 (32.4%/76.4%).',
-    metrics: { sensitivity: 91.2, specificity: 96.7, auc: 0 },
-    populationSize: 216
-  },
-  {
-    id: 'qi-frontiers-2023',
-    title: 'Hypermethylated CDO1 and CELF4 in cytological specimens as triage strategy biomarkers in endometrial malignant lesions',
-    url: getSearchLink('Hypermethylated CDO1 and CELF4 in cytological specimens as triage strategy biomarkers in endometrial malignant lesions'),
-    doi: '10.3389/fonc.2023.1289366',
-    institution: 'Cangzhou Central Hospital',
-    authors: 'Qi B, Sun Y, Lv Y, et al.',
-    journal: 'Frontiers in Oncology',
-    year: 2023,
-    category: StudyCategory.AUB_TRIAGE,
-    summary: 'Large cohort of 607 women. CDO1/CELF4 methylation was far superior to other clinical indicators.',
-    keyFinding: 'Dual-gene methylation achieved 84.9% sensitivity and 86.6% specificity for EC/AH. Combined with TVS, specificity reached 93.1%.',
-    metrics: { sensitivity: 84.9, specificity: 86.6, auc: 0.86 },
-    populationSize: 607
-  },
-  {
-    id: 'zhao-cjlm-2023',
-    title: 'Application of DNA methylation in detection of endometrial carcinoma in women with abnormal uterine bleeding at childbearing age',
-    url: getSearchLink('Application of DNA methylation in detection of endometrial carcinoma in women with abnormal uterine bleeding at childbearing age'),
-    doi: '10.3760/cma.j.cn114452-20221110-00670',
-    institution: 'Third Xiangya Hospital, Central South University',
-    authors: 'Zhao X, Xu D, Ma J, et al.',
-    journal: 'Chin J Lab Med',
-    year: 2023,
-    category: StudyCategory.PREMENOPAUSAL,
-    summary: '517 women of childbearing age. Prospective study.',
-    keyFinding: 'Dual gene methylation had the highest AUC (0.90) compared to BMI, ET, etc. Sensitivity 91.7%, Specificity 88.8%.',
-    metrics: { sensitivity: 91.7, specificity: 88.8, auc: 0.90 },
-    populationSize: 517
-  },
-  {
-    id: 'kong-nmjc-2023',
-    title: 'The role of DNA methylation in the screening of endometrial cancer in postmenopausal women',
-    url: getSearchLink('The role of DNA methylation in the screening of endometrial cancer in postmenopausal women'),
-    doi: '10.3760/cma.j.cn112137-20220929-02058',
-    institution: 'Peking Union Medical College Hospital',
-    authors: 'Kong L, Xiao X, Wan R, et al.',
-    journal: 'Natl Med J China',
-    year: 2023,
-    category: StudyCategory.POSTMENOPAUSAL,
-    summary: '143 postmenopausal women. Methylation accuracy was better than other non-invasive methods.',
-    keyFinding: 'Sensitivity 87.5%, Specificity 90.8%. TVS combined with DNA methylation reached 100% sensitivity.',
-    metrics: { sensitivity: 87.5, specificity: 90.8, auc: 0.89 },
-    populationSize: 143
-  }
-];
-
-export const CISOVA_STUDIES: Study[] = [
-  {
-    id: 'hou-cjlm-2024',
-    title: 'The significance of hypermethylation level of CDO1 gene and HOXA9 gene in serum in the diagnosis of ovarian cancer',
-    url: getSearchLink('The significance of hypermethylation level of CDO1 gene and HOXA9 gene in serum in the diagnosis of ovarian cancer'),
-    doi: '10.3760/cma.j.cn114452-20231115-00287',
-    institution: 'Chengdu Womens and Childrens Central Hospital',
-    authors: 'Hou Q, Yuan Y, Li Y, et al.',
-    journal: 'Chin J Lab Med',
-    year: 2024,
-    category: StudyCategory.DIAGNOSTIC_ACCURACY,
-    summary: 'Case-control study of 151 patients. Evaluated clinical application of cfDNA CDO1 and HOXA9 methylation for ovarian cancer.',
-    keyFinding: 'Dual gene methylation had the highest AUC (0.936). Sensitivity 89.7%, Specificity 97.5%. Detected 12/14 early stage (I-II) cases.',
-    metrics: { sensitivity: 89.7, specificity: 97.5, auc: 0.936 },
-    populationSize: 151
-  }
-];
 
 export const CISENDO_CHART_DATA: ChartDataPoint[] = [
   { name: 'CISENDO (Meth)', Sensitivity: 94.5, Specificity: 94.2 },
@@ -320,9 +18,24 @@ export const CISENDO_CHART_DATA: ChartDataPoint[] = [
 ];
 
 export const COMPARISON_DATA: ChartDataPoint[] = [
-  { name: 'Cytology (LBC)', Sensitivity: 53.0, Specificity: 62.0, ReferralReduction: 0 },
-  { name: 'HPV 16/18 Genotyping', Sensitivity: 60.0, Specificity: 62.0, ReferralReduction: 0 },
-  { name: 'PAX1/JAM3 Methylation', Sensitivity: 87.6, Specificity: 92.5, ReferralReduction: 70 },
+  { 
+    name: 'Cytology (LBC)', 
+    Sensitivity: 72.9, 
+    Specificity: 42.4, 
+    ReferralReduction: 0 
+  },
+  { 
+    name: 'HPV 16/18 Genotyping', 
+    Sensitivity: 55.7, 
+    Specificity: 66.1, 
+    ReferralReduction: 15 // Estimated minor improvement
+  },
+  { 
+    name: 'PAX1/JAM3 Methylation', 
+    Sensitivity: 89.6, 
+    Specificity: 96.5, 
+    ReferralReduction: 78 
+  },
 ];
 
 export const CISCER_INSTITUTIONS = [
@@ -374,10 +87,89 @@ export const CISOVA_INSTITUTIONS = [
   "Jiangsu Provincial People's Hospital",
   "International Peace Maternity and Child Health Hospital",
   "Gansu Provincial Maternity and Child-care Hospital",
-  "Shanxi Bethune Hospital",
-  "Chengdu Women's and Children's Central Hospital",
-  "Peking University Shenzhen Hospital"
 ];
+
+export const CISCER_CLINICAL_TRIAL = {
+  sensitivity: 89.6,
+  specificity: 96.5,
+  n: 1968,
+  source: 'Multi-center Clinical Trials (2024-2025)'
+};
+
+export interface ComparisonCategory {
+  id: string;
+  label: string;
+  label_zh: string;
+  description: string;
+  description_zh: string;
+  data: {
+    study: string;
+    method: string;
+    method_zh?: string;
+    sensitivity: number;
+    specificity: number;
+    highlight?: boolean;
+  }[];
+}
+
+export const CISCER_COMPARISON_CATEGORIES: ComparisonCategory[] = [
+  {
+    id: 'ascus',
+    label: 'ASC-US Triage',
+    label_zh: 'ASC-US 分流',
+    description: 'Triage of women with Atypical Squamous Cells of Undetermined Significance',
+    description_zh: '意义未明的非典型鳞状细胞（ASC-US）人群分流',
+    data: [
+      { study: 'Chen et al., 2024', method: 'CISCER (Methylation)', method_zh: 'CISCER (甲基化)', sensitivity: 83.8, specificity: 95.8, highlight: true },
+      { study: 'Chen et al., 2024', method: 'HPV Testing', method_zh: 'HPV 检测', sensitivity: 100.0, specificity: 10.8 },
+    ]
+  },
+  {
+    id: 'hpv1618',
+    label: 'HPV 16/18+',
+    label_zh: 'HPV 16/18+ 分流',
+    description: 'Triage of women positive for HPV 16/18',
+    description_zh: 'HPV 16/18 阳性人群分流',
+    data: [
+      { study: 'Fei et al., 2024', method: 'CISCER (Methylation)', method_zh: 'CISCER (甲基化)', sensitivity: 89.0, specificity: 95.3, highlight: true },
+      { study: 'Fei et al., 2024', method: 'Cytology (LBC)', method_zh: '细胞学 (LBC)', sensitivity: 72.0, specificity: 50.4 },
+    ]
+  },
+  {
+    id: 'non1618',
+    label: 'Non-16/18 HPV',
+    label_zh: '非16/18 HPV 分流',
+    description: 'Triage of women positive for High-Risk HPV (Non-16/18)',
+    description_zh: '非16/18型高危HPV阳性人群分流',
+    data: [
+      { study: 'Chen et al., 2024', method: 'CISCER (Methylation)', method_zh: 'CISCER (甲基化)', sensitivity: 84.8, specificity: 88.5, highlight: true },
+      { study: 'Chen et al., 2024', method: 'Cytology (ASC-US+)', method_zh: '细胞学 (ASC-US+)', sensitivity: 58.4, specificity: 90.1 },
+    ]
+  },
+  {
+    id: 'postmenopausal',
+    label: 'Postmenopausal',
+    label_zh: '绝经后女性',
+    description: 'Screening in postmenopausal women (Age ≥50)',
+    description_zh: '绝经后女性（≥50岁）筛查',
+    data: [
+      { study: 'Peng et al., 2025', method: 'CISCER (Methylation)', method_zh: 'CISCER (甲基化)', sensitivity: 93.2, specificity: 93.6, highlight: true },
+      { study: 'Peng et al., 2025', method: 'Cytology (LBC)', method_zh: '细胞学 (LBC)', sensitivity: 75.0, specificity: 52.3 },
+    ]
+  },
+  {
+    id: 'self',
+    label: 'Self-Sampling',
+    label_zh: '自取样检测',
+    description: 'Performance in self-collected vaginal samples',
+    description_zh: '阴道自取样样本检测性能',
+    data: [
+      { study: 'Yu et al., 2024', method: 'CISCER (Self-Sample)', method_zh: 'CISCER (自取样)', sensitivity: 77.6, specificity: 87.2, highlight: true },
+      { study: 'Yu et al., 2024', method: 'Physician-Sample', method_zh: '医生取样', sensitivity: 82.5, specificity: 87.8 },
+    ]
+  }
+];
+
 
 export const CERVICAL_GUIDELINES: Guideline[] = [
   {
