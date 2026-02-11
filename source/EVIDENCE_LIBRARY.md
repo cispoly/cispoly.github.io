@@ -1,6 +1,6 @@
 # CISCER
 
-## Efficacy of PAX1 and JAM3 methylation assay in the triage of ASC-US
+## Cervical cancer screening: efficacy of PAX1 and JAM3 methylation assay in the triage of atypical squamous cell of undetermined significance (ASC-US)
 - id: chen-bmc-2024
 - doi: 10.1186/s12885-024-11800-x
 - institution: Qilu Hospital, Shandong University

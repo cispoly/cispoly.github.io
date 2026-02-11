@@ -1,0 +1,24 @@
+{
+  "config": {
+    "id": "36a3b0b5-bad0-4a04-b79b-441c7cef77db",
+    "label": "BetterBibTeX JSON",
+    "preferences": {},
+    "options": {
+      "Items": false,
+      "Normalize": false,
+      "Preferences": false,
+      "exportFileData": false,
+      "exportNotes": false,
+      "keepUpdated": false,
+      "worker": false,
+      "exportDir": "D:\\Coding\\CISPOLY\\source",
+      "exportPath": "D:\\Coding\\CISPOLY\\source\\导出的条目.json"
+    }
+  },
+  "version": {
+    "zotero": "8.0.2",
+    "bbt": "7.0.76"
+  },
+  "collections": {},
+  "items": []
+}
