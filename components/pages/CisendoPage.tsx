@@ -167,7 +167,7 @@ const CisendoPage: React.FC = () => {
               onClick={() => document.getElementById('evidence')?.scrollIntoView({ behavior: 'smooth' })}
               className="group relative px-8 py-4 bg-rose-800 text-white rounded-full font-serif text-lg hover:bg-rose-900 transition-all shadow-lg shadow-rose-900/20 overflow-hidden"
             >
-              <span className="relative z-10 flex items-center gap-2">
+              <span className="relative z-10 flex items-center justify-center gap-2">
                 {t('hero.btn.evidence')} <ChevronDown size={18} className="group-hover:translate-y-1 transition-transform"/>
               </span>
             </button>

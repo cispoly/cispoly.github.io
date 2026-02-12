@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList, Cell } from 'recharts';
 import { ChartDataPoint } from '../types';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -39,6 +39,14 @@ const InteractiveCharts: React.FC<Props> = ({ data, title, subtitle }) => {
                <linearGradient id="colorRed" x1="0" y1="0" x2="0" y2="1">
                  <stop offset="5%" stopColor="#0d9488" stopOpacity={0.9}/>
                  <stop offset="95%" stopColor="#0f766e" stopOpacity={0.6}/>
+               </linearGradient>
+               <linearGradient id="colorTealSen" x1="0" y1="0" x2="0" y2="1">
+                 <stop offset="5%" stopColor="#0d9488" stopOpacity={0.9}/>
+                 <stop offset="95%" stopColor="#0f766e" stopOpacity={0.6}/>
+               </linearGradient>
+               <linearGradient id="colorTealSpec" x1="0" y1="0" x2="0" y2="1">
+                 <stop offset="5%" stopColor="#5eead4" stopOpacity={0.9}/>
+                 <stop offset="95%" stopColor="#2dd4bf" stopOpacity={0.6}/>
                </linearGradient>
             </defs>
             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
@@ -108,13 +116,15 @@ const InteractiveCharts: React.FC<Props> = ({ data, title, subtitle }) => {
             <Bar 
               dataKey="Sensitivity" 
               name={t('charts.sensitivity')} 
-              fill="url(#colorSen)" 
               radius={[6, 6, 0, 0]} 
               maxBarSize={40}
               animationBegin={0}
               animationDuration={1500}
               animationEasing="ease-out"
             >
+               {data.map((entry, index) => (
+                 <Cell key={`cell-sen-${index}`} fill={entry.name.includes('CISENDO') ? 'url(#colorTealSen)' : 'url(#colorSen)'} />
+               ))}
                <LabelList dataKey="Sensitivity" position="top" fill="#64748b" fontSize={10} formatter={(val: number) => `${val}%`} />
             </Bar>
 
@@ -122,13 +132,15 @@ const InteractiveCharts: React.FC<Props> = ({ data, title, subtitle }) => {
             <Bar 
               dataKey="Specificity" 
               name={t('charts.specificity')} 
-              fill="url(#colorSpec)" 
               radius={[6, 6, 0, 0]} 
               maxBarSize={40}
               animationBegin={200}
               animationDuration={1500}
               animationEasing="ease-out"
             >
+               {data.map((entry, index) => (
+                 <Cell key={`cell-spec-${index}`} fill={entry.name.includes('CISENDO') ? 'url(#colorTealSpec)' : 'url(#colorSpec)'} />
+               ))}
                <LabelList dataKey="Specificity" position="top" fill="#64748b" fontSize={10} formatter={(val: number) => `${val}%`} />
             </Bar>
 

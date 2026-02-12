@@ -44,7 +44,7 @@ const CiscerPerformanceSection: React.FC = () => {
   };
 
   return (
-    <div className="py-12 relative overflow-hidden">
+    <div className="py-8 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-100/30 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-rose-100/30 rounded-full blur-3xl -z-10" />
@@ -52,7 +52,7 @@ const CiscerPerformanceSection: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-5">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-50 border border-teal-100 text-teal-800 text-sm font-bold uppercase tracking-wider mb-4">
             <Users size={16} />
             {t('charts.badge.clinical')}
@@ -66,13 +66,13 @@ const CiscerPerformanceSection: React.FC = () => {
         </div>
 
         {/* 1. Clinical Trial Highlights (New Prominent Section) */}
-        <div className="mb-10">
-          <div className="glass-card rounded-2xl p-6 border border-teal-100/50 shadow-lg bg-gradient-to-r from-teal-50/80 to-white/90 backdrop-blur-md relative overflow-hidden">
+        <div className="mb-6">
+          <div className="glass-card rounded-2xl p-4 border border-teal-100/50 shadow-lg bg-gradient-to-r from-teal-50/80 to-white/90 backdrop-blur-md relative overflow-hidden">
             <div className="absolute top-0 right-0 p-4 opacity-10">
               <Activity size={100} className="text-teal-600" />
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center relative z-10">
               <div className="md:col-span-1">
                 <h3 className="text-lg font-bold text-slate-800 mb-2 flex items-center gap-2">
                   <FileText className="text-teal-600" size={18}/>
@@ -110,7 +110,7 @@ const CiscerPerformanceSection: React.FC = () => {
         </div>
 
         {/* 2. Population Comparison (Tabbed & Compact) */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div className="flex flex-wrap justify-center gap-2">
             {CISCER_COMPARISON_CATEGORIES.map((category) => (
               <button
@@ -127,7 +127,7 @@ const CiscerPerformanceSection: React.FC = () => {
             ))}
           </div>
 
-          <div className="glass-card rounded-2xl p-5 border border-white/50 shadow-xl bg-white/60 backdrop-blur-md">
+          <div className="glass-card rounded-2xl p-4 border border-white/50 shadow-xl bg-white/60 backdrop-blur-md">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
@@ -138,30 +138,30 @@ const CiscerPerformanceSection: React.FC = () => {
                 className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center"
               >
                 {/* Left Column: Context */}
-                <div className="lg:col-span-4 space-y-4">
+                <div className="lg:col-span-4 space-y-3">
                   <div>
                     <h3 className="text-lg font-bold text-slate-800 mb-1">
                       {getLocalizedText(activeCategory, 'label')}
                     </h3>
-                    <p className="text-slate-600 text-xs leading-relaxed">
+                    <p className="text-slate-600 text-xs leading-relaxed line-clamp-2">
                       {getLocalizedText(activeCategory, 'description')}
                     </p>
                   </div>
 
-                  <div className="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                    <div className="flex items-center gap-2 mb-2 text-teal-800 font-bold text-[10px] uppercase tracking-wider">
+                  <div className="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                    <div className="flex items-center gap-2 mb-1.5 text-teal-800 font-bold text-[10px] uppercase tracking-wider">
                       <CheckCircle2 size={12} className="text-teal-500" />
                       CISCER Performance
                     </div>
                     <div className="flex justify-between items-center px-2">
                       <div className="text-center">
-                        <div className="text-xl font-bold text-slate-800">{ciscerData.sensitivity}%</div>
-                        <div className="text-[10px] text-slate-500 font-medium uppercase">{t('charts.sensitivity')}</div>
+                        <div className="text-lg font-bold text-slate-800">{ciscerData.sensitivity}%</div>
+                        <div className="text-[9px] text-slate-500 font-medium uppercase">{t('charts.sensitivity')}</div>
                       </div>
-                      <div className="h-6 w-px bg-slate-200" />
+                      <div className="h-5 w-px bg-slate-200" />
                       <div className="text-center">
-                        <div className="text-xl font-bold text-slate-800">{ciscerData.specificity}%</div>
-                        <div className="text-[10px] text-slate-500 font-medium uppercase">{t('charts.specificity')}</div>
+                        <div className="text-lg font-bold text-slate-800">{ciscerData.specificity}%</div>
+                        <div className="text-[9px] text-slate-500 font-medium uppercase">{t('charts.specificity')}</div>
                       </div>
                     </div>
                   </div>
@@ -173,14 +173,14 @@ const CiscerPerformanceSection: React.FC = () => {
                 </div>
 
                 {/* Right Column: Visualization (Compacted) */}
-                <div className="lg:col-span-8 h-[280px]">
+                <div className="lg:col-span-8 h-[180px]">
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart
                       data={activeCategory.data}
                       layout="vertical"
-                      margin={{ top: 5, right: 30, left: 5, bottom: 5 }}
-                      barGap={6}
-                      barCategoryGap={24}
+                      margin={{ top: 2, right: 30, left: 2, bottom: 2 }}
+                      barGap={2}
+                      barCategoryGap={12}
                     >
                       <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e2e8f0" />
                       <XAxis type="number" domain={[0, 100]} hide />
@@ -217,7 +217,7 @@ const CiscerPerformanceSection: React.FC = () => {
                           return null;
                         }}
                       />
-                      <Bar dataKey="sensitivity" name={t('charts.sensitivity')} radius={[0, 4, 4, 0]} barSize={24}>
+                      <Bar dataKey="sensitivity" name={t('charts.sensitivity')} radius={[0, 4, 4, 0]} barSize={16}>
                         {activeCategory.data.map((entry, index) => (
                           <Cell key={`sen-${index}`} fill={entry.highlight ? '#0d9488' : '#cbd5e1'} />
                         ))}
@@ -226,7 +226,7 @@ const CiscerPerformanceSection: React.FC = () => {
                           content={(props) => <CustomBarLabel {...props} labelPrefix={t('charts.sensitivity')} />}
                         />
                       </Bar>
-                      <Bar dataKey="specificity" name={t('charts.specificity')} radius={[0, 4, 4, 0]} barSize={24}>
+                      <Bar dataKey="specificity" name={t('charts.specificity')} radius={[0, 4, 4, 0]} barSize={16}>
                         {activeCategory.data.map((entry, index) => (
                           <Cell key={`spec-${index}`} fill={entry.highlight ? '#5eead4' : '#e2e8f0'} />
                         ))}
@@ -243,7 +243,7 @@ const CiscerPerformanceSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="text-center mt-6 text-[10px] text-slate-400">
+        <div className="text-center mt-4 text-[10px] text-slate-400">
           {t('charts.footer')}
         </div>
       </div>

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Building2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import InstitutionMap from './map/InstitutionMap';
 
 interface Props {
   institutions?: string[];
@@ -30,15 +31,25 @@ const Institutions: React.FC<Props> = ({ institutions = DEFAULT_INSTITUTIONS }) 
         <h2 className="text-3xl font-serif text-slate-800 italic">{t('inst.title')}</h2>
         <p className="text-slate-500 mt-2 font-light">{t('inst.desc')}</p>
       </div>
-      
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-        {institutions.map((inst, i) => (
-          <div key={i} className="glass-card p-3 rounded-lg hover:shadow-sm hover:border-teal-100 transition-all duration-300 flex flex-col items-center text-center group h-full justify-center min-h-[80px]">
-            <p className="text-slate-600 font-medium text-xs leading-snug group-hover:text-slate-900 font-serif">
-              {inst}
-            </p>
+
+      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+        {/* Left: Map */}
+        <div className="w-full lg:w-1/2 min-h-[400px]">
+          <InstitutionMap institutions={institutions} className="h-full" />
+        </div>
+
+        {/* Right: Institution List */}
+        <div className="w-full lg:w-1/2">
+          <div className="grid grid-cols-2 gap-3 h-full content-start overflow-y-auto max-h-[600px] pr-2 custom-scrollbar">
+            {institutions.map((inst, i) => (
+              <div key={i} className="glass-card p-3 rounded-lg hover:shadow-sm hover:border-teal-100 transition-all duration-300 flex flex-col items-center text-center group justify-center min-h-[80px]">
+                <p className="text-slate-600 font-medium text-xs leading-snug group-hover:text-slate-900 font-serif">
+                  {inst}
+                </p>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );
