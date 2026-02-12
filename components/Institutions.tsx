@@ -31,16 +31,12 @@ const Institutions: React.FC<Props> = ({ institutions = DEFAULT_INSTITUTIONS }) 
         <p className="text-slate-500 mt-2 font-light">{t('inst.desc')}</p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
         {institutions.map((inst, i) => (
-          <div key={i} className="glass-card p-6 rounded-xl hover:shadow-md hover:border-teal-100 transition-all duration-300 flex flex-col items-center text-center group h-full justify-center">
-            <div className="w-12 h-12 rounded-full bg-slate-50 text-slate-400 group-hover:bg-teal-50 group-hover:text-teal-600 flex items-center justify-center mb-4 transition-colors">
-              <Building2 size={20} />
-            </div>
-            <p className="text-slate-600 font-medium text-sm leading-snug group-hover:text-slate-900 font-serif">
+          <div key={i} className="glass-card p-3 rounded-lg hover:shadow-sm hover:border-teal-100 transition-all duration-300 flex flex-col items-center text-center group h-full justify-center min-h-[80px]">
+            <p className="text-slate-600 font-medium text-xs leading-snug group-hover:text-slate-900 font-serif">
               {inst}
             </p>
-            <div className="w-8 h-1 bg-slate-100 mt-4 rounded-full group-hover:bg-teal-200 transition-colors"></div>
           </div>
         ))}
       </div>

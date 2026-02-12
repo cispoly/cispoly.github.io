@@ -254,7 +254,7 @@ const CisendoPage: React.FC = () => {
               <h2 className="text-4xl font-serif text-slate-800 mb-3 italic">{t('lib.title')}</h2>
               <p className="text-slate-500 font-light">{t('lib.desc')}</p>
             </div>
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 w-full md:w-auto hide-scrollbar">
+            <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
               <Filter size={18} className="text-slate-400 flex-shrink-0" />
               {categories.map(cat => (
                 <button

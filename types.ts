@@ -2,8 +2,17 @@
 export enum StudyCategory {
   ASCUS_TRIAGE = 'ASC-US Triage',
   HR_HPV_NON16_18 = 'Non-16/18 hrHPV',
+  HPV_16_18_TRIAGE = 'HPV 16/18 Triage',
+  HR_HPV_TRIAGE = 'hrHPV Triage',
   POSTMENOPAUSAL = 'Postmenopausal / Older Women',
   SELF_SAMPLING = 'Self-Sampling',
+  MINIMALLY_ABNORMAL = 'Minimally Abnormal Results',
+  PATHOLOGICAL_UPGRADING = 'Pathological Upgrading',
+  VAGINAL_DYSBIOSIS = 'Vaginal Dysbiosis',
+  HPV_GENOTYPING_TRIAGE = 'HPV Genotyping Triage',
+  HSIL_DIAGNOSIS = 'HSIL Diagnosis',
+  MRNA_TRIAGE = 'mRNA Triage',
+  TREATMENT_PROTOCOL = 'Treatment Protocol',
   CLINICAL_OUTCOMES = 'Clinical Outcomes & Prediction',
   METHODOLOGY = 'Methodology Comparison',
   // New Categories for CISENDO
@@ -22,15 +31,21 @@ export interface StudyMetrics {
 export interface Study {
   id: string;
   title: string;
+  title_zh?: string; // Bilingual support
   url: string; // Used for the main link
   doi?: string; // Display text for DOI
   institution: string; // Primary institution
+  institution_zh?: string; // Bilingual support
   authors: string;
+  authors_zh?: string; // Bilingual support
   journal: string;
+  journal_zh?: string; // Bilingual support
   year: number;
   category: StudyCategory;
   summary: string;
+  summary_zh?: string; // Bilingual support
   keyFinding: string;
+  keyFinding_zh?: string; // Bilingual support
   metrics: StudyMetrics;
   populationSize?: number;
 }

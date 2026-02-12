@@ -48,8 +48,6 @@ export const parseStudies = (markdown: string): StudyCollection => {
       
       const metadata: any = {};
       const metrics: any = {};
-      let summaryLines: string[] = [];
-      let isReadingSummary = false;
 
       body.forEach(line => {
         const trimmed = line.trim();
@@ -57,7 +55,7 @@ export const parseStudies = (markdown: string): StudyCollection => {
 
         // Check for list items (metadata)
         const match = trimmed.match(/^-\s+([^:]+):\s*(.+)$/);
-        if (match && !isReadingSummary) {
+        if (match) {
           const key = match[1].trim();
           const value = match[2].trim();
           
@@ -69,14 +67,6 @@ export const parseStudies = (markdown: string): StudyCollection => {
           } else {
             metadata[key] = value;
           }
-        } else {
-          // If it's not a metadata list item, treat as summary/description
-          // But exclude lines that look like list items but aren't keys we know? 
-          // For simplicity, assume all metadata comes before summary text blocks
-          if (!trimmed.startsWith('- ')) {
-            isReadingSummary = true;
-            summaryLines.push(trimmed);
-          }
         }
       });
 
@@ -84,15 +74,21 @@ export const parseStudies = (markdown: string): StudyCollection => {
       return {
         id: metadata.id || title.toLowerCase().replace(/\s+/g, '-'),
         title: title,
+        title_zh: metadata.title_zh,
         url: metadata.url || getSearchLink(title),
         doi: metadata.doi,
         institution: metadata.institution || '',
+        institution_zh: metadata.institution_zh,
         authors: metadata.authors || '',
+        authors_zh: metadata.authors_zh,
         journal: metadata.journal || '',
+        journal_zh: metadata.journal_zh,
         year: metadata.year || new Date().getFullYear(),
         category: mapCategory(metadata.category || ''),
-        summary: summaryLines.join(' ').trim() || metadata.summary || '',
+        summary: metadata.summary || '',
+        summary_zh: metadata.summary_zh,
         keyFinding: metadata.keyFinding || '',
+        keyFinding_zh: metadata.keyFinding_zh,
         metrics: {
           sensitivity: metrics.sensitivity,
           specificity: metrics.specificity,

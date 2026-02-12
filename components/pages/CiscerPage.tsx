@@ -23,8 +23,17 @@ const CiscerPage: React.FC = () => {
     switch(cat) {
       case StudyCategory.ASCUS_TRIAGE: return t('lib.filter.ASCUS');
       case StudyCategory.HR_HPV_NON16_18: return t('lib.filter.Non1618');
+      case StudyCategory.HPV_16_18_TRIAGE: return t('lib.filter.HPV1618');
+      case StudyCategory.HR_HPV_TRIAGE: return t('lib.filter.HrHPV');
       case StudyCategory.POSTMENOPAUSAL: return t('lib.filter.Postmen');
       case StudyCategory.SELF_SAMPLING: return t('lib.filter.Self');
+      case StudyCategory.MINIMALLY_ABNORMAL: return t('lib.filter.MiniAbnormal');
+      case StudyCategory.PATHOLOGICAL_UPGRADING: return t('lib.filter.PathUpgrade');
+      case StudyCategory.VAGINAL_DYSBIOSIS: return t('lib.filter.Dysbiosis');
+      case StudyCategory.HPV_GENOTYPING_TRIAGE: return t('lib.filter.Genotyping');
+      case StudyCategory.HSIL_DIAGNOSIS: return t('lib.filter.HSIL');
+      case StudyCategory.MRNA_TRIAGE: return t('lib.filter.mRNA');
+      case StudyCategory.TREATMENT_PROTOCOL: return t('lib.filter.Protocol');
       case StudyCategory.CLINICAL_OUTCOMES: return t('lib.filter.Outcome');
       case StudyCategory.METHODOLOGY: return t('lib.filter.Method');
       default: return cat;
@@ -166,14 +175,16 @@ const CiscerPage: React.FC = () => {
           <CiscerPerformanceSection />
         </div>
         <div id="simulator" className="mb-32 scroll-mt-20"><TriageSimulator /></div>
-        <div className="mb-32"><Institutions institutions={CISCER_INSTITUTIONS} /></div>
+        <div className="mb-32">
+          <Institutions institutions={CISCER_INSTITUTIONS} />
+        </div>
         <div id="evidence" className="scroll-mt-20">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div>
               <h2 className="text-4xl font-serif text-slate-800 mb-3 italic">{t('lib.title')}</h2>
               <p className="text-slate-500 font-light">{t('lib.desc')}</p>
             </div>
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 w-full md:w-auto hide-scrollbar">
+            <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
               <Filter size={18} className="text-slate-400 flex-shrink-0" />
               {categories.map(cat => (
                 <button
