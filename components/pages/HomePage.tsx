@@ -5,6 +5,7 @@ import { ArrowRight, Microscope, Target, Droplet, Shield, Activity, Sparkles, Ch
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Link } from 'react-router-dom';
 import SEO from '../SEO';
+import MethylationProcessAnimation from '../MethylationProcessAnimation';
 
 // Product Data Definition
 const products = [
@@ -489,27 +490,14 @@ const HomePage: React.FC = () => {
                     </div>
                 </div>
                 <div className="flex-1 flex justify-center">
-                    <div className="relative w-80 h-80">
-                        {/* Visual Metaphor for Methylation */}
-                        <div className="absolute inset-0 bg-slate-900 rounded-full opacity-5 scale-90"></div>
-                        <div className="absolute inset-0 border border-slate-200 rounded-full animate-[spin_20s_linear_infinite]"></div>
-                        <div className="absolute inset-4 border border-slate-200 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
-                        
-                        <div className="absolute inset-0 flex items-center justify-center">
-                             <div className="text-center">
-                                <Sparkles className="mx-auto mb-2 text-slate-400" size={32} />
-                                <span className="block font-serif text-2xl text-slate-700">Epigenetic</span>
-                                <span className="block text-xs uppercase tracking-widest text-slate-400">Marker</span>
-                             </div>
-                        </div>
-
-                        {/* Orbiting Icons */}
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-4 bg-white p-3 rounded-full shadow-md">
-                            <Shield size={24} className="text-teal-500" />
-                        </div>
-                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-4 bg-white p-3 rounded-full shadow-md">
-                            <Activity size={24} className="text-rose-500" />
-                        </div>
+                    <div className="w-full max-w-sm h-[500px]">
+                        <MethylationProcessAnimation 
+                             sourceText="Tumor Site"
+                             collectionText="Sample Collection"
+                             detectionText="PCR Analysis"
+                             markerText="Epigenetic Markers"
+                             className="shadow-xl border border-white/50 bg-white/30 backdrop-blur-sm"
+                        />
                     </div>
                 </div>
             </div>

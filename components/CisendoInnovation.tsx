@@ -2,6 +2,7 @@
 import React from 'react';
 import { Dna, ArrowDown, Activity, Layers } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import MethylationProcessAnimation from './MethylationProcessAnimation';
 
 const CisendoInnovation: React.FC = () => {
   const { t } = useLanguage();
@@ -37,37 +38,8 @@ const CisendoInnovation: React.FC = () => {
             <div className="glass-card p-8 rounded-[2rem] bg-gradient-to-b from-white/80 to-rose-50/50">
                 <h3 className="text-xl font-serif text-slate-800 mb-6 text-center">{t('inn.mechanism')}</h3>
                 
-                <div className="flex flex-col items-center gap-4">
-                    <div className="w-full flex justify-center">
-                        <div className="w-40 h-24 bg-rose-100 rounded-[2rem] flex flex-col items-center justify-center border border-rose-200 shadow-sm relative overflow-hidden">
-                            <span className="text-xs font-bold text-rose-800 uppercase tracking-widest z-10">Endometrium</span>
-                            <div className="absolute w-full h-full opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-rose-400 via-rose-100 to-transparent"></div>
-                        </div>
-                    </div>
-                    
-                    <div className="flex flex-col items-center">
-                        <span className="text-[10px] text-slate-400 mb-1">Weak Adhesion</span>
-                        <ArrowDown className="text-rose-300 animate-bounce" />
-                    </div>
-
-                    <div className="w-full flex justify-center">
-                        <div className="w-28 h-28 rounded-full border-2 border-dashed border-rose-300 flex items-center justify-center p-2 relative bg-white/50">
-                            <div className="w-3 h-3 bg-rose-500 rounded-full absolute top-4 left-8 animate-pulse"></div>
-                            <div className="w-2 h-2 bg-rose-400 rounded-full absolute bottom-6 right-8 animate-pulse delay-75"></div>
-                            <div className="w-2 h-2 bg-rose-600 rounded-full absolute top-10 right-4 animate-pulse delay-150"></div>
-                            <span className="text-[10px] text-slate-500 text-center font-medium leading-tight">Shedding into<br/>Cervical Canal</span>
-                        </div>
-                    </div>
-
-                    <ArrowDown className="text-rose-300" />
-
-                    <div className="w-full flex justify-center">
-                        <div className="w-40 h-14 bg-teal-50 rounded-xl flex items-center justify-center border border-teal-200 shadow-sm">
-                            <span className="text-xs font-bold text-teal-800 uppercase tracking-widest flex items-center gap-2">
-                                <Dna size={14} /> PCR Detection
-                            </span>
-                        </div>
-                    </div>
+                <div className="w-full">
+                    <MethylationProcessAnimation />
                 </div>
 
                 <p className="text-sm text-slate-500 mt-8 text-center leading-relaxed font-light px-4">
