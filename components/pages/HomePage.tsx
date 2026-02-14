@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Microscope, Target, Droplet, Shield, Activity, Sparkles, ChevronRight, FileText, Check, Heart, Users } from 'lucide-react';
+import { ArrowRight, Microscope, Target, Droplet, Shield, Activity, Sparkles, ChevronRight, FileText, Check, Heart, Users, Info } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Link } from 'react-router-dom';
 import SEO from '../SEO';
@@ -203,7 +203,7 @@ const InteractiveProductShowcase: React.FC = () => {
                           <div className="grid grid-cols-3 gap-2">
                              {/* Missed by Imaging */}
                              <div className="bg-white p-2 rounded-xl border border-slate-100 shadow-sm text-center">
-                                <div className="text-[10px] text-slate-400 font-bold uppercase mb-1">Missed by Imaging</div>
+                                <div className="text-[10px] text-slate-400 font-bold uppercase mb-1">{t('cisendo.perf.missed')}</div>
                                 <div className="text-xl font-serif text-slate-700 font-bold">~55%</div>
                                 <div className="mt-2 w-full bg-slate-100 rounded-full h-1">
                                    <div className="bg-slate-400 h-1 rounded-full" style={{ width: '55%' }}></div>
@@ -213,16 +213,21 @@ const InteractiveProductShowcase: React.FC = () => {
                              {/* Rescued by Methylation */}
                              <div className="bg-white p-2 rounded-xl border border-rose-100 shadow-sm text-center relative overflow-hidden">
                                 <div className="absolute top-0 right-0 w-8 h-8 bg-rose-50 rounded-bl-xl -mr-2 -mt-2"></div>
-                                <div className="text-[10px] text-rose-500 font-bold uppercase mb-1">Rescued</div>
+                                <div className="text-[10px] text-rose-500 font-bold uppercase mb-1">
+                                   {t('cisendo.perf.rescued')}
+                                </div>
                                 <div className="text-xl font-serif text-rose-600 font-bold">50%</div>
-                                <div className="mt-2 w-full bg-rose-100 rounded-full h-1">
+                                <div className="text-[8px] leading-tight text-slate-500 px-1 my-1 scale-90 origin-top">
+                                   {t('cisendo.perf.rescued.tooltip')}
+                                </div>
+                                <div className="mt-1 w-full bg-rose-100 rounded-full h-1">
                                    <div className="bg-rose-500 h-1 rounded-full" style={{ width: '50%' }}></div>
                                 </div>
                              </div>
 
                              {/* Follow-up Success */}
                              <div className="bg-white p-2 rounded-xl border border-teal-100 shadow-sm text-center">
-                                <div className="text-[10px] text-teal-600 font-bold uppercase mb-1">Follow-up</div>
+                                <div className="text-[10px] text-teal-600 font-bold uppercase mb-1">{t('cisendo.perf.followup')}</div>
                                 <div className="flex items-center justify-center gap-1">
                                    <span className="text-lg font-serif text-teal-600 font-bold">3</span>
                                    <span className="text-[8px] text-slate-400 font-bold">EC</span>
@@ -230,7 +235,7 @@ const InteractiveProductShowcase: React.FC = () => {
                                    <span className="text-[8px] text-slate-400 font-bold">EIN</span>
                                 </div>
                                 <div className="mt-2 flex justify-center items-center gap-1 text-[8px] text-slate-400">
-                                   <Activity size={8} /> <span>Cohort ~1000</span>
+                                   <Activity size={8} /> <span>{t('cisendo.perf.cohort')} ~1000</span>
                                 </div>
                              </div>
                           </div>

@@ -167,6 +167,16 @@ const translations: Translations = {
     zh: "对于AUB或高危因素女性，经阴道超声(TVS)联合甲基化检测可显著提高诊断准确性。甲基化阳性提示子宫内膜恶性病变可能性高，建议进行侵入性评估。" 
   },
 
+  // CISENDO Performance Card
+  'cisendo.perf.missed': { en: "Missed by Imaging", zh: "影像学漏诊" },
+  'cisendo.perf.rescued': { en: "Rescued", zh: "挽回漏诊" },
+  'cisendo.perf.rescued.tooltip': { 
+    en: "Reduces 50% of missed diagnoses caused by imaging through methylation.", 
+    zh: "通过应用甲基化方法，降低了影像学造成的 50% 的漏诊。" 
+  },
+  'cisendo.perf.followup': { en: "Follow-up", zh: "随访" },
+  'cisendo.perf.cohort': { en: "Cohort", zh: "队列" },
+
   // Footer / Common
   'footer.disclaimer': { en: "© 2020 - 2026 CISPOLY Biotech. For healthcare professional use only.", zh: "© 2020 - 2026 起源聚禾生物。仅供医疗专业人士参考。" },
   'inst.collab': { en: "Collaborations", zh: "合作机构" },
