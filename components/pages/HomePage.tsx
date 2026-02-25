@@ -76,7 +76,7 @@ const InteractiveProductShowcase: React.FC = () => {
   };
 
   return (
-    <div className="w-full h-[800px] md:h-[600px] flex flex-col md:flex-row gap-4" onMouseLeave={() => setActiveId(null)}>
+    <div className="w-full h-[900px] md:h-[600px] flex flex-col md:flex-row gap-4" onMouseLeave={() => setActiveId(null)}>
       {products.map((product) => {
         const isActive = activeId === product.id;
         const isInactive = activeId !== null && activeId !== product.id;
@@ -134,14 +134,14 @@ const InteractiveProductShowcase: React.FC = () => {
                     animate={{ opacity: 1 }} 
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="flex-grow flex flex-col"
+                    className="flex-grow flex flex-col overflow-y-auto pr-1"
                   >
-                    <p className="text-slate-600 font-light leading-relaxed mb-4 max-w-lg">
+                    <p className="text-slate-600 font-light leading-relaxed mb-4 max-w-lg flex-shrink-0">
                       {t(`home.products.${product.id}.desc`)}
                     </p>
 
                     {/* Features List - Hidden on mobile default state */}
-                    <div className={`space-y-3 mb-4 ${!isActive ? 'hidden md:block' : ''}`}>
+                    <div className={`space-y-3 mb-4 flex-shrink-0 ${!isActive ? 'hidden md:block' : ''}`}>
                        {(isActive && product.detailedFeatures ? product.detailedFeatures : product.features).map((feat, i) => (
                          <div key={i} className="flex items-center gap-3 text-sm text-slate-700 font-medium">
                             <Check size={16} className={`flex-shrink-0 ${c.text}`} />
@@ -170,7 +170,7 @@ const InteractiveProductShowcase: React.FC = () => {
 
                     {/* CISCER Clinical Pathway Diagram */}
                     {product.id === 'ciscer' && isActive && (
-                      <div className="mb-2 bg-slate-900 rounded-2xl p-2 md:p-4 border border-white/10 animate-in fade-in zoom-in duration-300 overflow-hidden">
+                      <div className="mb-2 bg-slate-900 rounded-2xl p-2 md:p-4 border border-white/10 animate-in fade-in zoom-in duration-300 overflow-hidden flex-shrink-0">
                         <h3 className="text-[10px] uppercase tracking-widest text-teal-400 mb-2 text-center font-bold">Clinical Pathway</h3>
                         <div className="flex justify-center w-full">
                           <svg width="100%" viewBox="0 0 800 280" className="w-full h-auto max-h-[120px]">
@@ -199,7 +199,7 @@ const InteractiveProductShowcase: React.FC = () => {
 
                     {/* CISENDO Clinical Performance (Compact) */}
                     {product.id === 'cisendo' && isActive && (
-                       <div className="mb-2 bg-slate-50 rounded-2xl p-3 border border-slate-200 animate-in fade-in zoom-in duration-300">
+                       <div className="mb-2 bg-slate-50 rounded-2xl p-3 border border-slate-200 animate-in fade-in zoom-in duration-300 flex-shrink-0">
                           <h3 className="text-[10px] uppercase tracking-widest text-rose-600 mb-3 text-center font-bold">Clinical Performance</h3>
                           <div className="grid grid-cols-3 gap-2">
                              {/* Missed by Imaging */}
@@ -245,7 +245,7 @@ const InteractiveProductShowcase: React.FC = () => {
 
                     {/* CISOVA Clinical Performance (Compact) */}
                     {product.id === 'cisova' && isActive && (
-                       <div className="mb-2 bg-slate-50 rounded-2xl p-3 border border-slate-200 animate-in fade-in zoom-in duration-300">
+                       <div className="mb-4 bg-slate-50 rounded-2xl p-3 border border-slate-200 animate-in fade-in zoom-in duration-300 flex-shrink-0">
                           <h3 className="text-[10px] uppercase tracking-widest text-red-600 mb-3 text-center font-bold">Clinical Performance</h3>
                           <div className="grid grid-cols-2 gap-3">
                              {/* Superior Accuracy */}
@@ -292,14 +292,14 @@ const InteractiveProductShowcase: React.FC = () => {
                     )}
 
                     {/* Stats Area (Only visible when active/default) */}
-                    <div className="mt-auto p-3 md:p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-between gap-2">
-                       <div className="flex gap-4 md:gap-8 min-w-0">
-                          <div className="flex-shrink-0">
-                             <div className={`text-xl md:text-2xl font-bold ${c.text}`}>{product.stats.sensitivity}</div>
+                     <div className="mt-auto p-2 md:p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-between gap-2 flex-shrink-0">
+                       <div className="flex gap-2 md:gap-8 min-w-0 flex-1">
+                          <div className="min-w-0 flex-shrink-0">
+                             <div className={`text-base sm:text-lg md:text-2xl font-bold whitespace-nowrap ${c.text}`}>{product.stats.sensitivity}</div>
                              <div className="text-[10px] md:text-xs text-slate-500 uppercase tracking-wide">Sensitivity</div>
                           </div>
-                          <div className="flex-shrink-0">
-                             <div className={`text-xl md:text-2xl font-bold ${c.text}`}>{product.stats.specificity}</div>
+                          <div className="min-w-0 flex-shrink-0">
+                             <div className={`text-base sm:text-lg md:text-2xl font-bold whitespace-nowrap ${c.text}`}>{product.stats.specificity}</div>
                              <div className="text-[10px] md:text-xs text-slate-500 uppercase tracking-wide">Specificity</div>
                           </div>
                        </div>
