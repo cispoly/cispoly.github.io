@@ -378,9 +378,10 @@ const translations: Translations = {
   'contact.title': { en: "Contact Us", zh: "联系我们" },
   'contact.subtitle': { en: "Get in touch with our team.", zh: "与我们的团队取得联系。" },
   'contact.address.label': { en: "Address", zh: "地址" },
-  'contact.address.value': { en: "Huatuo Road, Daxing District, Beijing, China", zh: "中国北京市大兴区华佗路" },
+  'contact.address.value': { en: "No. 5, Building 5, Yard 50, Huatuo Road, Daxing District, Beijing, China (Postal Code: 102609)", zh: "中国北京市大兴区华佗路50号院5号楼（邮政编码：102609）" },
   'contact.email.label': { en: "Email", zh: "邮箱" },
   'contact.tel.label': { en: "Phone", zh: "电话" },
+  'contact.map.viewLarger': { en: "View Larger Map", zh: "查看大图" },
   'contact.form.title': { en: "Send us a message", zh: "发送消息" },
   'contact.form.success': { en: "Message Sent!", zh: "消息已发送！" },
   'contact.form.name': { en: "Name", zh: "姓名" },
@@ -470,6 +471,9 @@ const translations: Translations = {
   'contact.error.connection': { en: "There was a problem submitting your form. Please check your connection.", zh: "提交表单时出现问题。请检查您的连接。" },
   'contact.form.thankYou': { en: "We will get back to you shortly.", zh: "我们会尽快回复您。" },
   'contact.form.sendAnother': { en: "Send another message", zh: "发送另一条消息" },
+  'contact.validation.name': { en: "Please enter your name", zh: "请输入您的姓名" },
+  'contact.validation.email': { en: "Please enter your email", zh: "请输入您的邮箱" },
+  'contact.validation.message': { en: "Please enter your message", zh: "请输入您的消息" },
 
   // Navigation Mobile
   'nav.langSwitch.mobile': { en: "Switch to 中文", zh: "切换到 English" },

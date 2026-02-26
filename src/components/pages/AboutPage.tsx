@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Building2, Dna, Clock, Zap, Feather, ShieldCheck, LayoutGrid, CheckCircle } from 'lucide-react';
+import { Dna, Clock, Zap, Feather, ShieldCheck, LayoutGrid, CheckCircle } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const AboutPage: React.FC = () => {
@@ -55,9 +55,7 @@ const AboutPage: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="relative z-10 max-w-4xl mx-auto"
         >
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white/50 backdrop-blur-md shadow-lg mb-8 border border-white">
-            <Building2 size={32} className="text-slate-700" />
-          </div>
+          <img src="/favicon/apple-touch-icon.png" alt="CISPOLY Logo" className="w-20 h-20 mb-8 mx-auto" />
           <h1 className="text-5xl md:text-6xl font-serif font-medium text-slate-800 mb-6 italic">
             {t('about.title')}
           </h1>

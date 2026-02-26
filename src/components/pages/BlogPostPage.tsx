@@ -13,7 +13,7 @@ const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -71,11 +71,12 @@ const BlogPostPage: React.FC = () => {
       />
       <article className="max-w-3xl mx-auto px-6">
         {/* Back Link */}
-        <Link 
+        <Link
           to="/blog"
           className="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-teal-600 mb-8 uppercase tracking-wider transition-colors"
         >
           <ArrowLeft size={16} /> {t('blog.backToBlog')}
+        </Link>
 
         {/* Header */}
         <header className="mb-12 text-center">

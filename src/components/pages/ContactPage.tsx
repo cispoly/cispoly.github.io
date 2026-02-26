@@ -5,9 +5,19 @@ import { MapPin, Phone, Mail, Send, CheckCircle2, MessageSquare, Loader2 } from 
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const ContactPage: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Precise coordinates: 39°40'10.4"N 116°17'08.4"E = 39.669556, 116.285667
+  const coordinates = {
+    lat: 39.669556,
+    lng: 116.285667
+  };
+
+  // Map URLs based on language
+  const googleMapUrl = `https://maps.google.com/maps?q=北京市大兴区华佗路50号院5号楼+联东U谷生物医药科技园&t=&z=16&ie=UTF8&iwloc=&output=embed&hl=en`;
+  const baiduMapUrl = `https://api.map.baidu.com/marker?location=${coordinates.lat},${coordinates.lng}&title=北京市大兴区华佗路50号院5号楼&content=联东U谷生物医药科技园&output=html&src=webapp.baidu.com`;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -101,19 +111,48 @@ const ContactPage: React.FC = () => {
            {/* Map Section */}
            <div className="h-full min-h-[500px] glass-card rounded-[2rem] overflow-hidden p-2 shadow-lg">
               <div className="w-full h-full rounded-[1.5rem] overflow-hidden relative">
-                 <iframe 
-                   title="CISPOLY Location"
-                   width="100%" 
-                   height="100%" 
-                   frameBorder="0" 
-                   scrolling="no" 
-                   marginHeight={0} 
-                   marginWidth={0} 
-                   src="https://maps.google.com/maps?q=Huatuo+Road,+Daxing+District,+Beijing&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                   className="grayscale hover:grayscale-0 transition-all duration-500"
-                 ></iframe>
+                 {language === 'zh' ? (
+                   // Baidu Maps (百度地图) for Chinese
+                   <iframe
+                     title="CISPOLY Location"
+                     width="100%"
+                     height="100%"
+                     frameBorder="0"
+                     src={`https://map.baidu.com/?latlng=${coordinates.lat},${coordinates.lng}&title=北京市大兴区华佗路50号院5号楼&content=联东U谷生物医药科技园&autoOpen=true&l=16`}
+                     className="grayscale hover:grayscale-0 transition-all duration-500"
+                   ></iframe>
+                 ) : (
+                   // Google Maps for English
+                   <iframe
+                     title="CISPOLY Location"
+                     width="100%"
+                     height="100%"
+                     frameBorder="0"
+                     scrolling="no"
+                     marginHeight={0}
+                     marginWidth={0}
+                     src={googleMapUrl}
+                     className="grayscale hover:grayscale-0 transition-all duration-500"
+                   ></iframe>
+                 )}
                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl shadow-md text-xs font-bold text-slate-600">
                     CISPOLY Biotech
+                 </div>
+                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl shadow-md text-xs font-medium text-slate-600">
+                    {language === 'zh' ? '联东U谷·生物医药科技园' : 'Liandong U Valley Bio-Medical Science Park'}
+                 </div>
+                 <div className="absolute bottom-4 right-4">
+                    <a
+                      href={language === 'zh'
+                        ? `https://map.baidu.com/search/北京市大兴区华佗路50号院5号楼/@${coordinates.lng * 100000},${coordinates.lat * 100000},16z`
+                        : `https://www.google.com/maps?q=北京市大兴区华佗路50号院5号楼+Liandong+U+Valley+Bio-Medical+Science+Park`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl shadow-md text-xs font-bold text-slate-600 hover:text-teal-600 transition-colors"
+                    >
+                      <MapPin size={14} />
+                      {t('contact.map.viewLarger')}
+                    </a>
                  </div>
               </div>
            </div>
@@ -143,18 +182,22 @@ const ContactPage: React.FC = () => {
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-xs font-bold uppercase tracking-wider text-slate-500">{t('contact.form.name')}</label>
-                                <input 
-                                    type="text" 
+                                <label className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                                  {t('contact.form.name')} <span className="text-rose-500">*</span>
+                                </label>
+                                <input
+                                    type="text"
                                     name="name"
-                                    required 
+                                    required
+                                    onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity(t('contact.validation.name'))}
+                                    onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
                                     className="w-full bg-white/50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:bg-white transition-all text-slate-800"
                                 />
                             </div>
                             <div className="space-y-2">
                                 <label className="text-xs font-bold uppercase tracking-wider text-slate-500">{t('contact.form.phone')}</label>
-                                <input 
-                                    type="tel" 
+                                <input
+                                    type="tel"
                                     name="phone"
                                     className="w-full bg-white/50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:bg-white transition-all text-slate-800"
                                 />
@@ -163,28 +206,37 @@ const ContactPage: React.FC = () => {
 
                         <div className="space-y-2">
                             <label className="text-xs font-bold uppercase tracking-wider text-slate-500">{t('contact.form.org')}</label>
-                            <input 
-                                type="text" 
+                            <input
+                                type="text"
                                 name="organization"
                                 className="w-full bg-white/50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:bg-white transition-all text-slate-800"
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-xs font-bold uppercase tracking-wider text-slate-500">{t('contact.form.email')}</label>
-                            <input 
-                                type="email" 
+                            <label className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                              {t('contact.form.email')} <span className="text-rose-500">*</span>
+                            </label>
+                            <input
+                                type="email"
                                 name="email"
-                                required 
+                                required
+                                onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity(t('contact.validation.email'))}
+                                onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
                                 className="w-full bg-white/50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:bg-white transition-all text-slate-800"
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-xs font-bold uppercase tracking-wider text-slate-500">{t('contact.form.message')}</label>
+                            <label className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                              {t('contact.form.message')} <span className="text-rose-500">*</span>
+                            </label>
                             <div className="relative">
-                                <textarea 
+                                <textarea
                                     name="message"
+                                    required
+                                    onInvalid={(e) => (e.target as HTMLTextAreaElement).setCustomValidity(t('contact.validation.message'))}
+                                    onInput={(e) => (e.target as HTMLTextAreaElement).setCustomValidity('')}
                                     className="w-full bg-white/50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:bg-white transition-all text-slate-800 resize-none"
                                     rows={4}
                                     placeholder={t('contact.form.defaultMessage')}
@@ -192,8 +244,8 @@ const ContactPage: React.FC = () => {
                             </div>
                         </div>
 
-                        <button 
-                            type="submit" 
+                        <button
+                            type="submit"
                             disabled={isSubmitting}
                             className="w-full bg-slate-800 text-white rounded-xl py-4 font-bold text-sm uppercase tracking-widest hover:bg-slate-900 hover:shadow-lg transition-all flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                         >
