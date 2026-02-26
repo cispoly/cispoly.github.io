@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowLeft, Tag, Clock, Globe } from 'lucide-react';
-import { getPostBySlug } from '../../src/services/blogService';
+import { getPostBySlug } from '../../services/blogService';
 import { BlogPost } from '../../types';
 import { useLanguage } from '../../contexts/LanguageContext';
 import SEO from '../SEO';

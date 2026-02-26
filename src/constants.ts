@@ -1,7 +1,7 @@
 
 import { Study, StudyCategory, ChartDataPoint, Guideline } from './types';
 import { parseStudies } from './utils/markdownParser';
-import evidenceMd from './source/EVIDENCE_LIBRARY.md?raw';
+import evidenceMd from '../source/EVIDENCE_LIBRARY.md?raw';
 
 // Parse studies from markdown
 const allStudies = parseStudies(evidenceMd);

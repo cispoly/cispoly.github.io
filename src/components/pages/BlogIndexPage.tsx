@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowRight, Tag } from 'lucide-react';
-import { getAllPosts } from '../../src/services/blogService';
+import { getAllPosts } from '../../services/blogService';
 import { BlogPost } from '../../types';
 import { useLanguage } from '../../contexts/LanguageContext';
 import SEO from '../SEO';
