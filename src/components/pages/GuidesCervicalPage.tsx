@@ -9,7 +9,7 @@ import { Guideline } from '../../types';
 // --- VISUALIZATION COMPONENTS ---
 
 // Visual 1: Consensus Grid (PAX1/JAM3 2025) - "The Radar"
-const ConsensusVisual = () => (
+const ConsensusVisual = ({ t }: { t: (key: string) => string }) => (
   <div className="bg-gradient-to-br from-teal-50 to-white rounded-xl p-6 border border-teal-100 shadow-sm h-full flex flex-col justify-center relative overflow-hidden">
     <div className="absolute inset-0 flex items-center justify-center opacity-10">
         <div className="w-64 h-64 border border-teal-500 rounded-full"></div>
@@ -17,7 +17,7 @@ const ConsensusVisual = () => (
         <div className="absolute w-32 h-32 border border-teal-500 rounded-full"></div>
     </div>
     
-    <h4 className="font-serif font-bold text-teal-900 mb-8 text-center relative z-10">Clinical Application Spectrum</h4>
+    <h4 className="font-serif font-bold text-teal-900 mb-8 text-center relative z-10">{t('guides.visual.appSpectrum')}</h4>
     
     <div className="grid grid-cols-2 gap-4 relative z-10">
         {/* Top Left */}
@@ -25,8 +25,8 @@ const ConsensusVisual = () => (
             <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center mb-2">
                 <Award size={16} />
             </div>
-            <span className="text-[10px] font-bold text-teal-800 uppercase tracking-widest">Standards</span>
-            <span className="text-[9px] text-slate-500 leading-tight mt-1">QC & Process</span>
+            <span className="text-[10px] font-bold text-teal-800 uppercase tracking-widest">{t('guides.visual.standards')}</span>
+            <span className="text-[9px] text-slate-500 leading-tight mt-1">{t('guides.visual.qcProcess')}</span>
         </div>
 
         {/* Top Right */}
@@ -34,8 +34,8 @@ const ConsensusVisual = () => (
             <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center mb-2">
                 <Filter size={16} />
             </div>
-            <span className="text-[10px] font-bold text-teal-800 uppercase tracking-widest">Triage</span>
-            <span className="text-[9px] text-slate-500 leading-tight mt-1">Reduce Colposcopy</span>
+            <span className="text-[10px] font-bold text-teal-800 uppercase tracking-widest">{t('guides.visual.triage')}</span>
+            <span className="text-[9px] text-slate-500 leading-tight mt-1">{t('guides.visual.reduceColpo')}</span>
         </div>
 
         {/* Center Node */}
@@ -50,8 +50,8 @@ const ConsensusVisual = () => (
             <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center mb-2">
                 <Activity size={16} />
             </div>
-            <span className="text-[10px] font-bold text-teal-800 uppercase tracking-widest">Diagnosis</span>
-            <span className="text-[9px] text-slate-500 leading-tight mt-1">High Accuracy</span>
+            <span className="text-[10px] font-bold text-teal-800 uppercase tracking-widest">{t('guides.visual.diagnosis')}</span>
+            <span className="text-[9px] text-slate-500 leading-tight mt-1">{t('guides.visual.highAccuracy')}</span>
         </div>
 
         {/* Bottom Right */}
@@ -59,15 +59,14 @@ const ConsensusVisual = () => (
             <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center mb-2">
                 <FileCheck size={16} />
             </div>
-            <span className="text-[10px] font-bold text-teal-800 uppercase tracking-widest">Reports</span>
-            <span className="text-[9px] text-slate-500 leading-tight mt-1">Standardized</span>
+            <span className="text-[10px] font-bold text-teal-800 uppercase tracking-widest">{t('guides.visual.reports')}</span>
+            <span className="text-[9px] text-slate-500 leading-tight mt-1">{t('guides.visual.standardized')}</span>
         </div>
     </div>
   </div>
 );
-
 // Visual 2: Gene Testing Comparison (Molecular 2025) - "The DNA Synergy"
-const SynergyVisual = () => (
+const SynergyVisual = ({ t }: { t: (key: string) => string }) => (
   <div className="bg-purple-50/50 rounded-xl p-6 border border-purple-100 shadow-sm h-full flex flex-col justify-center relative">
      <div className="flex justify-center items-center gap-6 mb-4">
         {/* Cytology Strand */}
@@ -91,28 +90,27 @@ const SynergyVisual = () => (
      </div>
 
      <div className="text-center bg-white/80 backdrop-blur rounded-lg p-3 border border-purple-100 shadow-sm">
-        <h5 className="text-xs font-bold text-purple-900 uppercase tracking-widest mb-1">Synergistic Triage</h5>
+        <h5 className="text-xs font-bold text-purple-900 uppercase tracking-widest mb-1">{t('guides.visual.synergyTriage')}</h5>
         <p className="text-[10px] text-slate-600 leading-tight">
-            Methylation compensates for cytology's subjectivity, offering objective molecular precision.
+            {t('guides.visual.synergyDesc')}
         </p>
      </div>
   </div>
 );
-
 // Visual 3: Triage Funnel (Guideline 2) - "The Filter"
-const TriageFunnel = () => (
+const TriageFunnel = ({ t }: { t: (key: string) => string }) => (
   <div className="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm h-full flex flex-col justify-center items-center relative overflow-hidden">
-     <h4 className="font-serif font-bold text-slate-800 mb-4 text-center text-xs uppercase tracking-widest">Precision Filtering</h4>
+     <h4 className="font-serif font-bold text-slate-800 mb-4 text-center text-xs uppercase tracking-widest">{t('guides.visual.precisionFiltering')}</h4>
      
      <div className="relative w-full max-w-[200px] flex flex-col items-center">
         {/* Top Level: Broad */}
         <div className="w-full bg-slate-800 text-white text-[10px] font-bold py-2 rounded-t-lg text-center mb-1">
-            12 HR-HPV Positive
+            {t('guides.visual.12hrhpv')}
         </div>
         
         {/* Funnel Body */}
         <div className="w-[80%] h-16 bg-gradient-to-b from-rose-400 to-rose-600 text-white flex items-center justify-center clip-path-funnel relative my-1 rounded-sm shadow-md">
-             <span className="text-[10px] font-bold z-10">Methylation Test</span>
+             <span className="text-[10px] font-bold z-10">{t('guides.visual.methylationTest')}</span>
              {/* Particles */}
              <div className="absolute top-2 left-4 w-1 h-1 bg-white rounded-full opacity-50"></div>
              <div className="absolute top-4 right-6 w-1 h-1 bg-white rounded-full opacity-50"></div>
@@ -121,10 +119,10 @@ const TriageFunnel = () => (
         {/* Output Split */}
         <div className="flex w-full gap-2 mt-1">
             <div className="flex-1 bg-teal-50 border border-teal-200 text-teal-800 text-[9px] font-bold py-2 rounded-b-lg text-center">
-                Negative<br/>(Follow-up)
+                {t('guides.visual.negativeFollowup')}
             </div>
             <div className="flex-1 bg-rose-50 border border-rose-200 text-rose-800 text-[9px] font-bold py-2 rounded-b-lg text-center shadow-inner">
-                Positive<br/>(Colposcopy)
+                {t('guides.visual.positiveColpo')}
             </div>
         </div>
      </div>
@@ -132,10 +130,10 @@ const TriageFunnel = () => (
 );
 
 // Visual 4: Clinical Pathway Map (Marker 2024) - "The Metro Line"
-const PathwayMap = () => (
+const PathwayMap = ({ t }: { t: (key: string) => string }) => (
     <div className="bg-amber-50/50 rounded-xl p-6 border border-amber-100 shadow-sm h-full flex flex-col justify-center">
         <h4 className="font-serif font-bold text-amber-900 mb-6 flex items-center gap-2 text-sm">
-            <FileCheck size={16} /> Clinical Pathway
+            <FileCheck size={16} /> {t('guides.visual.clinicalPathway')}
         </h4>
         
         <div className="relative pl-4 space-y-6">
@@ -146,8 +144,8 @@ const PathwayMap = () => (
             <div className="flex items-center gap-4 relative z-10">
                 <div className="w-3 h-3 rounded-full bg-amber-500 border-2 border-white shadow-sm flex-shrink-0"></div>
                 <div>
-                    <span className="text-[10px] font-bold text-amber-800 block uppercase tracking-wide">Risk Stratification</span>
-                    <span className="text-[9px] text-slate-500 block">Manage HPV+ / Cytology Abnormal</span>
+                    <span className="text-[10px] font-bold text-amber-800 block uppercase tracking-wide">{t('guides.visual.riskStrat')}</span>
+                    <span className="text-[9px] text-slate-500 block">{t('guides.visual.manageHpv')}</span>
                 </div>
             </div>
 
@@ -155,8 +153,8 @@ const PathwayMap = () => (
             <div className="flex items-center gap-4 relative z-10">
                 <div className="w-3 h-3 rounded-full bg-amber-400 border-2 border-white shadow-sm flex-shrink-0"></div>
                 <div>
-                    <span className="text-[10px] font-bold text-amber-800 block uppercase tracking-wide">Type 3 TZ Assess</span>
-                    <span className="text-[9px] text-slate-500 block">Identify hidden/glandular lesions</span>
+                    <span className="text-[10px] font-bold text-amber-800 block uppercase tracking-wide">{t('guides.visual.type3Tz')}</span>
+                    <span className="text-[9px] text-slate-500 block">{t('guides.visual.hiddenLesions')}</span>
                 </div>
             </div>
 
@@ -164,8 +162,8 @@ const PathwayMap = () => (
             <div className="flex items-center gap-4 relative z-10">
                 <div className="w-3 h-3 rounded-full bg-amber-300 border-2 border-white shadow-sm flex-shrink-0"></div>
                 <div>
-                    <span className="text-[10px] font-bold text-amber-800 block uppercase tracking-wide">Post-op Monitor</span>
-                    <span className="text-[9px] text-slate-500 block">Detect recurrence early</span>
+                    <span className="text-[10px] font-bold text-amber-800 block uppercase tracking-wide">{t('guides.visual.postOp')}</span>
+                    <span className="text-[9px] text-slate-500 block">{t('guides.visual.detectRecurrence')}</span>
                 </div>
             </div>
 
@@ -173,8 +171,8 @@ const PathwayMap = () => (
             <div className="flex items-center gap-4 relative z-10">
                 <div className="w-3 h-3 rounded-full bg-amber-200 border-2 border-white shadow-sm flex-shrink-0"></div>
                 <div>
-                    <span className="text-[10px] font-bold text-amber-800 block uppercase tracking-wide">Exit Screening</span>
-                    <span className="text-[9px] text-slate-500 block">Safe criteria to stop screening</span>
+                    <span className="text-[10px] font-bold text-amber-800 block uppercase tracking-wide">{t('guides.visual.exitScreening')}</span>
+                    <span className="text-[9px] text-slate-500 block">{t('guides.visual.safeCriteria')}</span>
                 </div>
             </div>
         </div>
@@ -182,7 +180,7 @@ const PathwayMap = () => (
 );
 
 // Visual 5: Emerging Tech (Guideline 1) - "The Sunrise"
-const EmergingVisual = () => (
+const EmergingVisual = ({ t }: { t: (key: string) => string }) => (
     <div className="bg-sky-50/50 rounded-xl p-6 border border-sky-100 shadow-sm h-full flex flex-col justify-center relative overflow-hidden text-center">
         {/* Sun Element */}
         <div className="w-24 h-24 bg-gradient-to-t from-sky-400 to-sky-200 rounded-full mx-auto mb-4 relative flex items-center justify-center shadow-lg shadow-sky-200">
@@ -190,49 +188,48 @@ const EmergingVisual = () => (
             <div className="absolute -bottom-4 w-full h-8 bg-white/80 blur-md"></div>
         </div>
         
-        <h4 className="font-serif font-bold text-sky-900 mb-1">Emerging Technology</h4>
+        <h4 className="font-serif font-bold text-sky-900 mb-1">{t('guides.visual.emergingTech')}</h4>
         <div className="flex justify-center gap-2 mt-2">
-            <span className="px-2 py-1 bg-white border border-sky-100 rounded text-[9px] text-sky-600 font-medium">Promising</span>
-            <span className="px-2 py-1 bg-white border border-sky-100 rounded text-[9px] text-sky-600 font-medium">Future Standard</span>
+            <span className="px-2 py-1 bg-white border border-sky-100 rounded text-[9px] text-sky-600 font-medium">{t('guides.visual.promising')}</span>
+            <span className="px-2 py-1 bg-white border border-sky-100 rounded text-[9px] text-sky-600 font-medium">{t('guides.visual.futureStandard')}</span>
         </div>
         <p className="text-[9px] text-slate-500 mt-3 px-4">
-            Identified as a key method with significant application prospects requiring prospective data.
+            {t('guides.visual.emergingDesc')}
         </p>
     </div>
 );
 
 // Visual 6: Blue Book Layers - "The Foundation"
-const LayersVisual = () => (
+const LayersVisual = ({ t }: { t: (key: string) => string }) => (
     <div className="bg-blue-50/50 rounded-xl p-6 border border-blue-100 shadow-sm h-full flex flex-col justify-center items-center">
         <h4 className="font-serif font-bold text-blue-900 mb-6 flex items-center gap-2 text-sm">
-            <Layers size={16} /> Core Foundation
+            <Layers size={16} /> {t('guides.visual.coreFoundation')}
         </h4>
         
         <div className="flex flex-col gap-1 w-[80%]">
             {/* Top Layer */}
             <div className="bg-white border border-blue-200 p-2 rounded-t-lg shadow-sm text-center">
-                <span className="text-[10px] font-bold text-blue-800 uppercase block tracking-widest">Applications</span>
-                <span className="text-[9px] text-slate-500 block">Triage • Fertility • Adeno</span>
+                <span className="text-[10px] font-bold text-blue-800 uppercase block tracking-widest">{t('guides.visual.applications')}</span>
+                <span className="text-[9px] text-slate-500 block">{t('guides.visual.applicationsDesc')}</span>
             </div>
             
             {/* Middle Layer */}
             <div className="bg-blue-100 border border-blue-200 p-2 shadow-sm text-center mx-2">
-                <span className="text-[10px] font-bold text-blue-800 uppercase block tracking-widest">Markers</span>
-                <span className="text-[9px] text-slate-500 block">PAX1 • JAM3 • ZNF582</span>
+                <span className="text-[10px] font-bold text-blue-800 uppercase block tracking-widest">{t('guides.visual.markers')}</span>
+                <span className="text-[9px] text-slate-500 block">{t('guides.visual.markersDesc')}</span>
             </div>
 
             {/* Bottom Layer */}
             <div className="bg-blue-200 border border-blue-300 p-2 rounded-b-lg shadow-sm text-center mx-4">
-                <span className="text-[10px] font-bold text-blue-900 uppercase block tracking-widest">Mechanism</span>
-                <span className="text-[9px] text-blue-800/70 block">Epigenetic Silencing</span>
+                <span className="text-[10px] font-bold text-blue-900 uppercase block tracking-widest">{t('guides.visual.mechanism')}</span>
+                <span className="text-[9px] text-blue-800/70 block">{t('guides.visual.mechanismDesc')}</span>
             </div>
         </div>
     </div>
 );
 
-
 const GuidelineItem: React.FC<{ guideline: Guideline; index: number }> = ({ guideline, index }) => {
-  const { language } = useLanguage();
+  const { t, language } = useLanguage();
   const isZh = language === 'zh';
   const isOdd = index % 2 !== 0;
 
@@ -304,7 +301,7 @@ const GuidelineItem: React.FC<{ guideline: Guideline; index: number }> = ({ guid
 
             {/* Visual Content */}
             <div className="lg:w-1/3 min-h-[300px]">
-                <VisualComponent />
+                <VisualComponent t={t} />
             </div>
 
         </div>

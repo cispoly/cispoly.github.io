@@ -305,7 +305,7 @@ const Navigation: React.FC = () => {
                 className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-slate-100 rounded-xl text-slate-800 font-semibold"
               >
                 <Globe size={20} />
-                {language === 'en' ? 'Switch to 中文' : 'Switch to English'}
+                {language === 'en' ? t('nav.langSwitch.mobile') : 'Switch to English'}
               </button>
             </div>
           </div>

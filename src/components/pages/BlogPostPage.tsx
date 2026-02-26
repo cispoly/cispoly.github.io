@@ -44,8 +44,8 @@ const BlogPostPage: React.FC = () => {
   if (!post) {
     return (
       <div className="min-h-screen pt-24 px-6 text-center">
-        <h1 className="text-3xl font-serif text-slate-900 mb-4">Post not found</h1>
-        <Link to="/blog" className="text-teal-600 hover:underline">Return to Blog</Link>
+        <h1 className="text-3xl font-serif text-slate-900 mb-4">{t('blog.postNotFound')}</h1>
+        <Link to="/blog" className="text-teal-600 hover:underline">{t('blog.returnToBlog')}</Link>
       </div>
     );
   }
@@ -75,8 +75,7 @@ const BlogPostPage: React.FC = () => {
           to="/blog"
           className="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-teal-600 mb-8 uppercase tracking-wider transition-colors"
         >
-          <ArrowLeft size={16} /> Back to Blog
-        </Link>
+          <ArrowLeft size={16} /> {t('blog.backToBlog')}
 
         {/* Header */}
         <header className="mb-12 text-center">

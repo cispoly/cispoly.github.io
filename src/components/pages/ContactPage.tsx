@@ -29,11 +29,11 @@ const ContactPage: React.FC = () => {
         setIsSubmitted(true);
         form.reset();
       } else {
-        alert("There was a problem submitting your form. Please try again.");
+        alert(t('contact.error.submitFailed'));
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("There was a problem submitting your form. Please check your connection.");
+      alert(t('contact.error.connection'));
     } finally {
       setIsSubmitting(false);
     }
@@ -131,12 +131,12 @@ const ContactPage: React.FC = () => {
                             <CheckCircle2 size={40} />
                         </div>
                         <h3 className="text-2xl font-serif text-slate-800 mb-2">{t('contact.form.success')}</h3>
-                        <p className="text-slate-500 font-light">We will get back to you shortly.</p>
+                        <p className="text-slate-500 font-light">{t('contact.form.thankYou')}</p>
                         <button 
                           onClick={() => setIsSubmitted(false)}
                           className="mt-8 px-6 py-2 bg-slate-100 hover:bg-slate-200 rounded-full text-slate-600 text-sm font-medium transition-colors"
                         >
-                          Send another message
+                          {t('contact.form.sendAnother')}
                         </button>
                     </div>
                   ) : (

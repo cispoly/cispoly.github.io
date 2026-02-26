@@ -329,7 +329,7 @@ const translations: Translations = {
 
   // About Page
   'about.title': { en: "About CISPOLY", zh: "关于起源聚禾" },
-  'about.intro.title': { en: "Pioneering Epigenetics", zh: "开拓表观遗传" },
+  'about.intro.title': { en: "Leading Brand in Gynecological Cancer Early Diagnosis", zh: "妇科肿瘤早诊领先品牌" },
   'about.intro.desc': { en: "Since its establishment in 2020, Beijing Cispoly Biotech Co., Ltd. has been driven by innovation and dedicated to health. As a pioneer in gynecological tumor early screening and diagnosis, and a certified National and Zhongguancun High-Tech Enterprise, we focus on the R&D, production, and sales of screening products for women's cancers and related automated equipment. Cispoly prioritizes evidence-based methylation research, conducting multiple prospective multi-center clinical trials with significant results. Our innovative technology addresses gaps in screening, particularly filling the clinical void for non-invasive endometrial cancer screening. We aspire to further improve clinical pathways and benefit women in China and globally.", zh: "从2020年成立以来，北京起源聚禾生物科技有限公司就是以创新科技为驱动、以关注健康为宗旨的科技企业。聚禾生物是妇科肿瘤早筛早诊领域的开拓者，作为国家级与中关村认证的高新技术企业，专注于妇女肿瘤和相关疾病的早筛早诊产品以及相关的自动化检测设备的研发、生产和销售。 聚禾生物注重甲基化应用的循证依据与临床及学术研究，目前已开展多项前瞻性多中心临床试验，并取得丰富数据成果。聚禾生物以创新性的技术填补了妇科肿瘤筛查场景的不足，尤其是以无创技术对内膜癌筛查填补了该临床应用的空白。 期许未来将有机会填补临床诊疗路径的不足，并能够造福于中国乃至全球的妇女。" },
   'about.tech.title': { en: "Our Technology", zh: "我们的技术" },
   'about.tech.subtitle': { en: "Methylation Detection Platform", zh: "甲基化检测平台" },
@@ -395,6 +395,127 @@ const translations: Translations = {
   'guides.title': { en: "Clinical Guidelines", zh: "临床指南" },
   'guides.subtitle': { en: "Expert Consensus & Standards", zh: "专家共识与标准" },
   'guides.comingSoon': { en: "Coming Soon", zh: "敬请期待" },
+
+
+  // HomePage Products - Features & Details
+  'home.products.ciscer.features.0': { en: "PAX1 / JAM3 Dual-Gene", zh: "PAX1 / JAM3 双基因" },
+  'home.products.ciscer.features.1': { en: "High Specificity Triage", zh: "高特异度分流" },
+  'home.products.ciscer.features.2': { en: "Reduces Colposcopy Referrals", zh: "减少阴道镜转诊" },
+  'home.products.ciscer.detailedFeatures.0': { en: "Analyzes methylation levels of PAX1 and JAM3 genes to accurately identify high-grade lesions.", zh: "分析PAX1和JAM3基因的甲基化水平，准确识别高级别病变。" },
+  'home.products.ciscer.detailedFeatures.1': { en: "Offers superior specificity compared to HPV testing, reducing unnecessary anxiety and overtreatment.", zh: "相比HPV检测提供更优的特异度，减少不必要的焦虑和过度治疗。" },
+  'home.products.ciscer.detailedFeatures.2': { en: "Significantly decreases unnecessary colposcopy referrals by precisely distinguishing true risks.", zh: "通过精确区分真正风险，显著减少不必要的阴道镜转诊。" },
+  'home.products.ciscer.targetAudience': { en: "Primary triage for HPV-positive women & ASC-US cytology results.", zh: "HPV阳性女性及ASC-US细胞学结果的一级分流。" },
+
+  'home.products.cisendo.features.0': { en: "CDO1 / CELF4 Methylation", zh: "CDO1 / CELF4 甲基化" },
+  'home.products.cisendo.features.1': { en: "Non-invasive Detection", zh: "无创检测" },
+  'home.products.cisendo.features.2': { en: "Ideal for AUB Triage", zh: "AUB分流的理想选择" },
+  'home.products.cisendo.detailedFeatures.0': { en: "Detects epigenetic changes in CDO1 and CELF4 genes, highly associated with endometrial cancer.", zh: "检测与子宫内膜癌高度相关的CDO1和CELF4基因表观遗传变化。" },
+  'home.products.cisendo.detailedFeatures.1': { en: "Requires only non-invasive sampling methods, improving patient compliance and comfort.", zh: "仅需无创取样方法，提高患者依从性和舒适度。" },
+  'home.products.cisendo.detailedFeatures.2': { en: "Perfectly suited for triaging women with Abnormal Uterine Bleeding (AUB) to rule out malignancy.", zh: "非常适合对异常子宫出血（AUB）女性进行分流以排除恶性肿瘤。" },
+  'home.products.cisendo.targetAudience': { en: "Women with Abnormal Uterine Bleeding (AUB) or endometrial thickening.", zh: "异常子宫出血（AUB）或子宫内膜增厚的女性。" },
+
+  'home.products.cisova.features.0': { en: "CDO1 / HOXA9 Markers", zh: "CDO1 / HOXA9 标志物" },
+  'home.products.cisova.features.1': { en: "Liquid Biopsy Innovation", zh: "液体活检创新" },
+  'home.products.cisova.features.2': { en: "Early Screening Solution", zh: "早期筛查解决方案" },
+  'home.products.cisova.detailedFeatures.0': { en: "Targets specific methylation markers CDO1 and HOXA9 for early detection of ovarian cancer.", zh: "靶向特定的甲基化标志物CDO1和HOXA9进行卵巢癌早期检测。" },
+  'home.products.cisova.detailedFeatures.1': { en: "Leverages cutting-edge liquid biopsy technology for detection from blood or cervical scrapings.", zh: "利用尖端液体活检技术，从血液或宫颈刮片中检测。" },
+  'home.products.cisova.detailedFeatures.2': { en: "Provides a breakthrough solution for early-stage screening where traditional imaging often fails.", zh: "为传统影像学经常失效的早期筛查提供突破性解决方案。" },
+  'home.products.cisova.targetAudience': { en: "Detection for pelvic masses, family history, or high-risk populations.", zh: "盆腔肿块、家族史或高危人群的检测。" },
+
+  // HomePage UI Labels
+  'home.ui.targetPopulation': { en: "Target Population", zh: "目标人群" },
+  'home.ui.clinicalPathway': { en: "Clinical Pathway", zh: "临床路径" },
+  'home.ui.clinicalPerformance': { en: "Clinical Performance", zh: "临床性能" },
+  'home.ui.sensitivity': { en: "Sensitivity", zh: "灵敏度" },
+  'home.ui.specificity': { en: "Specificity", zh: "特异度" },
+
+  // CISOVA Specific UI
+  'home.cisova.superiorAccuracy': { en: "Superior Accuracy", zh: "卓越准确性" },
+  'home.cisova.method': { en: "Method", zh: "方法" },
+  'home.cisova.ratio': { en: "Sen. / Spe.", zh: "灵敏. / 特." },
+  'home.cisova.rescueRate': { en: "Rescue Rate", zh: "挽救率" },
+  'home.cisova.rescueDesc': { en: "of missed cases detected", zh: "的漏诊病例被检出" },
+  'home.cisova.cisova': { en: "CISOVA", zh: "CISOVA" },
+  'home.cisova.ultrasound': { en: "Ultrasound", zh: "超声" },
+  'home.cisova.ca125': { en: "CA125", zh: "CA125" },
+
+  // MethylationProcessAnimation Labels
+  'home.animation.tumorSite': { en: "Tumor Site", zh: "肿瘤部位" },
+  'home.animation.sampleCollection': { en: "Sample Collection", zh: "样本采集" },
+  'home.animation.pcrAnalysis': { en: "PCR Analysis", zh: "PCR分析" },
+  'home.animation.epigeneticMarkers': { en: "Epigenetic Markers", zh: "表观遗传标志物" },
+
+  // Clinical Pathway Diagram Labels
+  'home.pathway.hpvcytology': { en: "HPV (+) / Cytology (ASC-US)", zh: "HPV (+) / 细胞学 (ASC-US)" },
+  'home.pathway.methylation': { en: "PAX1/JAM3 Methylation", zh: "PAX1/JAM3 甲基化" },
+  'home.pathway.positive': { en: "Positive (+)", zh: "阳性 (+)" },
+  'home.pathway.referColpo': { en: "Refer to Colposcopy", zh: "转诊阴道镜" },
+  'home.pathway.negative': { en: "Negative (-)", zh: "阴性 (-)" },
+  'home.pathway.followup': { en: "Follow-up", zh: "随访" },
+
+  // Blog Pages
+  'blog.title': { en: "CISPOLY Blog", zh: "CISPOLY 博客" },
+  'blog.subtitle': { en: "Latest updates, research findings, and insights into methylation-based cancer triage.", zh: "最新更新、研究发现和甲基化癌症分流的见解。" },
+  'blog.noPosts': { en: "No posts found.", zh: "未找到文章。" },
+  'blog.readMore': { en: "Read More", zh: "阅读更多" },
+  'blog.seo.title': { en: "Blog - Insights & Updates", zh: "博客 - 见解与更新" },
+  'blog.seo.description': { en: "Latest news, clinical research updates, and insights on methylation-based cancer triage from CISPOLY.", zh: "来自CISPOLY的最新资讯、临床研究更新和甲基化癌症分流见解。" },
+  'blog.postNotFound': { en: "Post not found", zh: "文章未找到" },
+  'blog.returnToBlog': { en: "Return to Blog", zh: "返回博客" },
+  'blog.backToBlog': { en: "Back to Blog", zh: "返回博客" },
+  'blog.publishedBy': { en: "Published by / Author", zh: "发布者 / 作者" },
+
+  // Contact Page
+  'contact.error.submitFailed': { en: "There was a problem submitting your form. Please try again.", zh: "提交表单时出现问题。请重试。" },
+  'contact.error.connection': { en: "There was a problem submitting your form. Please check your connection.", zh: "提交表单时出现问题。请检查您的连接。" },
+  'contact.form.thankYou': { en: "We will get back to you shortly.", zh: "我们会尽快回复您。" },
+  'contact.form.sendAnother': { en: "Send another message", zh: "发送另一条消息" },
+
+  // Navigation Mobile
+  'nav.langSwitch.mobile': { en: "Switch to 中文", zh: "切换到 English" },
+
+  // Guides Visual Components
+  'guides.visual.appSpectrum': { en: "Clinical Application Spectrum", zh: "临床应用范围" },
+  'guides.visual.standards': { en: "Standards", zh: "标准" },
+  'guides.visual.qcProcess': { en: "QC & Process", zh: "质控与流程" },
+  'guides.visual.triage': { en: "Triage", zh: "分流" },
+  'guides.visual.reduceColpo': { en: "Reduce Colposcopy", zh: "减少阴道镜" },
+  'guides.visual.diagnosis': { en: "Diagnosis", zh: "诊断" },
+  'guides.visual.highAccuracy': { en: "High Accuracy", zh: "高准确性" },
+  'guides.visual.reports': { en: "Reports", zh: "报告" },
+  'guides.visual.standardized': { en: "Standardized", zh: "标准化" },
+
+  'guides.visual.synergyTriage': { en: "Synergistic Triage", zh: "协同分流" },
+  'guides.visual.synergyDesc': { en: "Methylation compensates for cytology's subjectivity, offering objective molecular precision.", zh: "甲基化弥补了细胞学的主观性，提供客观的分子精度。" },
+
+  'guides.visual.precisionFiltering': { en: "Precision Filtering", zh: "精准过滤" },
+  'guides.visual.12hrhpv': { en: "12 HR-HPV Positive", zh: "12种高危HPV阳性" },
+  'guides.visual.methylationTest': { en: "Methylation Test", zh: "甲基化检测" },
+  'guides.visual.negativeFollowup': { en: "Negative\n(Follow-up)", zh: "阴性\n(随访)" },
+  'guides.visual.positiveColpo': { en: "Positive\n(Colposcopy)", zh: "阳性\n(阴道镜)" },
+
+  'guides.visual.clinicalPathway': { en: "Clinical Pathway", zh: "临床路径" },
+  'guides.visual.riskStrat': { en: "Risk Stratification", zh: "风险分层" },
+  'guides.visual.manageHpv': { en: "Manage HPV+ / Cytology Abnormal", zh: "管理HPV+ / 细胞学异常" },
+  'guides.visual.type3Tz': { en: "Type 3 TZ Assess", zh: "III型转化区评估" },
+  'guides.visual.hiddenLesions': { en: "Identify hidden/glandular lesions", zh: "识别隐匿/腺体病变" },
+  'guides.visual.postOp': { en: "Post-op Monitor", zh: "术后监测" },
+  'guides.visual.detectRecurrence': { en: "Detect recurrence early", zh: "早期检测复发" },
+  'guides.visual.exitScreening': { en: "Exit Screening", zh: "退出筛查" },
+  'guides.visual.safeCriteria': { en: "Safe criteria to stop screening", zh: "安全停止筛查的标准" },
+
+  'guides.visual.emergingTech': { en: "Emerging Technology", zh: "新兴技术" },
+  'guides.visual.promising': { en: "Promising", zh: "有前景" },
+  'guides.visual.futureStandard': { en: "Future Standard", zh: "未来标准" },
+  'guides.visual.emergingDesc': { en: "Identified as a key method with significant application prospects requiring prospective data.", zh: "被确定为具有重大应用前景的关键方法，需要前瞻性数据支持。" },
+
+  'guides.visual.coreFoundation': { en: "Core Foundation", zh: "核心基础" },
+  'guides.visual.applications': { en: "Applications", zh: "应用" },
+  'guides.visual.applicationsDesc': { en: "Triage • Fertility • Adeno", zh: "分流 • 生育力 • 腺癌" },
+  'guides.visual.markers': { en: "Markers", zh: "标志物" },
+  'guides.visual.markersDesc': { en: "PAX1 • JAM3 • ZNF582", zh: "PAX1 • JAM3 • ZNF582" },
+  'guides.visual.mechanism': { en: "Mechanism", zh: "机制" },
+  'guides.visual.mechanismDesc': { en: "Epigenetic Silencing", zh: "表观遗传沉默" },
 
 };
 

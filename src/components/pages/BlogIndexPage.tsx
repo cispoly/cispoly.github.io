@@ -31,25 +31,27 @@ const BlogIndexPage: React.FC = () => {
   return (
     <div className="pt-24 pb-16 min-h-screen">
       <SEO 
-        title="Blog - Insights & Updates" 
-        description="Latest news, clinical research updates, and insights on methylation-based cancer triage from CISPOLY."
+        title={t('blog.seo.title')}
+        description={t('blog.seo.description')}
         keywords={['Blog', 'News', 'Clinical Research', 'Methylation Updates']}
       />
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl md:text-5xl font-serif font-bold text-slate-900 mb-6"
         >
+          CISPOLY {t('nav.blog')}
           CISPOLY Blog
         </motion.h1>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
           className="text-xl text-slate-600 max-w-2xl mx-auto font-light"
         >
+          {t('blog.subtitle')}
           Latest updates, research findings, and insights into methylation-based cancer triage.
         </motion.p>
       </div>
@@ -62,7 +64,7 @@ const BlogIndexPage: React.FC = () => {
           </div>
         ) : posts.length === 0 ? (
           <div className="text-center py-20 text-slate-500">
-            No posts found.
+            {t('blog.noPosts')}
           </div>
         ) : (
           posts.map((post, index) => (
@@ -115,7 +117,7 @@ const BlogIndexPage: React.FC = () => {
                       to={`/blog/${post.slug}`}
                       className="flex items-center justify-center sm:justify-start gap-2 text-sm font-bold text-slate-800 hover:text-teal-600 transition-colors uppercase tracking-wider min-h-[44px] sm:min-h-0 bg-slate-50 sm:bg-transparent rounded-xl sm:rounded-none w-full sm:w-auto"
                     >
-                      Read More <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                      {t('blog.readMore')} <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </div>

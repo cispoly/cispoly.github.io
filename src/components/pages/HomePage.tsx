@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import SEO from '../SEO';
 import MethylationProcessAnimation from '../MethylationProcessAnimation';
 
-// Product Data Definition
+// Product Data Definition - using translation keys
 const products = [
   {
     id: 'ciscer',
@@ -17,13 +17,9 @@ const products = [
     color: 'teal',
     icon: <Microscope size={32} />,
     secondaryIcon: <Shield size={14} />,
-    features: ["PAX1 / JAM3 Dual-Gene", "High Specificity Triage", "Reduces Colposcopy Referrals"],
-    detailedFeatures: [
-      "Analyzes methylation levels of PAX1 and JAM3 genes to accurately identify high-grade lesions.",
-      "Offers superior specificity compared to HPV testing, reducing unnecessary anxiety and overtreatment.",
-      "Significantly decreases unnecessary colposcopy referrals by precisely distinguishing true risks."
-    ],
-    targetAudience: "Primary triage for HPV-positive women & ASC-US cytology results.",
+    features: ['home.products.ciscer.features.0', 'home.products.ciscer.features.1', 'home.products.ciscer.features.2'],
+    detailedFeatures: ['home.products.ciscer.detailedFeatures.0', 'home.products.ciscer.detailedFeatures.1', 'home.products.ciscer.detailedFeatures.2'],
+    targetAudience: 'home.products.ciscer.targetAudience',
     stats: { sensitivity: "89.6%", specificity: "96.5%" }
   },
   {
@@ -34,13 +30,9 @@ const products = [
     color: 'rose',
     icon: <Target size={32} />,
     secondaryIcon: <Activity size={14} />,
-    features: ["CDO1 / CELF4 Methylation", "Non-invasive Detection", "Ideal for AUB Triage"],
-    detailedFeatures: [
-      "Detects epigenetic changes in CDO1 and CELF4 genes, highly associated with endometrial cancer.",
-      "Requires only non-invasive sampling methods, improving patient compliance and comfort.",
-      "Perfectly suited for triaging women with Abnormal Uterine Bleeding (AUB) to rule out malignancy."
-    ],
-    targetAudience: "Women with Abnormal Uterine Bleeding (AUB) or endometrial thickening.",
+    features: ['home.products.cisendo.features.0', 'home.products.cisendo.features.1', 'home.products.cisendo.features.2'],
+    detailedFeatures: ['home.products.cisendo.detailedFeatures.0', 'home.products.cisendo.detailedFeatures.1', 'home.products.cisendo.detailedFeatures.2'],
+    targetAudience: 'home.products.cisendo.targetAudience',
     stats: { sensitivity: "95.51%", specificity: "94.16%" }
   },
   {
@@ -51,13 +43,9 @@ const products = [
     color: 'red',
     icon: <Droplet size={32} />,
     secondaryIcon: <Sparkles size={14} />,
-    features: ["CDO1 / HOXA9 Markers", "Liquid Biopsy Innovation", "Early Screening Solution"],
-    detailedFeatures: [
-      "Targets specific methylation markers CDO1 and HOXA9 for early detection of ovarian cancer.",
-      "Leverages cutting-edge liquid biopsy technology for detection from blood or cervical scrapings.",
-      "Provides a breakthrough solution for early-stage screening where traditional imaging often fails."
-    ],
-    targetAudience: "Detection for pelvic masses, family history, or high-risk populations.",
+    features: ['home.products.cisova.features.0', 'home.products.cisova.features.1', 'home.products.cisova.features.2'],
+    detailedFeatures: ['home.products.cisova.detailedFeatures.0', 'home.products.cisova.detailedFeatures.1', 'home.products.cisova.detailedFeatures.2'],
+    targetAudience: 'home.products.cisova.targetAudience',
     stats: { sensitivity: "93.19%", specificity: "92.18%" }
   }
 ];
@@ -145,7 +133,7 @@ const InteractiveProductShowcase: React.FC = () => {
                        {(isActive && product.detailedFeatures ? product.detailedFeatures : product.features).map((feat, i) => (
                          <div key={i} className="flex items-center gap-3 text-sm text-slate-700 font-medium">
                             <Check size={16} className={`flex-shrink-0 ${c.text}`} />
-                            <span className="leading-snug">{feat}</span>
+                            <span className="leading-snug">{t(feat)}</span>
                          </div>
                        ))}
                     </div>
@@ -160,10 +148,10 @@ const InteractiveProductShowcase: React.FC = () => {
                       >
                          <div className={`flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-2 ${c.text}`}>
                             <Users size={14} />
-                            <span>Target Population</span>
+                            <span>{t('home.ui.targetPopulation')}</span>
                          </div>
                          <p className="text-sm text-slate-600 font-medium leading-relaxed">
-                            {product.targetAudience}
+                            {t(product.targetAudience)}
                          </p>
                       </motion.div>
                     )}
@@ -171,7 +159,7 @@ const InteractiveProductShowcase: React.FC = () => {
                     {/* CISCER Clinical Pathway Diagram */}
                     {product.id === 'ciscer' && isActive && (
                       <div className="mb-2 bg-slate-900 rounded-2xl p-2 md:p-4 border border-white/10 animate-in fade-in zoom-in duration-300 overflow-hidden flex-shrink-0">
-                        <h3 className="text-[10px] uppercase tracking-widest text-teal-400 mb-2 text-center font-bold">Clinical Pathway</h3>
+                        <h3 className="text-[10px] uppercase tracking-widest text-teal-400 mb-2 text-center font-bold">{t('home.ui.clinicalPathway')}</h3>
                         <div className="flex justify-center w-full">
                           <svg width="100%" viewBox="0 0 800 280" className="w-full h-auto max-h-[120px]">
                             <defs>
@@ -180,18 +168,18 @@ const InteractiveProductShowcase: React.FC = () => {
                               <marker id="arrowhead-neg" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#2dd4bf"></polygon></marker>
                             </defs>
                             <rect x="250" y="0" width="300" height="50" rx="25" fill="#1e293b" stroke="#475569" strokeWidth="1"></rect>
-                            <text x="400" y="30" textAnchor="middle" fill="#e2e8f0" fontSize="14" fontWeight="400" fontFamily="serif">HPV (+) / Cytology (ASC-US)</text>
+                            <text x="400" y="30" textAnchor="middle" fill="#e2e8f0" fontSize="14" fontWeight="400" fontFamily="serif">{t('home.pathway.hpvcytology')}</text>
                             <line x1="400" y1="50" x2="400" y2="90" stroke="#94a3b8" strokeWidth="1" markerEnd="url(#arrowhead)"></line>
                             <rect x="300" y="90" width="200" height="50" rx="25" fill="#0f766e" stroke="#2dd4bf" strokeWidth="1"></rect>
-                            <text x="400" y="120" textAnchor="middle" fill="#ffffff" fontSize="14" fontWeight="600" fontFamily="serif">PAX1/JAM3 Methylation</text>
+                            <text x="400" y="120" textAnchor="middle" fill="#ffffff" fontSize="14" fontWeight="600" fontFamily="serif">{t('home.pathway.methylation')}</text>
                             <path d="M300 115 L150 115 L150 180" stroke="#fb7185" strokeWidth="1" fill="none" markerEnd="url(#arrowhead-pos)" strokeDasharray="5,5"></path>
                             <path d="M500 115 L650 115 L650 180" stroke="#2dd4bf" strokeWidth="1" fill="none" markerEnd="url(#arrowhead-neg)" strokeDasharray="5,5"></path>
                             <rect x="50" y="180" width="200" height="60" rx="12" fill="#881337" stroke="#fb7185" strokeWidth="1"></rect>
-                            <text x="150" y="205" textAnchor="middle" fill="#fecaca" fontSize="14" fontWeight="bold">Positive (+)</text>
-                            <text x="150" y="225" textAnchor="middle" fill="#fecaca" fontSize="12">Refer to Colposcopy</text>
+                            <text x="150" y="205" textAnchor="middle" fill="#fecaca" fontSize="14" fontWeight="bold">{t('home.pathway.positive')}</text>
+                            <text x="150" y="225" textAnchor="middle" fill="#fecaca" fontSize="12">{t('home.pathway.referColpo')}</text>
                             <rect x="550" y="180" width="200" height="60" rx="12" fill="#134e4a" stroke="#2dd4bf" strokeWidth="1"></rect>
-                            <text x="650" y="205" textAnchor="middle" fill="#ccfbf1" fontSize="14" fontWeight="bold">Negative (-)</text>
-                            <text x="650" y="225" textAnchor="middle" fill="#ccfbf1" fontSize="12">Follow-up</text>
+                            <text x="650" y="205" textAnchor="middle" fill="#ccfbf1" fontSize="14" fontWeight="bold">{t('home.pathway.negative')}</text>
+                            <text x="650" y="225" textAnchor="middle" fill="#ccfbf1" fontSize="12">{t('home.pathway.followup')}</text>
                           </svg>
                         </div>
                       </div>
@@ -200,7 +188,7 @@ const InteractiveProductShowcase: React.FC = () => {
                     {/* CISENDO Clinical Performance (Compact) */}
                     {product.id === 'cisendo' && isActive && (
                        <div className="mb-2 bg-slate-50 rounded-2xl p-3 border border-slate-200 animate-in fade-in zoom-in duration-300 flex-shrink-0">
-                          <h3 className="text-[10px] uppercase tracking-widest text-rose-600 mb-3 text-center font-bold">Clinical Performance</h3>
+                          <h3 className="text-[10px] uppercase tracking-widest text-rose-600 mb-3 text-center font-bold">{t('home.ui.clinicalPerformance')}</h3>
                           <div className="grid grid-cols-3 gap-2">
                              {/* Missed by Imaging */}
                              <div className="bg-white p-2 rounded-xl border border-slate-100 shadow-sm text-center">
@@ -246,28 +234,28 @@ const InteractiveProductShowcase: React.FC = () => {
                     {/* CISOVA Clinical Performance (Compact) */}
                     {product.id === 'cisova' && isActive && (
                        <div className="mb-4 bg-slate-50 rounded-2xl p-3 border border-slate-200 animate-in fade-in zoom-in duration-300 flex-shrink-0">
-                          <h3 className="text-[10px] uppercase tracking-widest text-red-600 mb-3 text-center font-bold">Clinical Performance</h3>
+                          <h3 className="text-[10px] uppercase tracking-widest text-red-600 mb-3 text-center font-bold">{t('home.ui.clinicalPerformance')}</h3>
                           <div className="grid grid-cols-2 gap-3">
                              {/* Superior Accuracy */}
                              <div className="bg-white p-3 rounded-xl border border-red-100 shadow-sm">
                                 <div className="text-[10px] text-red-500 font-bold uppercase mb-2 flex items-center gap-1">
-                                   <Target size={10} /> Superior Accuracy
+                                   <Target size={10} /> {t('home.cisova.superiorAccuracy')}
                                 </div>
                                 <div className="space-y-2">
                                    <div className="flex justify-between items-center text-[9px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100 pb-1">
-                                      <span>Method</span>
-                                      <span>Sen. / Spe.</span>
+                                      <span>{t('home.cisova.method')}</span>
+                                      <span>{t('home.cisova.ratio')}</span>
                                    </div>
                                    <div className="flex justify-between items-center">
-                                      <span className="text-[10px] font-bold text-red-700">CISOVA</span>
+                                      <span className="text-[10px] font-bold text-red-700">{t('home.cisova.cisova')}</span>
                                       <span className="text-[10px] font-serif text-slate-800">93.2% / 92.8%</span>
                                    </div>
                                    <div className="flex justify-between items-center opacity-60">
-                                      <span className="text-[10px] text-slate-600">Ultrasound</span>
+                                      <span className="text-[10px] text-slate-600">{t('home.cisova.ultrasound')}</span>
                                       <span className="text-[10px] font-serif text-slate-500">58.2% / 94.7%</span>
                                    </div>
                                    <div className="flex justify-between items-center opacity-60">
-                                      <span className="text-[10px] text-slate-600">CA125</span>
+                                      <span className="text-[10px] text-slate-600">{t('home.cisova.ca125')}</span>
                                       <span className="text-[10px] font-serif text-slate-500">69.9% / 67.4%</span>
                                    </div>
                                 </div>
@@ -278,10 +266,10 @@ const InteractiveProductShowcase: React.FC = () => {
                                 <div className="absolute top-0 right-0 p-2 opacity-10">
                                    <Shield size={40} className="text-teal-800" />
                                 </div>
-                                <div className="text-[10px] text-teal-600 font-bold uppercase mb-1 z-10">Rescue Rate</div>
+                                <div className="text-[10px] text-teal-600 font-bold uppercase mb-1 z-10">{t('home.cisova.rescueRate')}</div>
                                 <div className="flex items-baseline justify-center gap-1 z-10">
                                    <span className="text-2xl font-serif text-teal-700 font-bold">38%</span>
-                                   <span className="text-[8px] text-slate-400 font-light max-w-[60px] leading-tight text-left">of missed cases detected</span>
+                                   <span className="text-[8px] text-slate-400 font-light max-w-[60px] leading-tight text-left">{t('home.cisova.rescueDesc')}</span>
                                 </div>
                                 <div className="w-full mt-2 relative h-1.5 bg-slate-200 rounded-full overflow-hidden z-10">
                                    <div className="absolute left-0 top-0 h-full bg-teal-500 w-[38%]"></div>
@@ -296,11 +284,11 @@ const InteractiveProductShowcase: React.FC = () => {
                        <div className="flex gap-2 md:gap-8 min-w-0 flex-1">
                           <div className="min-w-0 flex-shrink-0">
                              <div className={`text-base sm:text-lg md:text-2xl font-bold whitespace-nowrap ${c.text}`}>{product.stats.sensitivity}</div>
-                             <div className="text-[10px] md:text-xs text-slate-500 uppercase tracking-wide">Sensitivity</div>
+                             <div className="text-[10px] md:text-xs text-slate-500 uppercase tracking-wide">{t('home.ui.sensitivity')}</div>
                           </div>
                           <div className="min-w-0 flex-shrink-0">
                              <div className={`text-base sm:text-lg md:text-2xl font-bold whitespace-nowrap ${c.text}`}>{product.stats.specificity}</div>
-                             <div className="text-[10px] md:text-xs text-slate-500 uppercase tracking-wide">Specificity</div>
+                             <div className="text-[10px] md:text-xs text-slate-500 uppercase tracking-wide">{t('home.ui.specificity')}</div>
                           </div>
                        </div>
                        <Link to={product.path} className={`flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-white shadow-lg transition-transform hover:scale-110 ${c.highlight}`}>
@@ -492,10 +480,10 @@ const HomePage: React.FC = () => {
                 <div className="flex-1 flex justify-center">
                     <div className="w-full max-w-sm h-[500px]">
                         <MethylationProcessAnimation 
-                             sourceText="Tumor Site"
-                             collectionText="Sample Collection"
-                             detectionText="PCR Analysis"
-                             markerText="Epigenetic Markers"
+                             sourceText={t('home.animation.tumorSite')}
+                             collectionText={t('home.animation.sampleCollection')}
+                             detectionText={t('home.animation.pcrAnalysis')}
+                             markerText={t('home.animation.epigeneticMarkers')}
                              className="shadow-xl border border-white/50 bg-white/30 backdrop-blur-sm"
                         />
                     </div>
