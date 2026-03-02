@@ -670,6 +670,27 @@
 - summary_zh: 在296名绝经前AUB女性中评估CDO1/CELF4甲基化（CISENDO）。发现其为独立危险因素，准确性高。
 - summary: Evaluated CDO1/CELF4 methylation (CISENDO) in 296 premenopausal women with AUB. Found it to be an independent risk factor with high accuracy.
 
+## CDO1 and CELF4 methylation assay as the dominant predictor of endometrial cancer: A cohort analysis across pre- and post-menopausal cohorts
+- id: wang-gynonc-2026
+- doi: 10.1016/j.ygyno.2026.01.776
+- title_zh: CDO1和CELF4甲基化检测作为子宫内膜癌的主要预测因子：跨绝经前后队列的分析
+- institution: Hainan General Hospital / Peking Union Medical College Hospital
+- institution_zh: 海南省人民医院 / 北京协和医院
+- authors: Wang X, Zheng L, Zhu G, et al.
+- authors_zh: 王秀珍, 郑浪, 朱根海 等
+- journal: Gynecologic Oncology
+- journal_zh: 妇科肿瘤学 (Gynecologic Oncology)
+- year: 2026
+- category: Premenopausal / Postmenopausal Triage
+- keyFinding: The methylation test was the strongest independent predictor of EC (OR=103.9-118.0). Combined with Ultrasound, sensitivity reached 96.6% in premenopausal women.
+- keyFinding_zh: 甲基化检测是EC的最强独立预测因子（OR=103.9-118.0）。联合超声检测，绝经前女性的灵敏度达到96.6%。
+- sensitivity: 91.7
+- specificity: 91.8
+- auc: 0.915
+- populationSize: 573
+- summary_zh: CDO1和CELF4甲基化检测是非侵入性检测子宫内膜癌（EC）的高精度诊断方法，可作为非侵入性诊断和分流的有效工具，尤其适用于子宫内膜癌高风险人群及早期病变患者。
+- summary: The non-invasive CDO1 and CELF4 methylation assay demonstrates high diagnostic accuracy for EC and represents a promising tool for non-invasive diagnosis and triage, particularly in women at high risk for EC and those with early-stage disease.
+
 # CISOVA
 
 ## The significance of hypermethylation level of CDO1 gene and HOXA9 gene in serum in the diagnosis of ovarian cancer
