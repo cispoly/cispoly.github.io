@@ -1,6 +1,6 @@
 
 
-<h1 align="center">CISPOLY - Methylation-Based Cancer Early Diagnosis</h1>
+<h1 align="center">CISPOLY - Methylation-Based Gynecological Cancer Early Diagnosis</h1>
 <p align="center">
   <b>Early Detection & Precision Solutions for Gynecologic Cancers</b><br>
   <a href="https://www.cispoly.netlify.app">🌐 Official Website</a> •
@@ -21,7 +21,7 @@ CISPOLY is a DNA methylation-based early detection platform for gynecologic canc
 |---------|--------------|-----------------|---------------------|
 | **CISCER** | Cervical Cancer & Precancerous Lesions | PAX1/JAM3 Dual-Gene Methylation | Sensitivity 89.6%, Specificity 96.5% |
 | **CISENDO** | Endometrial Cancer | CDO1/CELF4 Dual-Gene Methylation | Sensitivity 94.5%, Specificity 94.2% |
-| **CISOVA** | Ovarian Cancer | CDO1/HOXA9 Dual-Gene Methylation | Sensitivity 93.2%, Specificity 92.8% |
+| **CISOVA** | Ovarian Cancer | CDO1/HOXA9 Dual-Gene Methylation | Sensitivity 93.2%, Specificity 92.3% |
 
 ---
 

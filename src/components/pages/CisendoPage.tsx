@@ -111,11 +111,11 @@ const CisendoPage: React.FC = () => {
   return (
     <>
       <SEO 
-        title="CISENDO - Endometrial Cancer Methylation Detection"
-        description="CISENDO (禾蔻安) offers non-invasive endometrial cancer detection using advanced methylation technology, ideal for AUB triage and postmenopausal screening."
+        title={t('seo.cisendo.title')}
+        description={t('seo.cisendo.description')}
         keywords={[
           'CISENDO', 'Endometrial Cancer', 'Methylation', 'AUB', 'Postmenopausal bleeding',
-          '禾蔻安', '子宫内膜癌', '甲基化', '异常子宫出血', '绝经后出血'
+          '禾蔻安', '子宫内膜癌', '甲基化', '异常子宫出血', '绝经后出血', 'CDO1', 'CELF4'
         ]}
         schema={productSchema}
       />

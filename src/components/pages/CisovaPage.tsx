@@ -100,11 +100,11 @@ const CisovaPage: React.FC = () => {
   return (
     <>
       <SEO 
-        title="CISOVA - Ovarian Cancer Methylation Detection"
-        description="CISOVA (禾薇益) provides advanced ovarian cancer detection through blood-based methylation analysis, aiming to improve early diagnosis rates."
+        title={t('seo.cisova.title')}
+        description={t('seo.cisova.description')}
         keywords={[
           'CISOVA', 'Ovarian Cancer', 'Methylation', 'Blood Test', 'Early Detection',
-          '禾薇益', '卵巢癌', '甲基化', '无创检测', '液体活检'
+          '禾薇益', '卵巢癌', '甲基化', '无创检测', '液体活检', 'CDO1', 'HOXA9'
         ]}
         schema={productSchema}
       />

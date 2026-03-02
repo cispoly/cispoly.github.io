@@ -10,6 +10,7 @@
 - authors: Chen X, Jiang H, Xu H, et al.
 - authors_zh: 陈晓燕, 姜海民, 徐互滨 等
 - journal: BMC Cancer
+- journal_zh: BMC癌症 (BMC Cancer)
 - year: 2024
 - category: ASC-US Triage
 - keyFinding: Reduced colposcopy referral rate in hrHPV+ women by 79.5% while maintaining high sensitivity.
@@ -31,6 +32,7 @@
 - authors: Fei J, Zhai L, Wang J, et al.
 - authors_zh: 费菁, 翟凌云, 王婧 等
 - journal: Clinical Epigenetics
+- journal_zh: 临床表观遗传学 (Clinical Epigenetics)
 - year: 2024
 - category: HPV 16/18 Triage
 - keyFinding: CISCER triage identified all cancer patients and significantly reduced unnecessary colposcopy referrals compared to cytology-based triage.
@@ -52,6 +54,7 @@
 - authors: Chen X, Jin X, Kong L, et al.
 - authors_zh: 陈晓静, 靳希桐, 孔令华 等
 - journal: Clinical Epigenetics
+- journal_zh: 临床表观遗传学 (Clinical Epigenetics)
 - year: 2024
 - category: Non-16/18 hrHPV Triage
 - keyFinding: PAX1m/JAM3m was superior to cytology for detecting CIN3+ in non-16/18 hrHPV+ women, reducing colposcopy referrals by 57.21%.
@@ -73,6 +76,7 @@
 - authors: Kong L, Xiao X, Wu H, et al.
 - authors_zh: 孔令华, 肖晓萍, 吴焕文 等
 - journal: The Oncologist
+- journal_zh: 肿瘤学家 (The Oncologist)
 - year: 2025
 - category: hrHPV Triage
 - keyFinding: PAX1m/JAM3m testing showed high specificity (89.6%) and achieved the highest AUC among compared triage methods for CIN3+.
@@ -94,6 +98,7 @@
 - authors: Liang H, Liu Y, Yin S, et al.
 - authors_zh: 梁辉, 刘瑶, 尹素月 等
 - journal: Frontiers in Oncology
+- journal_zh: 肿瘤学前沿 (Frontiers in Oncology)
 - year: 2024
 - category: hrHPV Triage / Age Stratification
 - keyFinding: CISCER showed 100% sensitivity in women aged ≥50 and 100% specificity in women aged <30.
@@ -136,6 +141,7 @@
 - authors: Peng H, Li J, Zhou Q, et al.
 - authors_zh: 彭欢子, 李静, 周群 等
 - journal: International Journal of Cancer
+- journal_zh: 国际癌症杂志 (International Journal of Cancer)
 - year: 2026
 - category: Postmenopausal Triage
 - keyFinding: Methylation testing significantly reduced missed diagnoses in postmenopausal women where cytology sensitivity typically declines.
@@ -157,6 +163,7 @@
 - authors: Shang X, Kong L, You Y, et al.
 - authors_zh: 商晓, 孔令华, 尤彦 等
 - journal: International Journal of Gynecology & Obstetrics
+- journal_zh: 国际妇产科杂志 (IJGO)
 - year: 2025
 - category: Minimally Abnormal Results
 - keyFinding: CISCER triage reduced the number of referrals needed to detect one CIN3+ case from 11.1 to 2.5.
@@ -178,6 +185,7 @@
 - authors: Chen X, Xu H, Zhao L, et al.
 - authors_zh: 陈晓燕, 徐互滨, 赵凌前 等
 - journal: Scientific Reports
+- journal_zh: 科学报告 (Scientific Reports)
 - year: 2025
 - category: Pathological Upgrading
 - keyFinding: Methylation detection may help predict which patients will show a higher lesion grade in surgical specimens than in biopsies.
@@ -199,6 +207,7 @@
 - authors: Luo L, Wang L, Liu Z, et al.
 - authors_zh: 罗恋梅, 兰若王, 刘智颖 等
 - journal: BMC Women's Health
+- journal_zh: BMC妇女健康 (BMC Women's Health)
 - year: 2026
 - category: Vaginal Dysbiosis
 - keyFinding: CISCER identified CIN2+ lesions robustly across varying vaginal microecological features, with pathology grade negatively correlated with ΔCt.
@@ -220,6 +229,7 @@
 - authors: Su H, Jin X, Kong L, et al.
 - authors_zh: 苏海琪, 靳希桐, 孔令华 等
 - journal: British Journal of Cancer
+- journal_zh: 英国癌症杂志 (British Journal of Cancer)
 - year: 2025
 - category: HPV Genotyping Triage
 - keyFinding: CISCER outperformed LBC in triaging non-16/18 hrHPV infections, especially when combined with HPV 33/35 genotyping.
@@ -241,6 +251,7 @@
 - authors: Sun D, Shu C, Zeng F, et al.
 - authors_zh: 孙丹, 舒昌发, 曾飞 等
 - journal: BMC Cancer
+- journal_zh: BMC癌症 (BMC Cancer)
 - year: 2024
 - category: HSIL Diagnosis
 - keyFinding: DNA methylation analysis of cervical cytology outperformed traditional TCT or HPV testing for HSIL detection.
@@ -262,6 +273,7 @@
 - authors: Yang Q, Jiang Y, Liu F, et al.
 - authors_zh: 杨强, 蒋勇, 刘芳 等
 - journal: Frontiers in Public Health
+- journal_zh: 公共卫生前沿 (Frontiers in Public Health)
 - year: 2025
 - category: mRNA Triage
 - keyFinding: CISCER showed the highest odds ratio (82.69) for detecting CIN3+ among mRNA-positive women.
@@ -283,6 +295,7 @@
 - authors: Yang L, Wang Z, Zhu Y, et al.
 - authors_zh: 杨丽, 王兆鑫, 朱源杭 等
 - journal: Reproductive and Developmental Medicine
+- journal_zh: 生殖与发育医学 (Reproductive and Developmental Medicine)
 - year: 2025
 - category: Treatment Protocol
 - keyFinding: Methylation testing identified as a key future method for cervical precancer prevention and treatment management.
@@ -386,6 +399,7 @@
 - authors: Lou Y, Liu Y, Zhao S, et al.
 - authors_zh: 娄琰琰, 刘元涛, 赵淑婷 等
 - journal: Advances in Clinical Medicine
+- journal_zh: 临床医学进展 (Advances in Clinical Medicine)
 - year: 2024
 - category: Recurrence Prediction
 - keyFinding: Post-surgery JAM3 methylation levels were significantly higher in recurrent patients compared to cured ones.
@@ -407,6 +421,7 @@
 - authors: Xiao J, Zhang X, Liu Y, et al.
 - authors_zh: 肖金芬, 张旭梅, 刘懿 等
 - journal: Modern Obstetrics and Gynecology Progress (现代妇产科进展)
+- journal_zh: 现代妇产科进展 (Modern Obstetrics and Gynecology Progress)
 - year: 2025
 - category: Meta-Analysis
 - keyFinding: Meta-analysis across 7 trials confirmed high sensitivity and specificity for CIN2+ and CIN3+ detection.
@@ -428,6 +443,7 @@
 - authors: Xie J
 - authors_zh: 谢津
 - journal: Master's Thesis
+- journal_zh: 硕士学位论文 (Master's Thesis)
 - year: 2025
 - category: hrHPV Triage / Prognosis
 - keyFinding: PAX1/JAM3 methylation outperformed TCT and HPV 16/18 in identifying HSIL+ and predicting HPV persistence post-conization.
@@ -449,6 +465,7 @@
 - authors: Li X, He S, Zhao X, et al.
 - authors_zh: 李翔, 贺斯黎, 赵行平 等
 - journal: J Cent South Univ (Med Sci) (中南大学学报(医学版))
+- journal_zh: 中南大学学报(医学版)
 - year: 2023
 - category: Precision Screening
 - keyFinding: JAM3/PAX1 methylation can be used independently for high-grade lesion triage regardless of cytology results.
@@ -470,6 +487,7 @@
 - authors: Li M, Zhao C, Zhang X, et al.
 - authors_zh: 李明珠, 赵超, 张晓波 等
 - journal: Cancers
+- journal_zh: 癌症 (Cancers)
 - year: 2024
 - category: Persistent Infection
 - keyFinding: Methylation levels were significantly higher in women with hrHPV persistence for >3 years, serving as cumulative evidence of duration.
@@ -514,6 +532,7 @@
 - authors: Cai B, Du J, Wang Y, et al.
 - authors_zh: 蔡炳昕, 杜珺, 王义山 等
 - journal: CytoJournal
+- journal_zh: 细胞学杂志 (CytoJournal)
 - year: 2024
 - category: Postmenopausal / Older Women
 - keyFinding: Sensitivity of 87.5% and Specificity of 95.9%. 100% of Type II EC were detected.
@@ -576,6 +595,7 @@
 - authors: Lee H-SJ, Wu S, Yeung S-Y, et al.
 - authors_zh: Lee H-SJ, Wu S, Yeung S-Y 等
 - journal: Cancers (Basel)
+- journal_zh: 癌症 (Cancers)
 - year: 2025
 - category: Diagnostic Accuracy
 - keyFinding: Sensitivity 84.1%, Specificity 98.8%, PPV 89.2%, NPV 98.2%. Can act as triage to reduce invasive assessments.
@@ -596,6 +616,7 @@
 - authors: Qi B, Sun Y, Lv Y, et al.
 - authors_zh: 齐炳莉, 孙烨, 吕耀华 等
 - journal: Frontiers in Oncology
+- journal_zh: 肿瘤学前沿 (Frontiers in Oncology)
 - year: 2023
 - category: AUB Triage
 - keyFinding: Dual-gene methylation achieved 84.9% sensitivity and 86.6% specificity for EC/AH. Combined with TVS, specificity reached 93.1%.
@@ -616,6 +637,7 @@
 - authors: Yu Y, Su T, Zhang H, et al.
 - authors_zh: 余翼, 苏婷婷, 张宏伟 等
 - journal: Diagnostics
+- journal_zh: 诊断 (Diagnostics)
 - year: 2026
 - category: Diagnostic Accuracy
 - keyFinding: Sensitivity 93.94%, Specificity 96.7%. Combined with TVS further enhanced sensitivity and NPV.
@@ -636,6 +658,7 @@
 - authors: Zhao X, Yang Y, Fu Y, et al.
 - authors_zh: 赵兴萍, 杨燕飞, 傅英钦 等
 - journal: Int J Gynecol Cancer
+- journal_zh: 国际妇科癌症杂志 (International Journal of Gynecological Cancer)
 - year: 2024
 - category: Premenopausal AUB
 - keyFinding: Dual gene methylation had higher sensitivity (85.7%) and specificity (87.6%) than clinical indicators. Combined with BMI/ET, performance improved further.
@@ -679,6 +702,7 @@
 - authors: Li L, Chao X, Kong L, et al.
 - authors_zh: 李雷, 钞晓培, 孔令华 等
 - journal: Int J Gynecol Cancer
+- journal_zh: 国际妇科癌症杂志 (International Journal of Gynecological Cancer)
 - year: 2024
 - category: Diagnostic Accuracy
 - keyFinding: Confirmed the potential of serum methylation markers for early detection.

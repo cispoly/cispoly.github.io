@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Send, CheckCircle2, MessageSquare, Loader2 } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import SEO from '../SEO';
 
 const ContactPage: React.FC = () => {
   const { t, language } = useLanguage();
@@ -50,7 +51,13 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-20 pb-20">
+    <>
+      <SEO 
+        title={t('seo.contact.title')}
+        description={t('seo.contact.description')}
+        keywords={['Contact CISPOLY', 'OriginPoly Address', 'Email', 'Phone', '联系起源聚禾', '地址', '电话']}
+      />
+      <div className="pt-20 pb-20">
       {/* Header */}
       <section className="relative px-6 py-20 text-center overflow-hidden">
         <motion.div 
@@ -263,6 +270,7 @@ const ContactPage: React.FC = () => {
 
       </div>
     </div>
+    </>
   );
 };
 

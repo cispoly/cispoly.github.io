@@ -3,12 +3,18 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Construction } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import SEO from '../SEO';
 
 const GuidesOvarianPage: React.FC = () => {
   const { t } = useLanguage();
 
   return (
     <>
+      <SEO 
+        title={t('seo.guides.ovarian.title')}
+        description={t('seo.guides.ovarian.description')}
+        keywords={['Ovarian Cancer', 'Guidelines', 'Liquid Biopsy', 'Methylation', '卵巢癌', '指南', '液体活检', '甲基化']}
+      />
       <section className="relative min-h-[50vh] flex flex-col justify-center items-center overflow-hidden pt-20 pb-10 bg-gradient-to-b from-red-50/50 to-white">
         <div className="absolute inset-0 pointer-events-none z-0">
            <div className="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] bg-red-100/30 rounded-full blur-[100px]"></div>

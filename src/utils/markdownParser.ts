@@ -54,7 +54,8 @@ export const parseStudies = (markdown: string): StudyCollection => {
         if (!trimmed) return;
 
         // Check for list items (metadata)
-        const match = trimmed.match(/^-\s+([^:]+):\s*(.+)$/);
+        // Support both standard colon and full-width colon, and allow flexible spacing
+        const match = trimmed.match(/^-\s+([^:：]+)[:：]\s*(.+)$/);
         if (match) {
           const key = match[1].trim();
           const value = match[2].trim();

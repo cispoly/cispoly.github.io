@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Dna, Clock, Zap, Feather, ShieldCheck, LayoutGrid, CheckCircle } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import SEO from '../SEO';
 
 const AboutPage: React.FC = () => {
   const { t } = useLanguage();
@@ -46,7 +47,13 @@ const AboutPage: React.FC = () => {
   ];
 
   return (
-    <div className="pt-20 pb-20">
+    <>
+      <SEO 
+        title={t('seo.about.title')}
+        description={t('seo.about.description')}
+        keywords={['CISPOLY', 'OriginPoly', 'About Us', 'Biotech', 'Beijing', 'Methylation', '起源聚禾', '关于我们', '生物科技']}
+      />
+      <div className="pt-20 pb-20">
       {/* Hero Header */}
       <section className="relative px-6 py-20 text-center overflow-hidden">
         <motion.div 
@@ -138,6 +145,7 @@ const AboutPage: React.FC = () => {
 
       </div>
     </div>
+    </>
   );
 };
 

@@ -43,7 +43,6 @@ const BlogIndexPage: React.FC = () => {
           className="text-4xl md:text-5xl font-serif font-bold text-slate-900 mb-6"
         >
           CISPOLY {t('nav.blog')}
-          CISPOLY Blog
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -52,7 +51,6 @@ const BlogIndexPage: React.FC = () => {
           className="text-xl text-slate-600 max-w-2xl mx-auto font-light"
         >
           {t('blog.subtitle')}
-          Latest updates, research findings, and insights into methylation-based cancer triage.
         </motion.p>
       </div>
 

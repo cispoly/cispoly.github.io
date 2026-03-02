@@ -11,6 +11,61 @@ type Translations = {
 
 const translations: Translations = {
   // Hero
+  // SEO
+  'seo.home.title': { en: "CISPOLY - Precision Methylation for Cancer Triage", zh: "起源聚禾 - 癌症筛查与甲基化精准分流" },
+  'seo.home.description': { 
+    en: "Leading innovator in DNA methylation technology for women's health. Discover our NMPA-approved solutions for Cervical (CISCER), Endometrial (CISENDO), and Ovarian (CISOVA) cancer detection.", 
+    zh: "女性健康DNA甲基化技术的领先创新者。探索我们获NMPA批准的宫颈癌（CISCER）、子宫内膜癌（CISENDO）和卵巢癌（CISOVA）检测解决方案。" 
+  },
+  'seo.home.keywords': { en: "methylation, cancer triage, cervical cancer, endometrial cancer, ovarian cancer, CISPOLY", zh: "甲基化, 癌症分流, 宫颈癌, 子宫内膜癌, 卵巢癌, 起源聚禾" },
+
+  'seo.ciscer.title': { en: "CISCER - Cervical Cancer Methylation Triage (PAX1/JAM3)", zh: "CISCER 禾宫康 - 宫颈癌甲基化分流 (PAX1/JAM3)" },
+  'seo.ciscer.description': { 
+    en: "High-accuracy methylation test (PAX1/JAM3) for cervical cancer triage. Reduces unnecessary colposcopies for HPV-positive women with superior specificity.", 
+    zh: "用于宫颈癌分流的高精度甲基化检测（PAX1/JAM3）。以卓越的特异度减少HPV阳性女性不必要的阴道镜检查。" 
+  },
+
+  'seo.cisendo.title': { en: "CISENDO - Endometrial Cancer Detection (CDO1/CELF4)", zh: "CISENDO 禾蔻安 - 子宫内膜癌检测 (CDO1/CELF4)" },
+  'seo.cisendo.description': { 
+    en: "The world's first non-invasive endometrial cancer detection tool using CDO1 and CELF4 methylation. Ideal for triaging Abnormal Uterine Bleeding (AUB).", 
+    zh: "全球首个利用CDO1和CELF4甲基化进行子宫内膜癌无创检测的工具。异常子宫出血（AUB）分流的理想选择。" 
+  },
+
+  'seo.cisova.title': { en: "CISOVA - Ovarian Cancer Liquid Biopsy (CDO1/HOXA9)", zh: "CISOVA 禾薇益 - 卵巢癌液体活检 (CDO1/HOXA9)" },
+  'seo.cisova.description': { 
+    en: "Breakthrough liquid biopsy for early ovarian cancer detection. CDO1 and HOXA9 methylation markers offer superior sensitivity over CA125.", 
+    zh: "卵巢癌早期检测的突破性液体活检。CDO1和HOXA9甲基化标志物提供优于CA125的灵敏度。" 
+  },
+
+  'seo.about.title': { en: "About CISPOLY - Pioneering Epigenetic Diagnostics", zh: "关于起源聚禾 - 开创表观遗传诊断" },
+  'seo.about.description': { 
+    en: "Learn about Beijing OriginPoly Bio-Tec Co.,Ltd., a National High-Tech Enterprise dedicated to saving lives through innovative cancer screening technologies.", 
+    zh: "了解北京起源聚禾生物科技有限公司，一家致力于通过创新癌症筛查技术挽救生命的国家高新技术企业。" 
+  },
+
+  'seo.contact.title': { en: "Contact Us - CISPOLY", zh: "联系我们 - 起源聚禾" },
+  'seo.contact.description': { 
+    en: "Get in touch with CISPOLY for collaboration, product inquiries, or support. Located in Daxing District, Beijing.", 
+    zh: "联系起源聚禾洽谈合作、产品咨询或技术支持。位于北京大兴区。" 
+  },
+
+  'seo.guides.cervical.title': { en: "Cervical Cancer Screening Guidelines & Consensus", zh: "宫颈癌筛查指南与共识" },
+  'seo.guides.cervical.description': { 
+    en: "Comprehensive clinical guidelines for cervical cancer screening. Understand the role of methylation in triaging HR-HPV positive patients.", 
+    zh: "宫颈癌筛查的综合临床指南。了解甲基化在HR-HPV阳性患者分流中的作用。" 
+  },
+
+  'seo.guides.endo.title': { en: "Endometrial Cancer Prevention Consensus (2025)", zh: "子宫内膜癌预防共识 (2025)" },
+  'seo.guides.endo.description': { 
+    en: "Expert consensus on endometrial cancer tertiary prevention strategies. Methylation recommended for high-risk and AUB population triage.", 
+    zh: "子宫内膜癌三级预防策略专家共识。推荐甲基化用于高危及AUB人群分流。" 
+  },
+
+  'seo.guides.ovarian.title': { en: "Ovarian Cancer Screening Research & Guidelines", zh: "卵巢癌筛查研究与指南" },
+  'seo.guides.ovarian.description': { 
+    en: "Latest research and emerging guidelines for ovarian cancer screening. The shift towards liquid biopsy and methylation markers.", 
+    zh: "卵巢癌筛查的最新研究和新兴指南。向液体活检和甲基化标志物的转变。" 
+  },
   'hero.tag.womensHealth': { en: "Women's Health", zh: "女性健康" },
   'hero.tag.molecularPrecision': { en: "Molecular Precision", zh: "分子精准" },
   'hero.title.prefix': { en: "Next Generation", zh: "新一代" },
@@ -532,7 +587,41 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  // Initialize language with priority:
+  // 1. LocalStorage setting (user preference)
+  // 2. Browser language setting (auto-detection)
+  // 3. Default to 'en'
+  const [language, setLanguageState] = useState<Language>(() => {
+    try {
+      // Check localStorage first
+      const savedLanguage = localStorage.getItem('app_language');
+      if (savedLanguage === 'en' || savedLanguage === 'zh') {
+        return savedLanguage;
+      }
+
+      // Check browser language
+      if (typeof navigator !== 'undefined') {
+        const browserLang = navigator.language.toLowerCase();
+        // Match any 'zh-*' (zh-CN, zh-TW, zh-HK) or just 'zh'
+        if (browserLang.startsWith('zh')) {
+          return 'zh';
+        }
+      }
+    } catch (e) {
+      console.warn('Failed to detect language preference:', e);
+    }
+
+    return 'en';
+  });
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    try {
+      localStorage.setItem('app_language', lang);
+    } catch (e) {
+      console.warn('Failed to save language preference:', e);
+    }
+  };
 
   const t = (key: string): string => {
     const translation = translations[key];

@@ -5,6 +5,7 @@ import { FileText, Award, Calendar, BookOpen, Quote, CheckCircle, ArrowRight, Dn
 import { CERVICAL_GUIDELINES } from '../../constants';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Guideline } from '../../types';
+import SEO from '../SEO';
 
 // --- VISUALIZATION COMPONENTS ---
 
@@ -314,6 +315,11 @@ const GuidesCervicalPage: React.FC = () => {
 
   return (
     <>
+      <SEO 
+        title={t('seo.guides.cervical.title')}
+        description={t('seo.guides.cervical.description')}
+        keywords={['Cervical Cancer', 'Guidelines', 'Consensus', 'Methylation', 'Screening', '宫颈癌', '指南', '共识', '甲基化', '筛查']}
+      />
       <section className="relative min-h-[40vh] flex flex-col justify-center items-center overflow-hidden pt-20 pb-10 bg-gradient-to-b from-teal-50/30 to-white">
         <div className="absolute inset-0 pointer-events-none z-0">
            <div className="absolute top-[-50%] right-[-10%] w-[600px] h-[600px] bg-teal-100/40 rounded-full blur-[100px]"></div>

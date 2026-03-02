@@ -5,6 +5,7 @@ import { FileText, Award, Calendar, BookOpen, Quote, CheckCircle, Target, Shield
 import { ENDO_GUIDELINES } from '../../constants';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Guideline } from '../../types';
+import SEO from '../SEO';
 
 // --- VISUALIZATION COMPONENTS ---
 
@@ -137,6 +138,11 @@ const GuidesEndoPage: React.FC = () => {
 
   return (
     <>
+      <SEO 
+        title={t('seo.guides.endo.title')}
+        description={t('seo.guides.endo.description')}
+        keywords={['Endometrial Cancer', 'Guidelines', 'Prevention', 'Methylation', 'AUB', '子宫内膜癌', '指南', '预防', '甲基化', '异常子宫出血']}
+      />
       <section className="relative min-h-[40vh] flex flex-col justify-center items-center overflow-hidden pt-20 pb-10 bg-gradient-to-b from-rose-50/30 to-white">
         <div className="absolute inset-0 pointer-events-none z-0">
            <div className="absolute top-[-50%] left-[-10%] w-[600px] h-[600px] bg-rose-100/40 rounded-full blur-[100px]"></div>

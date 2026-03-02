@@ -335,14 +335,9 @@ const HomePage: React.FC = () => {
   return (
     <div>
       <SEO 
-        title="CISPOLY - Methylation-Based Cancer Triage & Women's Health"
-        description="CISPOLY (Beijing OriginPoly Bio-Tec) provides advanced methylation-based cancer triage solutions for Cervical (CISCER), Endometrial (CISENDO), and Ovarian (CISOVA) cancers."
-        keywords={[
-          'Cervical Cancer', 'Endometrial Cancer', 'Ovarian Cancer', 'Methylation',
-          '宫颈癌', '子宫内膜癌', '卵巢癌', '甲基化',
-          'CISPOLY', 'OriginPoly', 'CISCER', 'CISENDO', 'CISOVA',
-          '北京起源聚禾', '聚禾生物', '禾蔻安', '禾宫康', '禾薇益'
-        ]}
+        title={t('seo.home.title')}
+        description={t('seo.home.description')}
+        keywords={t('seo.home.keywords').split(', ')}
         schema={organizationSchema}
       />
       {/* Hero Section */}

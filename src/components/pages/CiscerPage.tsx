@@ -69,13 +69,9 @@ const CiscerPage: React.FC = () => {
   return (
     <>
       <SEO 
-        title="CISCER - Cervical Cancer Methylation Triage (PAX1/JAM3)"
-        description="CISCER (禾宫康) is a high-accuracy methylation test for cervical cancer triage, utilizing PAX1 and JAM3 biomarkers to reduce unnecessary colposcopies."
-        keywords={[
-          'CISCER', 'Cervical Cancer', 'Methylation', 'PAX1', 'JAM3', 'HPV Triage',
-          '禾宫康', '宫颈癌', '甲基化', '分流', '癌症筛查',
-          'ASCUS', 'HPV positive', 'colposcopy referral'
-        ]}
+        title={t('seo.ciscer.title')}
+        description={t('seo.ciscer.description')}
+        keywords={['CISCER', 'Cervical Cancer', 'Methylation', 'PAX1', 'JAM3', 'HPV Triage', '禾宫康', '宫颈癌', '甲基化', '分流', '癌症筛查']}
         schema={productSchema}
       />
       {/* CISCER Specialized Hero Section */}
