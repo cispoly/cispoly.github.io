@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.mesh-bg {
+  background-color: #fff1f2;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(349,100%,88%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(165,100%,94%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,100%,89%,1) 0, transparent 50%);
+  background-attachment: fixed;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
