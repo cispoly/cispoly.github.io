@@ -3,13 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=/">
-    <title>Page Not Found</title>
-    <script>
-        window.location.href = "/";
-    </script>
+    <title>CISPOLY - Page Not Found</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .container {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 4rem;
+            margin: 0 0 1rem 0;
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 0 0 2rem 0;
+            opacity: 0.9;
+        }
+        a {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to <a href="/">homepage</a>...</p>
+    <div class="container">
+        <h1>404</h1>
+        <p>Page not found. Redirecting to homepage...</p>
+        <a href="/">Go to Home</a>
+    </div>
+    <script>
+        // For SPA with HashRouter, redirect to home
+        window.location.href = '/';
+    </script>
 </body>
 </html>
